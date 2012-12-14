@@ -3,7 +3,7 @@ class GetWeb
   HOME = "http://www.techotopia.com/RUBY_ESSENTIALS.php"
   RUBY_ESSENTIALS = "Ruby_Essentials"
   #<a href="/index.php/Understanding_Ruby_Variables" title="Understanding Ruby Variables">Understanding Ruby Variables</a>"
-  URL_PATTERN = /<a href="\/index\.php\/(.*Ruby.*)" title="(.*)">.*<\/a>/
+  URL_PATTERN = /<a href="\/index\.php\/(.*Ruby.*)" title="(.*)">(.*)<\/a>/
   TARGET = "./target"
 
   def self.make_index
@@ -14,7 +14,7 @@ class GetWeb
     open("#{RUBY_ESSENTIALS}.html").each do |line|
       m = URL_PATTERN.match(line)
       next unless m
-      url = "<li>#{m[0].sub(/\/index\.php/,".").sub(/#{m[1]}/, "#{m[1]}.html")}</li>"
+      url = "<li>#{m[0].sub(/\/index\.php/,".").sub(/#{m[1]}/, "#{m[1]}.html\##{m[3].gsub(/ /,'_')}")}</li>"
       if m[2] != chapter
         out.write("</ul>") if chapter != ""
         out.write(url)
