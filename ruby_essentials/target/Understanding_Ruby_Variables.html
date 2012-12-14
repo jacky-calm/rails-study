@@ -1,7 +1,7 @@
 		<title>Understanding Ruby Variables - Techotopia</title>
 		<h1 class="firstHeading">Understanding Ruby Variables</h1>
 <hr />
-<p><br />
+<a href="./Ruby_Essentials.html" title="Ruby Essentials">Table of Contents</a><p><br />
 </p>
 <p><br />
 Variables are essentially a way to store a value and assign a name to that value for reference purposes. Variables take various forms ranging from integers to strings of characters. In this chapter we will take a look at how variables are declared and converted. We will also look at the much simpler area of Ruby constants.
@@ -12,7 +12,7 @@ Variables are essentially a way to store a value and assign a name to that value
 <li class="toclevel-1"><a href="#Identifying_a_Ruby_Variable_Type"><span class="tocnumber">4</span> <span class="toctext">Identifying a Ruby Variable Type</span></a></li>
 <li class="toclevel-1"><a href="#Changing_Variable_Type"><span class="tocnumber">5</span> <span class="toctext">Changing Variable Type</span></a></li>
 <li class="toclevel-1"><a href="#Converting_Variable_Values"><span class="tocnumber">6</span> <span class="toctext">Converting Variable Values</span></a></li>
-<h2> <span class="mw-headline"> Ruby Constants </span></h2>
+<a name="Ruby_Constants"></a><h2> <span class="mw-headline"> Ruby Constants </span></h2>
 <p>A Ruby constant is used to store a value for the duration of a Ruby program's execution. Constants are declared by beginning the variable name with a capital letter (a common convention for declaring constants is to use uppercase letters for the entire name). For example:
 </p>
 <pre>
@@ -26,10 +26,10 @@ MYCONSTANT = &quot;hello2&quot;
 (irb):34: warning: already initialized constant MYCONSTANT
 =&gt; &quot;hello2&quot;
 </pre>
-<h2> <span class="mw-headline"> Ruby and Variable Dynamic Typing </span></h2>
+<a name="Ruby_and_Variable_Dynamic_Typing"></a><h2> <span class="mw-headline"> Ruby and Variable Dynamic Typing </span></h2>
 <p>Many languages such as Java and C use what is known as <i>strong</i> or <i>static</i> variable typing. This means that when you declare a variable in your application code you must define the variable type. For example if the variable is required to store an integer value, you must declare the variable as an integer type. With such languages, when a variable has been declared as a particular type, the type cannot be changed.
 </p><p>Ruby, on the other hand, is a dynamically typed language. This has a couple of key advantages. Firstly it means that you do not need to declare a type when creating a variable. Instead, the Ruby interpreter looks at the type of value you are assigning to the variable and dynamically works out the variable type. Another advantage of this is that once a variable has been declared, you can dynamically change the variable type later in your code.
-<h2> <span class="mw-headline"> Declaring a Variable </span></h2>
+<a name="Declaring_a_Variable"></a><h2> <span class="mw-headline"> Declaring a Variable </span></h2>
 <p>Variables are declared and assigned values by placing the variable name and the value either side of the assignment operator (=). For example, to assign a value of 10 to a variable we will designate as "y" we would write the following:
 </p>
 <pre>
@@ -48,7 +48,7 @@ d = 40
 <pre>
 a, b, c, d = 10, 20, 30, 40
 </pre>
-<h2> <span class="mw-headline"> Identifying a Ruby Variable Type </span></h2>
+<a name="Identifying_a_Ruby_Variable_Type"></a><h2> <span class="mw-headline"> Identifying a Ruby Variable Type </span></h2>
 <p>Once a Ruby variable has been declared it can often be helpful to find out the variable type. This can be achieved using the <i>kind_of?</i> method of the <i>Object</i> class. For example, to find out if our variable is an Integer we can use the <i>kind_of?</i> method as follows:
 </p>
 <pre>
@@ -70,7 +70,7 @@ s.class
 </pre>
 <p>Here we see that the variable is of type String.
 </p>
-<h2> <span class="mw-headline"> Changing Variable Type </span></h2>
+<a name="Changing_Variable_Type"></a><h2> <span class="mw-headline"> Changing Variable Type </span></h2>
 <p>One of simplest ways to change the type of a variable is to simply assign a new value to it. Ruby will dynamically change the type for that variable to match the type of the new value assigned. For example, we can create a variable containing an integer and verify the type:
 </p>
 <pre>
@@ -89,7 +89,7 @@ x.class
 </pre>
 <p>As we can see, the x variable is now a string.
 </p>
-<h2> <span class="mw-headline"> Converting Variable Values </span></h2>
+<a name="Converting_Variable_Values"></a><h2> <span class="mw-headline"> Converting Variable Values </span></h2>
 <p>It is important to note that the above approach is a somewhat destructive way to change a variable type. Often something a little more subtle is needed. For example, we might want to read the value from a variable but convert the extracted value to a different type. The Ruby variable classes have methods that can be called to convert their value to a different type. For example, the <i>Fixnum</i> class has a method named <i>to_f</i> that can be used to retrieve the integer stored in a variable as a floating point value:
 </p>
 <pre>
@@ -120,10 +120,9 @@ y.to_f
 </pre>
 <p>In fact, we can use any number base between 1 and 36 when using the <i>to_s</i> method.
 </p><p><br />
-<p><a class="booklink" href="http://www.ebookfrenzy.com/ebookpages/ruby_ebook.html"><img id="coverthumb" src="/cover_images/rubycover_small.png" /></a><br>
 </p>
-<p><a href="https://www.e-junkie.com/ecom/gb.php?c=cart&amp;i=PLDM-1&amp;cl=56328&amp;ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/extensions/images/Buy_Now.png" border="0" alt="Add to Cart"/></a>
 </p>
 <p><br />
 </p>
 <hr />
+<a href="./Ruby_Essentials.html" title="Ruby Essentials">Table of Contents</a>

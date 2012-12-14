@@ -1,7 +1,7 @@
 		<title>Ruby Number Classes and Conversions - Techotopia</title>
 		<h1 class="firstHeading">Ruby Number Classes and Conversions</h1>
 <hr />
-<p><br />
+<a href="./Ruby_Essentials.html" title="Ruby Essentials">Table of Contents</a><p><br />
 </p>
 <p><br />
 Just about everything in Ruby is an object. Perhaps one of most surprising things is that even numbers are objects in Ruby. Most other programming languages treat numbers as primitives (which essentially means they are the building blocks from which objects are built). This means that each number type is associated with a number class and can be manipulated using the methods of that class.
@@ -25,53 +25,53 @@ Just about everything in Ruby is an object. Perhaps one of most surprising thing
 <li class="toclevel-2"><a href="#Convert_an_Octal_Number_to_a_Floating_Point"><span class="tocnumber">2.10</span> <span class="toctext">Convert an Octal Number to a Floating Point</span></a></li>
 <li class="toclevel-2"><a href="#Convert_a_Binary_Number_to_Floating_Point"><span class="tocnumber">2.11</span> <span class="toctext">Convert a Binary Number to Floating Point</span></a></li>
 <li class="toclevel-2"><a href="#Convert_a_Character_to_a_Floating_Point_ASCII_Character_Code"><span class="tocnumber">2.12</span> <span class="toctext">Convert a Character to a Floating Point ASCII Character Code</span></a></li>
-<h2> <span class="mw-headline"> Ruby Number Classes </span></h2>
+<a name="Ruby_Number_Classes"></a><h2> <span class="mw-headline"> Ruby Number Classes </span></h2>
 <p>Ruby provides a number of built-in number classes. In this section we will explore some of the more commonly used classes.
 </p>
-<h3> <span class="mw-headline"> Integer Class </span></h3>
+<a name="Integer_Class"></a><h3> <span class="mw-headline"> Integer Class </span></h3>
 <p>The base class from which the following number classes are derived.
 </p>
-<h3> <span class="mw-headline"> Fixnum Class </span></h3>
+<a name="Fixnum_Class"></a><h3> <span class="mw-headline"> Fixnum Class </span></h3>
 <p>A Fixnum holds Integer values that can be represented in a native machine word (minus 1 bit). This effectively means that the maximum range of a Fixnum value depends on the architecture of the system on which the code is executing.
 </p><p>If an operation performed on a Fixnum exceeds the range defined by the system's machine word, the value is automatically converted by the interpreter to a Bignum.
-<h3> <span class="mw-headline"> Bignum Class </span></h3>
+<a name="Bignum_Class"></a><h3> <span class="mw-headline"> Bignum Class </span></h3>
 <p>Bignum objects hold integers that fall outside the range of the Ruby Fixnum class. When a calculation involving Bignum objects returns a result that will fit in a Fixnum, the result is converted to Fixnum.
 </p>
-<h3> <span class="mw-headline"> Float Class </span></h3>
+<a name="Float_Class"></a><h3> <span class="mw-headline"> Float Class </span></h3>
 <p>The Float object represents real numbers based on the native architecture‘s double-precision floating point representation.
 </p>
-<h3> <span class="mw-headline"> Rational Class </span></h3>
+<a name="Rational_Class"></a><h3> <span class="mw-headline"> Rational Class </span></h3>
 <p>Rational implements a rational class for numbers.
 </p><p>A rational number is a number that can be expressed as a fraction p/q where p and q are integers and q is not equal to zero. A rational number p/q is said to have numerator p and denominator q. Numbers that are not rational are called irrational numbers.
-<h2> <span class="mw-headline"> Converting Numbers in Ruby </span></h2>
+<a name="Converting_Numbers_in_Ruby"></a><h2> <span class="mw-headline"> Converting Numbers in Ruby </span></h2>
 <p>Numbers can be converted from one type to another using the Ruby <i>Integer</i> and <i>Float</i> methods. These methods take as an argument the value to be converted. For example:
 </p>
-<h3> <span class="mw-headline"> Convert Floating Point Number to an Integer </span></h3>
+<a name="Convert_Floating_Point_Number_to_an_Integer"></a><h3> <span class="mw-headline"> Convert Floating Point Number to an Integer </span></h3>
 <pre>
 Integer (10.898)
 =&gt; 10
 </pre>
-<h3> <span class="mw-headline"> Convert a String to an Integer </span></h3>
+<a name="Convert_a_String_to_an_Integer"></a><h3> <span class="mw-headline"> Convert a String to an Integer </span></h3>
 <pre>
 Integer (&quot;10898&quot;)
 =&gt; 10898
 </pre>
-<h3> <span class="mw-headline"> Convert a Hexadecimal Number to an Integer </span></h3>
+<a name="Convert_a_Hexadecimal_Number_to_an_Integer"></a><h3> <span class="mw-headline"> Convert a Hexadecimal Number to an Integer </span></h3>
 <pre>
 Integer (0xA4F5D)
 =&gt; 675677
 </pre>
-<h3> <span class="mw-headline"> Convert an Octal Number to an Integer </span></h3>
+<a name="Convert_an_Octal_Number_to_an_Integer"></a><h3> <span class="mw-headline"> Convert an Octal Number to an Integer </span></h3>
 <pre>
 Integer (01231)
 =&gt; 665
 </pre>
-<h3> <span class="mw-headline"> Convert a Binary Number to an Integer </span></h3>
+<a name="Convert_a_Binary_Number_to_an_Integer"></a><h3> <span class="mw-headline"> Convert a Binary Number to an Integer </span></h3>
 <pre>
 Integer (0b01110101)
 =&gt; 117
 </pre>
-<h3> <span class="mw-headline"> Convert an Character to the ASCII Character Code </span></h3>
+<a name="Convert_an_Character_to_the_ASCII_Character_Code"></a><h3> <span class="mw-headline"> Convert an Character to the ASCII Character Code </span></h3>
 <p>For Ruby version 1.8 or earlier:
 </p>
 <pre>
@@ -86,32 +86,32 @@ Integer (?e)
 </pre>
 <p>Similarly, we can perform conversions to floating point using the Float method:
 </p>
-<h3> <span class="mw-headline"> Convert an Integer Floating Point </span></h3>
+<a name="Convert_an_Integer_Floating_Point"></a><h3> <span class="mw-headline"> Convert an Integer Floating Point </span></h3>
 <pre>
 Float (10)
 =&gt; 10.0
 </pre>
-<h3> <span class="mw-headline"> Convert a String to Floating Point </span></h3>
+<a name="Convert_a_String_to_Floating_Point"></a><h3> <span class="mw-headline"> Convert a String to Floating Point </span></h3>
 <pre>
 Float (&quot;10.09889&quot;)
 =&gt; 10.09889
 </pre>
-<h3> <span class="mw-headline"> Convert a Hexadecimal Number to Floating Point </span></h3>
+<a name="Convert_a_Hexadecimal_Number_to_Floating_Point"></a><h3> <span class="mw-headline"> Convert a Hexadecimal Number to Floating Point </span></h3>
 <pre>
 Float (0xA4F5D)
 =&gt; 675677.0
 </pre>
-<h3> <span class="mw-headline"> Convert an Octal Number to a Floating Point </span></h3>
+<a name="Convert_an_Octal_Number_to_a_Floating_Point"></a><h3> <span class="mw-headline"> Convert an Octal Number to a Floating Point </span></h3>
 <pre>
 Float (01231)
 =&gt; 665.0
 </pre>
-<h3> <span class="mw-headline"> Convert a Binary Number to Floating Point </span></h3>
+<a name="Convert_a_Binary_Number_to_Floating_Point"></a><h3> <span class="mw-headline"> Convert a Binary Number to Floating Point </span></h3>
 <pre>
 Float (0b01110101)
 =&gt; 117
 </pre>
-<h3> <span class="mw-headline"> Convert a Character to a Floating Point ASCII Character Code </span></h3>
+<a name="Convert_a_Character_to_a_Floating_Point_ASCII_Character_Code"></a><h3> <span class="mw-headline"> Convert a Character to a Floating Point ASCII Character Code </span></h3>
 <p>For Ruby version 1.8 or earlier:
 </p>
 <pre>
@@ -126,10 +126,9 @@ Float (?e)
 </pre>
 <p><br />
 </p>
-<p><a class="booklink" href="http://www.ebookfrenzy.com/ebookpages/ruby_ebook.html"><img id="coverthumb" src="/cover_images/rubycover_small.png" /></a><br>
 </p>
-<p><a href="https://www.e-junkie.com/ecom/gb.php?c=cart&amp;i=PLDM-1&amp;cl=56328&amp;ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/extensions/images/Buy_Now.png" border="0" alt="Add to Cart"/></a>
 </p>
 <p><br />
 </p>
 <hr />
+<a href="./Ruby_Essentials.html" title="Ruby Essentials">Table of Contents</a>

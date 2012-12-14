@@ -1,7 +1,7 @@
 		<title>Ruby String Conversions - Techotopia</title>
 		<h1 class="firstHeading">Ruby String Conversions</h1>
 <hr />
-<p><br />
+<a href="./Ruby_Essentials.html" title="Ruby Essentials">Table of Contents</a><p><br />
 </p>
 <p><br />
 So far we have looked at creating, comparing and manipulating strings. Now it is time to look at converting strings in Ruby.
@@ -10,7 +10,7 @@ So far we have looked at creating, comparing and manipulating strings. Now it is
 <li class="toclevel-1"><a href="#Changing_the_Case_of_a_Ruby_String"><span class="tocnumber">2</span> <span class="toctext">Changing the Case of a Ruby String</span></a></li>
 <li class="toclevel-1"><a href="#Performing_String_Conversions"><span class="tocnumber">3</span> <span class="toctext">Performing String Conversions</span></a></li>
 <li class="toclevel-1"><a href="#Summary"><span class="tocnumber">4</span> <span class="toctext">Summary</span></a></li>
-<h2> <span class="mw-headline"> Converting a Ruby String to an Array </span></h2>
+<a name="Converting_a_Ruby_String_to_an_Array"></a><h2> <span class="mw-headline"> Converting a Ruby String to an Array </span></h2>
 <p>Strings can be converted to arrays using a combination of the <i>split</i> method and some regular expressions. The <i>split</i> method serves to break up the string into distinct parts that can be placed into array element. The regular expression tells <i>split</i> what to use as the break point during the conversion process.
 </p><p>We can start by converting an entire string into an array with just one element (i.e. the entire string):
 <pre>
@@ -35,7 +35,7 @@ myArray = &quot;Paris in the Spring&quot;.split(/ /)
 myArray = &quot;Red, Green, Blue, Indigo, Violet&quot;.split(/, /)
 =&gt; [&quot;Red&quot;, &quot;Green&quot;, &quot;Blue&quot;, &quot;Indigo&quot;, &quot;Violet&quot;]
 </pre>
-<h2> <span class="mw-headline"> Changing the Case of a Ruby String </span></h2>
+<a name="Changing_the_Case_of_a_Ruby_String"></a><h2> <span class="mw-headline"> Changing the Case of a Ruby String </span></h2>
 <p>The first letter of a string (and only the first letter of a string) can be capitalized using the <i>capitalize</i> and <i>capitalize!</i> methods (the first returns a modified string, the second changes the original string):
 </p>
 <pre>
@@ -63,7 +63,7 @@ Three
 &quot;What the Capital And Lower Case Letters Swap&quot;.swapcase
 =&gt; &quot;wHAT THE cAPITAL aND lOWER cASE lETTERS sWAP&quot;
 </pre>
-<h2> <span class="mw-headline"> Performing String Conversions </span></h2>
+<a name="Performing_String_Conversions"></a><h2> <span class="mw-headline"> Performing String Conversions </span></h2>
 <p>Strings can be converted to other Ruby object types such as <i>Fixnums</i>, <i>Floats</i> and <i>Symbols</i>.
 </p><p>To convert a String to an integer use the <i>to_i</i> method:
 <pre>
@@ -82,12 +82,10 @@ Three
 &quot;myString&quot;.to_sym
 =&gt;&nbsp;:myString
 </pre>
-<h2> <span class="mw-headline"> Summary </span></h2>
+<a name="Summary"></a><h2> <span class="mw-headline"> Summary </span></h2>
 <p>This chapter has covered in detail the process of converting strings in Ruby. The next chapter will look at working with file system directories with Ruby.
 </p><p><br />
-<p><a class="booklink" href="http://www.ebookfrenzy.com/ebookpages/ruby_ebook.html"><img id="coverthumb" src="/cover_images/rubycover_small.png" /></a><br>
 </p>
-<p><a href="https://www.e-junkie.com/ecom/gb.php?c=cart&amp;i=PLDM-1&amp;cl=56328&amp;ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/extensions/images/Buy_Now.png" border="0" alt="Add to Cart"/></a>
 </p>
 <p><br />
 </p>

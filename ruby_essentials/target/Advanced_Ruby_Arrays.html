@@ -1,7 +1,7 @@
 		<title>Advanced Ruby Arrays - Techotopia</title>
 		<h1 class="firstHeading">Advanced Ruby Arrays</h1>
 <hr />
-<p><br />
+<a href="./Ruby_Essentials.html" title="Ruby Essentials">Table of Contents</a><p><br />
 </p>
 <p><br />
 In the <a href="/index.php/Understanding_Ruby_Arrays" title="Understanding Ruby Arrays">Understanding Ruby Arrays</a> we looked at the basics of arrays in Ruby. In this chapter we will look at arrays in more detail.
@@ -14,7 +14,7 @@ In the <a href="/index.php/Understanding_Ruby_Arrays" title="Understanding Ruby 
 <li class="toclevel-1"><a href="#Modifying_Arrays"><span class="tocnumber">6</span> <span class="toctext">Modifying Arrays</span></a></li>
 <li class="toclevel-1"><a href="#Deleting_Array_Elements"><span class="tocnumber">7</span> <span class="toctext">Deleting Array Elements</span></a></li>
 <li class="toclevel-1"><a href="#Sorting_Arrays"><span class="tocnumber">8</span> <span class="toctext">Sorting Arrays</span></a></li>
-<h2> <span class="mw-headline"> Combining Ruby Arrays </span></h2>
+<a name="Combining_Ruby_Arrays"></a><h2> <span class="mw-headline"> Combining Ruby Arrays </span></h2>
 <p>Arrays in Ruby can be concatenated using a number of different approaches. One option is to simply <i>add,</i> them together:
 </p>
 <pre>
@@ -37,7 +37,7 @@ days1 = [&quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;]
 days1 &lt;&lt; &quot;Thu&quot; &lt;&lt; &quot;Fri&quot; &lt;&lt; &quot;Sat&quot; &lt;&lt; &quot;Sun&quot;
 =&gt; [&quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;, &quot;Sun&quot;]
 </pre>
-<h2> <span class="mw-headline"> Intersection, Union and Difference </span></h2>
+<a name="Intersection.2C_Union_and_Difference"></a><h2> <span class="mw-headline"> Intersection, Union and Difference </span></h2>
 <p>Ruby's support for array manipulation goes beyond that offered by many other scripting languages. One area where this is particularly true involves the ability to create new arrays based on the union, intersection and difference of two arrays. These features are provided via the following <i>set operation</i> symbols:
 </p><p><br />
 <p><br />
@@ -72,7 +72,7 @@ operating_systems - linux_systems
 linux_systems - operating_systems
 =&gt; [&quot;PCLinuxOS&quot;, &quot;Ubuntu&quot;]
 </pre>
-<h2> <span class="mw-headline"> Identifying Unique Array Elements </span></h2>
+<a name="Identifying_Unique_Array_Elements"></a><h2> <span class="mw-headline"> Identifying Unique Array Elements </span></h2>
 <p>The <i>uniq</i> method of the Array class can be used to remove duplicated elements from an array. For example:
 </p>
 <pre>
@@ -93,7 +93,7 @@ linux_systems.uniq!
 linux_systems
 =&gt; [&quot;RHEL&quot;, &quot;SuSE&quot;, &quot;PCLinuxOS&quot;, &quot;Ubuntu&quot;, &quot;Fedora&quot;]
 </pre>
-<h2> <span class="mw-headline"> Pushing and Popping Array Elements </span></h2>
+<a name="Pushing_and_Popping_Array_Elements"></a><h2> <span class="mw-headline"> Pushing and Popping Array Elements </span></h2>
 <p>An array in Ruby can be treated as a Last In First Out stack where items are <i>pushed</i> onto and <i>popped</i> off the array. This is achieved, unsurprisingly, using <i>push</i> and <i>pop</i> methods.
 </p><p>For example we can create an array and then push elements onto it:
 <pre>
@@ -117,12 +117,12 @@ colors.pop
 </pre>
 <p>Note how the elements are popped out of the array, starting with the last to be pushed onto it. Hence the term <i>Last In First Out</i> (LIFO).
 </p>
-<h2> <span class="mw-headline"> Ruby Array Comparisons </span></h2>
+<a name="Ruby_Array_Comparisons"></a><h2> <span class="mw-headline"> Ruby Array Comparisons </span></h2>
 <p>Ruby arrays may be compared using the ==, &lt;=&gt; and eql? methods. 
 </p><p>The == method returns <i>true</i> if two arrays contain the same number of elements and the same contents for each corresponding element.
 </p><p>The eql? method is similar to the == method with the exception that the values in corresponding elements are of the same value type.
 </p><p>Finally, the &lt;=&gt; method (also known as the "spaceship" method) compares two arrays and returns 0 if the arrays are equal, -1 one if the elements are less than those in the other array, and 1 if they are greater.
-<h2> <span class="mw-headline"> Modifying Arrays </span></h2>
+<a name="Modifying_Arrays"></a><h2> <span class="mw-headline"> Modifying Arrays </span></h2>
 <p>A new element may be inserted into an array using the  <i>insert</i> method. This method takes as arguments the index value of the element to be inserted, followed by the new value. For example, to insert a new color between the red and green elements:
 </p>
 <pre>
@@ -156,7 +156,7 @@ colors[1..2] = &quot;orange&quot;, &quot;pink&quot;
 colors
 =&gt; [&quot;red&quot;, &quot;orange&quot;, &quot;pink&quot;]
 </pre>
-<h2> <span class="mw-headline"> Deleting Array Elements </span></h2>
+<a name="Deleting_Array_Elements"></a><h2> <span class="mw-headline"> Deleting Array Elements </span></h2>
 <p>It is not uncommon to need to delete individual elements from an array. A deletion can be performed either based on the content of an array element, or on the index position.
 </p><p>To delete based on an index use the <i>delete_at</i> method:
 <pre>
@@ -181,7 +181,7 @@ colors.delete(&quot;red&quot;)
 colors
 =&gt; [&quot;green&quot;, &quot;blue&quot;]
 </pre>
-<h2> <span class="mw-headline"> Sorting Arrays </span></h2>
+<a name="Sorting_Arrays"></a><h2> <span class="mw-headline"> Sorting Arrays </span></h2>
 <p>Arrays are sorted in Ruby using the <i>sort</i> and <i>reverse</i> methods:
 </p>
 <pre>
@@ -206,10 +206,9 @@ numbers.reverse
 </pre>
 <p><br />
 </p>
-<p><a class="booklink" href="http://www.ebookfrenzy.com/ebookpages/ruby_ebook.html"><img id="coverthumb" src="/cover_images/rubycover_small.png" /></a><br>
 </p>
-<p><a href="https://www.e-junkie.com/ecom/gb.php?c=cart&amp;i=PLDM-1&amp;cl=56328&amp;ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/extensions/images/Buy_Now.png" border="0" alt="Add to Cart"/></a>
 </p>
 <p><br />
 </p>
 <hr />
+<a href="./Ruby_Essentials.html" title="Ruby Essentials">Table of Contents</a>

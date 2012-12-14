@@ -1,7 +1,7 @@
 		<title>Ruby Ranges - Techotopia</title>
 		<h1 class="firstHeading">Ruby Ranges</h1>
 <hr />
-<p><br />
+<a href="./Ruby_Essentials.html" title="Ruby Essentials">Table of Contents</a><p><br />
 </p>
 <p><br />
 Ruby Ranges allow data to be represented in the form of a range (in other words a data set with start and end values and a logical sequence of values in between). The values in a range can be numbers, characters, strings or objects. In this chapter we will look at the three types of range supported by Ruby, namely sequences, conditions and intervals.
@@ -11,7 +11,7 @@ Ruby Ranges allow data to be represented in the form of a range (in other words 
 <li class="toclevel-1"><a href="#Ruby_Ranges_as_Conditional_Expressions"><span class="tocnumber">3</span> <span class="toctext">Ruby Ranges as Conditional Expressions</span></a></li>
 <li class="toclevel-1"><a href="#Ruby_Range_Intervals"><span class="tocnumber">4</span> <span class="toctext">Ruby Range Intervals</span></a></li>
 <li class="toclevel-1"><a href="#Ranges_in_case_Statements"><span class="tocnumber">5</span> <span class="toctext">Ranges in case Statements</span></a></li>
-<h2> <span class="mw-headline"> Ruby Sequence Ranges </span></h2>
+<a name="Ruby_Sequence_Ranges"></a><h2> <span class="mw-headline"> Ruby Sequence Ranges </span></h2>
 <p>Sequence ranges in Ruby are used to create a range of successive values - consisting of a start value, an end value and a range of values in between.
 </p><p>Two operators are available for creating such ranges, the inclusive two-dot (..) operator and the exclusive three-dot operator (...). The inclusive operator includes both the first and last values in the range. The exclusive range operator excludes the last value from the sequence. For example:
 <pre>
@@ -42,7 +42,7 @@ Ruby Ranges allow data to be represented in the form of a range (in other words 
 </pre>
 <p>Range values may also be objects. The only requirements for placing an object in a range is that the object provides a mechanism for returning the next object in the sequence via <i>succ</i> and it must be possible to compare the objects using the &lt;=&gt; operator.
 </p>
-<h2> <span class="mw-headline"> Using Range Methods </span></h2>
+<a name="Using_Range_Methods"></a><h2> <span class="mw-headline"> Using Range Methods </span></h2>
 <p>Given the object-oriented nature of Ruby it should come as no surprise to you that a range is actually an object. As such, there are a number of methods of the Range class which can be accessed when working with a range object.
 </p>
 <pre>
@@ -79,7 +79,7 @@ Hello cap
 Hello caq
 Hello car
 </pre>
-<h2> <span class="mw-headline"> Ruby Ranges as Conditional Expressions </span></h2>
+<a name="Ruby_Ranges_as_Conditional_Expressions"></a><h2> <span class="mw-headline"> Ruby Ranges as Conditional Expressions </span></h2>
 <p>Ruby Ranges can also be used as conditional expressions in looping conditions. The range start value represents the start of the loop, which runs until the range end marker is detected.
 </p>
 <pre>
@@ -87,7 +87,7 @@ Hello car
  puts input + &quot; triggered&quot; if input =~ /start/ .. input =~ /end/
  end
 </pre>
-<h2> <span class="mw-headline"> Ruby Range Intervals </span></h2>
+<a name="Ruby_Range_Intervals"></a><h2> <span class="mw-headline"> Ruby Range Intervals </span></h2>
 <p>Ranges are ideal for identifying if a value falls within a particular range. For example, we might want to know whether a number is within a certain range, or a character within a certain group of letters arranged in alphabetical order. This is achieved using the === equality operator:
 </p>
 <pre>
@@ -96,7 +96,7 @@ Hello car
 ('k'..'z') === 'm'   # Does the letter fall between the letters 'k' and 'z' in the alphabet?
 =&gt; true
 </pre>
-<h2> <span class="mw-headline"> Ranges in case Statements </span></h2>
+<a name="Ranges_in_case_Statements"></a><h2> <span class="mw-headline"> Ranges in case Statements </span></h2>
 <p>Ranges are perhaps at their most powerful when they are used in conjunction with a <i>case</i> statement 
 (for more information also see <a href="/index.php/The_Ruby_case_Statement" title="The Ruby case Statement">The Ruby case Statement</a> chapter):
 </p>
@@ -115,10 +115,9 @@ puts result
 </pre>
 <p><br />
 </p>
-<p><a class="booklink" href="http://www.ebookfrenzy.com/ebookpages/ruby_ebook.html"><img id="coverthumb" src="/cover_images/rubycover_small.png" /></a><br>
 </p>
-<p><a href="https://www.e-junkie.com/ecom/gb.php?c=cart&amp;i=PLDM-1&amp;cl=56328&amp;ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/extensions/images/Buy_Now.png" border="0" alt="Add to Cart"/></a>
 </p>
 <p><br />
 </p>
 <hr />
+<a href="./Ruby_Essentials.html" title="Ruby Essentials">Table of Contents</a>

@@ -1,7 +1,7 @@
 		<title>Ruby Strings - Creation and Basics - Techotopia</title>
 		<h1 class="firstHeading">Ruby Strings - Creation and Basics</h1>
 <hr />
-<p><br />
+<a href="./Ruby_Essentials.html" title="Ruby Essentials">Table of Contents</a><p><br />
 </p>
 <p><br />
 A string is a group of characters that typically make up human readable words or sentences. Because strings are essentially the mechanism by which applications communicate with their users it is inevitable that string manipulation is a key part of programming. In this chapter of <a href="/index.php/Ruby_Essentials" title="Ruby Essentials">Ruby Essentials</a> we will cover the basics of working with strings in Ruby.
@@ -11,7 +11,7 @@ A string is a group of characters that typically make up human readable words or
 <li class="toclevel-1"><a href="#General_Delimited_Strings"><span class="tocnumber">3</span> <span class="toctext">General Delimited Strings</span></a></li>
 <li class="toclevel-1"><a href="#Ruby_Here_Documents"><span class="tocnumber">4</span> <span class="toctext">Ruby Here Documents</span></a></li>
 <li class="toclevel-1"><a href="#Getting_Information_about_String_Objects"><span class="tocnumber">5</span> <span class="toctext">Getting Information about String Objects</span></a></li>
-<h2> <span class="mw-headline"> Creating Strings in Ruby </span></h2>
+<a name="Creating_Strings_in_Ruby"></a><h2> <span class="mw-headline"> Creating Strings in Ruby </span></h2>
 <p>Strings are stored in Ruby using the <i>String</i> object. In addition to providing storage for strings, this object also contains a number of methods which can be used to manipulate strings.
 </p><p>A new string can be created using the <i>new</i> method of the <i>String</i> class:
 <pre>
@@ -35,7 +35,7 @@ myString = &quot;This is also my string&quot;
 </pre>
 <p>As far as creating string objects goes that is as easy as it gets!
 </p>
-<h2> <span class="mw-headline"> Quoting Ruby Strings </span></h2>
+<a name="Quoting_Ruby_Strings"></a><h2> <span class="mw-headline"> Quoting Ruby Strings </span></h2>
 <p>Strings can be delimited using either double quotes (") or single quotes ('). Whilst both serve the purpose of encapsulating a string they have different purposes. The double quotes are designed to interpret escaped characters such as new lines and tabs so that they appear as actual new lines and tabs when the string is rendered for the user. Single quotes, however, display the actual escape sequence, for example displaying \n instead of a new line.
 </p><p>The following example demonstrates the double quote in action:
 <pre>
@@ -55,7 +55,7 @@ This is also my string.\nGet your own string
 </pre>
 <p>In this case the '\n' is treated literally as a '\' and an 'n' with no special meaning.
 </p>
-<h2> <span class="mw-headline"> General Delimited Strings </span></h2>
+<a name="General_Delimited_Strings"></a><h2> <span class="mw-headline"> General Delimited Strings </span></h2>
 <p>Ruby allows you to define any character you want as a string delimiter simply by prefixing the desired character with a %. For example, we could use the ampersand to delimit our string:
 </p>
 <pre>
@@ -89,7 +89,7 @@ myString = 'This is &quot;my&quot; String'
 
 myString = &quot;This is 'my' String&quot;
 </pre>
-<h2> <span class="mw-headline"> Ruby Here Documents </span></h2>
+<a name="Ruby_Here_Documents"></a><h2> <span class="mw-headline"> Ruby Here Documents </span></h2>
 <p>A <i>Here Document</i> (or <i>heredoc</i> as it is more commonly referred to) provides a mechanism for creating free format strings, preserving special characters such as new lines and tabs.
 </p><p>A here document is created by preceding the text with <i>&lt;&lt;</i> followed by the delimiter string you wish to use to mark the end of the text. The following example uses the string "DOC" as the delimiter:
 <pre>
@@ -120,7 +120,7 @@ make checks payable to:
 
 Thank you for your business.
 </pre>
-<h2> <span class="mw-headline"> Getting Information about String Objects </span></h2>
+<a name="Getting_Information_about_String_Objects"></a><h2> <span class="mw-headline"> Getting Information about String Objects </span></h2>
 <p>The String object includes a number of methods that can be used to obtain information about the string. For example, we can find if a string is empty using the <i>empty?</i> method:
 </p>
 <pre>
@@ -140,10 +140,9 @@ myString.length
 </pre>
 <p><br />
 </p>
-<p><a class="booklink" href="http://www.ebookfrenzy.com/ebookpages/ruby_ebook.html"><img id="coverthumb" src="/cover_images/rubycover_small.png" /></a><br>
 </p>
-<p><a href="https://www.e-junkie.com/ecom/gb.php?c=cart&amp;i=PLDM-1&amp;cl=56328&amp;ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/extensions/images/Buy_Now.png" border="0" alt="Add to Cart"/></a>
 </p>
 <p><br />
 </p>
 <hr />
+<a href="./Ruby_Essentials.html" title="Ruby Essentials">Table of Contents</a>

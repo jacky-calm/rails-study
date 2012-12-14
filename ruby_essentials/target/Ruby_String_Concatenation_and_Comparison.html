@@ -1,7 +1,7 @@
 		<title>Ruby String Concatenation and Comparison - Techotopia</title>
 		<h1 class="firstHeading">Ruby String Concatenation and Comparison</h1>
 <hr />
-<p><br />
+<a href="./Ruby_Essentials.html" title="Ruby Essentials">Table of Contents</a><p><br />
 </p>
 <p><br />
 In the previous chapter (<a href="/index.php/Ruby_Strings_-_Creation_and_Basics" title="Ruby Strings - Creation and Basics">Ruby Strings - Creation and Basics</a>) we looked at how to create a Ruby string object. In  this chapter we will look at accessing, comparing and concatenating strings in Ruby. In the next chapter we will look at <a href="/index.php/Manipulating_and_Converting_Ruby_Strings" title="Manipulating and Converting Ruby Strings">Manipulating and Converting Ruby Strings</a>.
@@ -11,7 +11,7 @@ In the previous chapter (<a href="/index.php/Ruby_Strings_-_Creation_and_Basics"
 <li class="toclevel-1"><a href="#Accessing_String_Elements"><span class="tocnumber">3</span> <span class="toctext">Accessing String Elements</span></a></li>
 <li class="toclevel-1"><a href="#Comparing_Ruby_Strings"><span class="tocnumber">4</span> <span class="toctext">Comparing Ruby Strings</span></a></li>
 <li class="toclevel-1"><a href="#Case_Insensitive_String_Comparisons"><span class="tocnumber">5</span> <span class="toctext">Case Insensitive String Comparisons</span></a></li>
-<h2> <span class="mw-headline"> Concatenating Strings in Ruby </span></h2>
+<a name="Concatenating_Strings_in_Ruby"></a><h2> <span class="mw-headline"> Concatenating Strings in Ruby </span></h2>
 <p>If you've read any of the preceding chapters in this book you will have noticed that Ruby typically provides a number of different ways to achieve the same thing. Concatenating strings is certainly no exception to this rule.
 </p><p>Strings can be concatenated using the + method:
 <pre>
@@ -36,7 +36,7 @@ myString = &quot;Welcome &quot; &lt;&lt; &quot;to &quot; &lt;&lt; &quot;Ruby!&qu
 myString = &quot;Welcome &quot;.concat(&quot;to &quot;).concat(&quot;Ruby!&quot;)
 =&gt; &quot;Welcome to Ruby!&quot;
 </pre>
-<h2> <span class="mw-headline"> Freezing a Ruby String </span></h2>
+<a name="Freezing_a_Ruby_String"></a><h2> <span class="mw-headline"> Freezing a Ruby String </span></h2>
 <p>A string can be <i>frozen</i> after it has been created such that it cannot subsequently be altered. This is achieved using the <i>freeze</i> method of the <i>String</i> class:
 </p>
 <pre>
@@ -48,7 +48,7 @@ myString.freeze
 myString &lt;&lt; &quot;hello&quot;
 TypeError: can't modify frozen string
 </pre>
-<h2> <span class="mw-headline"> Accessing String Elements </span></h2>
+<a name="Accessing_String_Elements"></a><h2> <span class="mw-headline"> Accessing String Elements </span></h2>
 <p>Fragments of a Ruby string can be accessed using the [] method of the <i>String class</i>. One use for this method is to find if a particular sequence of characters exists in a string. If a match is found the sequence is returned, otherwise <i>nil</i> is returned:
 </p>
 <pre>
@@ -84,7 +84,7 @@ myString[0..6]
 myString.index(&quot;Ruby&quot;)
 =&gt; 11
 </pre>
-<h2> <span class="mw-headline"> Comparing Ruby Strings </span></h2>
+<a name="Comparing_Ruby_Strings"></a><h2> <span class="mw-headline"> Comparing Ruby Strings </span></h2>
 <p>It is not uncommon to need to compare two strings, either to assess equality or to find out if one string is higher or lower than the other (alphabetically speaking).
 </p><p>Equality is performed either using the == or <i>eql?</i> methods:
 <pre>
@@ -107,7 +107,7 @@ myString.index(&quot;Ruby&quot;)
 &quot;Pears&quot; &lt;=&gt; &quot;Apples&quot;
 =&gt; 1
 </pre>
-<h2> <span class="mw-headline"> Case Insensitive String Comparisons </span></h2>
+<a name="Case_Insensitive_String_Comparisons"></a><h2> <span class="mw-headline"> Case Insensitive String Comparisons </span></h2>
 <p>A case insensitive comparison may be performed using the <i>casecmp</i> method which returns the same values as the &lt;=&gt; method described above:
 </p>
 <pre>
@@ -116,10 +116,9 @@ myString.index(&quot;Ruby&quot;)
 </pre>
 <p><br />
 </p>
-<p><a class="booklink" href="http://www.ebookfrenzy.com/ebookpages/ruby_ebook.html"><img id="coverthumb" src="/cover_images/rubycover_small.png" /></a><br>
 </p>
-<p><a href="https://www.e-junkie.com/ecom/gb.php?c=cart&amp;i=PLDM-1&amp;cl=56328&amp;ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/extensions/images/Buy_Now.png" border="0" alt="Add to Cart"/></a>
 </p>
 <p><br />
 </p>
 <hr /><table border="0" cellspacing="0" width="100%">
+<a href="./Ruby_Essentials.html" title="Ruby Essentials">Table of Contents</a>
