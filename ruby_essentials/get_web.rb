@@ -9,20 +9,19 @@ class GetWeb
   def self.make_index
     out = open(INDEX, "w")
     out.write("<ol>")
-
     chapter = ""
     open("#{RUBY_ESSENTIALS}.html").each do |line|
       m = URL_PATTERN.match(line)
       next unless m
+      url = "<li>#{m[0].sub(/\/index\.php/,".").sub(/#{m[1]}/, "#{m[1]}.html")}</li>"
       if m[2] != chapter
         out.write("</ul>") if chapter != ""
-        out.write("<li>#{m[0].sub(/\/index\.php/,".").sub(/#{m[1]}/, "#{m[1]}.html")}</li>")
+        out.write(url)
         out.write("<ul>")
         chapter = m[2]
       else
-        out.write("<li>#{m[0].sub(/\/index\.php/,".").sub(/#{m[1]}/, "#{m[1]}.html")}</li>")
+        out.write(url)
       end
-
     end
     out.write("</ul>")
     out.write("</ol>")
