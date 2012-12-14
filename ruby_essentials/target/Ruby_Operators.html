@@ -1,0 +1,119 @@
+		<title>Ruby Operators - Techotopia</title>
+		<h1 class="firstHeading">Ruby Operators</h1>
+<hr />
+<p><br />
+</p>
+<p><br />
+In this chapter we will cover the basics of using operators in Ruby to build expressions. Ruby provides a number of different types of operators including:
+</p>
+<p><br />
+</p>
+<li class="toclevel-1"><a href="#The_Anatomy_of_a_Ruby_Operation"><span class="tocnumber">1</span> <span class="toctext">The Anatomy of a Ruby Operation</span></a></li>
+<li class="toclevel-1"><a href="#Performing_Ruby_Arithmetic_using_Operators"><span class="tocnumber">2</span> <span class="toctext">Performing Ruby Arithmetic using Operators</span></a></li>
+<li class="toclevel-1"><a href="#Ruby_Assignment_Operators"><span class="tocnumber">3</span> <span class="toctext">Ruby Assignment Operators</span></a></li>
+<li class="toclevel-1"><a href="#Parallel_Assignment"><span class="tocnumber">4</span> <span class="toctext">Parallel Assignment</span></a></li>
+<li class="toclevel-1"><a href="#Ruby_Comparison_Operators"><span class="tocnumber">5</span> <span class="toctext">Ruby Comparison Operators</span></a></li>
+<li class="toclevel-1"><a href="#Ruby_Bitwise_Operators"><span class="tocnumber">6</span> <span class="toctext">Ruby Bitwise Operators</span></a></li>
+<li class="toclevel-1"><a href="#Summary"><span class="tocnumber">7</span> <span class="toctext">Summary</span></a></li>
+<h2> <span class="mw-headline"> The Anatomy of a Ruby Operation </span></h2>
+<p>In Ruby, as with most other programming languages, operations consist of values on which the calculation is to be performed (called <i>operands</i>) and an <i>operator</i> which dictates the operation to be performed. Typically, the <i>operands</i> are placed either side of the <i>operator</i>. Optionally, the <i>assignment</i> operator (=) can be used to assign the result of the operation to, for example, a variable. Let's take the most basic of operations, executed in <i>irb</i>:
+</p>
+<pre>
+irb(main):036:0&gt; 1 + 1
+=&gt; 2
+</pre>
+<p>Now let's assign the result to a variable called <i>result</i>:
+</p>
+<pre>
+irb(main):037:0&gt; result = 1 + 1
+=&gt; 2
+</pre>
+<h2> <span class="mw-headline"> Performing Ruby Arithmetic using Operators </span></h2>
+<p>Ruby provides a number of basic operators for performing arithmetic. These are as follows:
+</p>
+<p>Note that when performing division, if you do not want the result to be truncated to a round number, one of the operands in the operation must be expressed as a float:
+</p>
+<pre>
+irb(main):001:0&gt; 10 / 7
+=&gt; 1
+</pre>
+<p>In the above example the result has been rounded down to the nearest whole number. On the other hand, if we express one of the operands as a float, we get a more accurate answer:
+</p>
+<pre>
+irb(main):003:0&gt; 10.0 / 7
+=&gt; 1.42857142857143
+</pre>
+<h2> <span class="mw-headline"> Ruby Assignment Operators </span></h2>
+<p>Earlier in this chapter we looked the basic assignment operator (=) which allows us to assign the result of an expression, for example <i>y = 10</i>.
+</p><p>The '=' assignment operator does not make any changes to the value before it is assigned to the variable. A number of assignment operators are available, however, that perform arithmetic on the value before assigning it to the variable. These are essentially combined arithmetic and assignment operators. The most common operators of this type, and their "long hand" equivalents are shown below:
+<p>These combined operators provide a short way of assigning the results of arithmetic expressions between two variables or a variable and a value and having the result assigned to the first variable. For example:
+</p>
+<pre>
+x = 10
+x += 5 # Assigns a value of 15 to variable x (the same as x = x + 5)
+
+y = 20
+y -= 10  # Assigns a value of 10 to variable y (the same as y = y - 10)
+
+x = 10;
+y = 5;
+
+x /= y; # Assigns a value of 2 to variable x (the same as x = x / y)
+</pre>
+<h2> <span class="mw-headline"> Parallel Assignment </span></h2>
+<p>Ruby also supports the parallel assignment of variables. This enables multiple variables to be initialized with a single line of Ruby code. For example:
+</p>
+<pre>
+a = 10
+b = 20
+c = 30
+</pre>
+<p>The above code may be more quickly declared using parallel assignment:
+</p>
+<pre>
+a, b, c = 10, 20, 30
+</pre>
+<p>Parallel assignment is also useful for swapping the values held in two variables:
+</p>
+<pre>
+a, b = b, c
+</pre>
+<h2> <span class="mw-headline"> Ruby Comparison Operators </span></h2>
+<p>Comparison operators are used to check for equality between two values. Ruby provides a number of such operators:
+</p>
+<p>Let's look at some of these operators in action:
+</p>
+<pre>
+irb(main):006:0&gt; 1 == 1
+=&gt; true
+
+irb(main):015:0&gt; 1.eql? 2
+=&gt; false
+
+irb(main):016:0&gt; 10 &lt; 1
+=&gt; false
+
+irb(main):019:0&gt; 10 &lt;=&gt; 10
+=&gt; 0
+
+irb(main):020:0&gt; 10 &lt;=&gt; 9
+=&gt; 1
+
+irb(main):021:0&gt; 10 &lt;=&gt; 11
+=&gt; -1
+</pre>
+<h2> <span class="mw-headline"> Ruby Bitwise Operators </span></h2>
+<p>Bitwise operators allow operations to be performed on number at the bit level. As you are probably already aware, computers deal solely with binary (in other words ones and zeros). For example, the computer sees the number 520 as 01010. 
+</p><p>The Ruby bitwise operators allow us to operate at the level of the ones and zeros that make up a number:
+<p>As with the math operators, Ruby also provides a number of combined bitwise operators (for example ~=, &gt;&gt;=, &lt;&lt;= ^=, &amp;=).
+</p>
+<h2> <span class="mw-headline"> Summary </span></h2>
+<p>In this chapter of <a href="/index.php/Ruby_Essentials" title="Ruby Essentials">Ruby Essentials</a> we have covered the basics of Ruby operators, expressions and assignments. In the next chapter we will look at the all important area of <a href="/index.php/Ruby_Operator_Precedence" title="Ruby Operator Precedence">Ruby Operator Precedence</a>.
+</p><p><br />
+<p><a class="booklink" href="http://www.ebookfrenzy.com/ebookpages/ruby_ebook.html"><img id="coverthumb" src="/cover_images/rubycover_small.png" /></a><br>
+</p>
+<p><a href="https://www.e-junkie.com/ecom/gb.php?c=cart&amp;i=PLDM-1&amp;cl=56328&amp;ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/extensions/images/Buy_Now.png" border="0" alt="Add to Cart"/></a>
+</p>
+<p><br />
+</p>
+<hr />

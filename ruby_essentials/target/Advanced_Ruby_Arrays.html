@@ -1,0 +1,215 @@
+		<title>Advanced Ruby Arrays - Techotopia</title>
+		<h1 class="firstHeading">Advanced Ruby Arrays</h1>
+<hr />
+<p><br />
+</p>
+<p><br />
+In the <a href="/index.php/Understanding_Ruby_Arrays" title="Understanding Ruby Arrays">Understanding Ruby Arrays</a> we looked at the basics of arrays in Ruby. In this chapter we will look at arrays in more detail.
+</p>
+<li class="toclevel-1"><a href="#Combining_Ruby_Arrays"><span class="tocnumber">1</span> <span class="toctext">Combining Ruby Arrays</span></a></li>
+<li class="toclevel-1"><a href="#Intersection.2C_Union_and_Difference"><span class="tocnumber">2</span> <span class="toctext">Intersection, Union and Difference</span></a></li>
+<li class="toclevel-1"><a href="#Identifying_Unique_Array_Elements"><span class="tocnumber">3</span> <span class="toctext">Identifying Unique Array Elements</span></a></li>
+<li class="toclevel-1"><a href="#Pushing_and_Popping_Array_Elements"><span class="tocnumber">4</span> <span class="toctext">Pushing and Popping Array Elements</span></a></li>
+<li class="toclevel-1"><a href="#Ruby_Array_Comparisons"><span class="tocnumber">5</span> <span class="toctext">Ruby Array Comparisons</span></a></li>
+<li class="toclevel-1"><a href="#Modifying_Arrays"><span class="tocnumber">6</span> <span class="toctext">Modifying Arrays</span></a></li>
+<li class="toclevel-1"><a href="#Deleting_Array_Elements"><span class="tocnumber">7</span> <span class="toctext">Deleting Array Elements</span></a></li>
+<li class="toclevel-1"><a href="#Sorting_Arrays"><span class="tocnumber">8</span> <span class="toctext">Sorting Arrays</span></a></li>
+<h2> <span class="mw-headline"> Combining Ruby Arrays </span></h2>
+<p>Arrays in Ruby can be concatenated using a number of different approaches. One option is to simply <i>add,</i> them together:
+</p>
+<pre>
+days1 = [&quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;]
+days2 = [&quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;, &quot;Sun&quot;]
+days = days1 + days2
+=&gt; [&quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;, &quot;Sun&quot;]
+</pre>
+<p>Alternatively, the <i>concat</i> method may be called:
+</p>
+<pre>
+days1 = [&quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;]
+days2 = [&quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;, &quot;Sun&quot;]
+days = days1.concat(days2)
+</pre>
+<p>Elements may also be appended to an existing array using the &lt;&lt; method. For example:
+</p>
+<pre>
+days1 = [&quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;]
+days1 &lt;&lt; &quot;Thu&quot; &lt;&lt; &quot;Fri&quot; &lt;&lt; &quot;Sat&quot; &lt;&lt; &quot;Sun&quot;
+=&gt; [&quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;, &quot;Sun&quot;]
+</pre>
+<h2> <span class="mw-headline"> Intersection, Union and Difference </span></h2>
+<p>Ruby's support for array manipulation goes beyond that offered by many other scripting languages. One area where this is particularly true involves the ability to create new arrays based on the union, intersection and difference of two arrays. These features are provided via the following <i>set operation</i> symbols:
+</p><p><br />
+<p><br />
+A few examples will help to clarify these operations. Let's begin by creating two arrays:
+</p>
+<pre>
+operating_systems = [&quot;Fedora&quot;, &quot;SuSE&quot;, &quot;RHEL&quot;, &quot;Windows&quot;, &quot;MacOS&quot;]
+
+linux_systems = [&quot;RHEL&quot;, &quot;SuSE&quot;, &quot;PCLinuxOS&quot;, &quot;Ubuntu&quot;, &quot;Fedora&quot;]
+</pre>
+<p>Now, we can create a union of the two arrays:
+</p>
+<pre>
+operating_systems | linux_systems
+=&gt; [&quot;Fedora&quot;, &quot;SuSE&quot;, &quot;RHEL&quot;, &quot;Windows&quot;, &quot;MacOS&quot;, &quot;PCLinuxOS&quot;, &quot;Ubuntu&quot;]
+</pre>
+<p>As we can see from the above output, the union operation joined one array to another, but removed any duplicate array elements.
+</p><p>Next we can perform an intersection:
+<pre>
+operating_systems &amp; linux_systems
+=&gt; [&quot;Fedora&quot;, &quot;SuSE&quot;, &quot;RHEL&quot;]
+</pre>
+<p>This time, we only get elements that are common to both arrays.
+</p><p>Finally, we can try a "difference" operation:
+<pre>
+operating_systems - linux_systems
+=&gt; [&quot;Windows&quot;, &quot;MacOS&quot;]
+</pre>
+<p>In this case, the new array provides us with the difference between the two arrays. In other words we get a new array that contains items which are present in <i>operating systems</i>, but <i>not</i> present in <i>linux_systems</i>. It is important to be clear on the point that we are not simply removing duplicate entries with this operator, but rather removing items from the array specified by the left hand operand that are also present in the array specified by the right hand operand. This can be demonstrated by the fact that switching the operands gives us very different results:
+</p>
+<pre>
+linux_systems - operating_systems
+=&gt; [&quot;PCLinuxOS&quot;, &quot;Ubuntu&quot;]
+</pre>
+<h2> <span class="mw-headline"> Identifying Unique Array Elements </span></h2>
+<p>The <i>uniq</i> method of the Array class can be used to remove duplicated elements from an array. For example:
+</p>
+<pre>
+linux_systems = [&quot;RHEL&quot;, &quot;SuSE&quot;, &quot;PCLinuxOS&quot;, &quot;Ubuntu&quot;, &quot;Fedora&quot;, &quot;RHEL&quot;, &quot;SuSE&quot;]
+
+linux_systems.uniq
+=&gt; [&quot;RHEL&quot;, &quot;SuSE&quot;, &quot;PCLinuxOS&quot;, &quot;Ubuntu&quot;, &quot;Fedora&quot;]
+</pre>
+<p>Note that in this instance, the original array is unchanged by the <i>uniq</i> method. If you really wanted to strip out the duplicates from an array such that the array itself is altered, use the <i>uniq!</i> method as follows:
+</p>
+<pre>
+linux_systems
+=&gt; [&quot;RHEL&quot;, &quot;SuSE&quot;, &quot;PCLinuxOS&quot;, &quot;Ubuntu&quot;, &quot;Fedora&quot;, &quot;RHEL&quot;, &quot;SuSE&quot;]
+
+linux_systems.uniq!
+=&gt; [&quot;RHEL&quot;, &quot;SuSE&quot;, &quot;PCLinuxOS&quot;, &quot;Ubuntu&quot;, &quot;Fedora&quot;]
+
+linux_systems
+=&gt; [&quot;RHEL&quot;, &quot;SuSE&quot;, &quot;PCLinuxOS&quot;, &quot;Ubuntu&quot;, &quot;Fedora&quot;]
+</pre>
+<h2> <span class="mw-headline"> Pushing and Popping Array Elements </span></h2>
+<p>An array in Ruby can be treated as a Last In First Out stack where items are <i>pushed</i> onto and <i>popped</i> off the array. This is achieved, unsurprisingly, using <i>push</i> and <i>pop</i> methods.
+</p><p>For example we can create an array and then push elements onto it:
+<pre>
+colors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;]
+=&gt; [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;]
+
+colors.push &quot;indigo&quot;
+=&gt; [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;indigo&quot;]
+
+colors.push &quot;violet&quot;
+=&gt; [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;indigo&quot;, &quot;violet&quot;]
+</pre>
+<p>Using the <i>pop</i> method we can also pop elements from the array:
+</p>
+<pre>
+colors.pop
+=&gt; &quot;violet&quot;
+
+colors.pop
+=&gt; &quot;indigo&quot;
+</pre>
+<p>Note how the elements are popped out of the array, starting with the last to be pushed onto it. Hence the term <i>Last In First Out</i> (LIFO).
+</p>
+<h2> <span class="mw-headline"> Ruby Array Comparisons </span></h2>
+<p>Ruby arrays may be compared using the ==, &lt;=&gt; and eql? methods. 
+</p><p>The == method returns <i>true</i> if two arrays contain the same number of elements and the same contents for each corresponding element.
+</p><p>The eql? method is similar to the == method with the exception that the values in corresponding elements are of the same value type.
+</p><p>Finally, the &lt;=&gt; method (also known as the "spaceship" method) compares two arrays and returns 0 if the arrays are equal, -1 one if the elements are less than those in the other array, and 1 if they are greater.
+<h2> <span class="mw-headline"> Modifying Arrays </span></h2>
+<p>A new element may be inserted into an array using the  <i>insert</i> method. This method takes as arguments the index value of the element to be inserted, followed by the new value. For example, to insert a new color between the red and green elements:
+</p>
+<pre>
+colors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;]
+=&gt; [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;]
+
+colors.insert( 1, &quot;orange&quot; )
+=&gt; [&quot;red&quot;, &quot;orange&quot;, &quot;green&quot;, &quot;blue&quot;]
+</pre>
+<p>Any array element may be changed simply by assigning a new value using the array element index:
+</p>
+<pre>
+colors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;]
+=&gt; [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;]=&gt; [&quot;red&quot;, &quot;yellow&quot;, &quot;blue&quot;]
+
+colors[1] = &quot;yellow&quot;
+=&gt; &quot;yellow&quot;
+
+colors
+=&gt; [&quot;red&quot;, &quot;yellow&quot;, &quot;blue&quot;]
+</pre>
+<p>Multiple elements can be changed by making use of a range:
+</p>
+<pre>
+colors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;]
+=&gt; [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;]
+
+colors[1..2] = &quot;orange&quot;, &quot;pink&quot;
+=&gt; [&quot;orange&quot;, &quot;pink&quot;]
+
+colors
+=&gt; [&quot;red&quot;, &quot;orange&quot;, &quot;pink&quot;]
+</pre>
+<h2> <span class="mw-headline"> Deleting Array Elements </span></h2>
+<p>It is not uncommon to need to delete individual elements from an array. A deletion can be performed either based on the content of an array element, or on the index position.
+</p><p>To delete based on an index use the <i>delete_at</i> method:
+<pre>
+colors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;]
+=&gt; [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;]
+
+colors.delete_at(1)
+=&gt; &quot;green&quot;
+
+colors
+=&gt; [&quot;red&quot;, &quot;blue&quot;]
+</pre>
+<p>To delete array elements based on content use the <i>delete</i> method:
+</p>
+<pre>
+colors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;]
+=&gt; [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;]
+
+colors.delete(&quot;red&quot;)
+=&gt; &quot;red&quot;
+
+colors
+=&gt; [&quot;green&quot;, &quot;blue&quot;]
+</pre>
+<h2> <span class="mw-headline"> Sorting Arrays </span></h2>
+<p>Arrays are sorted in Ruby using the <i>sort</i> and <i>reverse</i> methods:
+</p>
+<pre>
+numbers = [1, 4, 6, 7, 3, 2, 5]
+=&gt; [1, 4, 6, 7, 3, 2, 5]
+
+numbers.sort
+=&gt; [1, 2, 3, 4, 5, 6, 7]
+</pre>
+<p>As with the <i>uniq</i> method, the sorting can be applied to the actual array with the <i>sort!</i> method.
+</p><p>The order of the elements in an array can be reversed using the <i>reverse</i> method:
+<pre>
+numbers = [1, 4, 6, 7, 3, 2, 5]
+=&gt; [1, 4, 6, 7, 3, 2, 5]
+
+numbers.sort!
+=&gt; [1, 2, 3, 4, 5, 6, 7]
+
+
+numbers.reverse
+=&gt; [7, 6, 5, 4, 3, 2, 1]
+</pre>
+<p><br />
+</p>
+<p><a class="booklink" href="http://www.ebookfrenzy.com/ebookpages/ruby_ebook.html"><img id="coverthumb" src="/cover_images/rubycover_small.png" /></a><br>
+</p>
+<p><a href="https://www.e-junkie.com/ecom/gb.php?c=cart&amp;i=PLDM-1&amp;cl=56328&amp;ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/extensions/images/Buy_Now.png" border="0" alt="Add to Cart"/></a>
+</p>
+<p><br />
+</p>
+<hr />

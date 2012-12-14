@@ -1,0 +1,49 @@
+		<title>Understanding Ruby Logical Operators - Techotopia</title>
+		<h1 class="firstHeading">Understanding Ruby Logical Operators</h1>
+<hr />
+<p><br />
+</p>
+<p><br />
+</p>
+<li class="toclevel-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1"><a href="#Ruby_Logical_Operators"><span class="tocnumber">2</span> <span class="toctext">Ruby Logical Operators</span></a></li>
+<h2> <span class="mw-headline"> Introduction </span></h2>
+<p>The objective of this chapter is to provide an overview of Ruby Logical Operators
+</p>
+<h2> <span class="mw-headline"> Ruby Logical Operators </span></h2>
+<p><i>Logical Operators</i> are also known as <i>Boolean Operators</i> because they evaluate parts of an expression and return a <i>true</i> or <i>false</i> value, allowing decisions to be made about how a program should proceed.
+</p><p>rather than to look at a code example right away, the first step to understanding how logical operators work in Ruby is to construct a sentence. Let's assume we need to check some aspect of two variables named <i>var1</i> and <i>var2</i>. Our sentence might read:
+</p><p><i>If var1 is less than 25 AND var2 is greater than 45 then return true</i>
+</p><p>Here the logical operator is the "AND" part of the sentence. If we were to express this in Ruby we would use the comparison operators we covered earlier together with the <i>and</i> or <i>&amp;&amp;</i> logical operators:
+<pre>
+var1 = 20
+var2 = 60
+var1 &lt; 25 and var2 &gt; 45
+=&gt; true
+</pre>
+<p>Similarly, if our sentence was to read:
+</p><p><i>If var1 is less than 25 OR var2 is greater than 45 return true.</i>
+</p><p>Then we would replace the "OR" with the Ruby equivalent <i>or</i>, or '||':
+<pre>
+
+var1 &lt; 25 or var2 &gt; 45
+=&gt; true
+</pre>
+<p>Another useful <i>Logical Operator</i> is the <i>not</i> operator which simply inverts the result of an expression. The&nbsp;! character represents the NOT operator and can be used as follows:
+</p>
+<pre>
+10 == 10        # returns ''true''
+=&gt; true
+
+!(10 == 10)       // returns ''false'' because we have inverted the result with the not operator
+=&gt; false
+</pre>
+<p>Logical operators are of particular use when constructing conditional code, a topic which will be covered in detail in <a href="/index.php/Ruby_Flow_Control" title="Ruby Flow Control">Ruby Flow Control</a>.
+</p><p><br />
+<p><a class="booklink" href="http://www.ebookfrenzy.com/ebookpages/ruby_ebook.html"><img id="coverthumb" src="/cover_images/rubycover_small.png" /></a><br>
+</p>
+<p><a href="https://www.e-junkie.com/ecom/gb.php?c=cart&amp;i=PLDM-1&amp;cl=56328&amp;ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/extensions/images/Buy_Now.png" border="0" alt="Add to Cart"/></a>
+</p>
+<p><br />
+</p>
+<hr />

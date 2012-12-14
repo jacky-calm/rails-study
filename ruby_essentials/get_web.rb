@@ -4,10 +4,11 @@ class GetWeb
   RUBY_ESSENTIALS = "Ruby_Essentials"
   #<a href="/index.php/Understanding_Ruby_Variables" title="Understanding Ruby Variables">Understanding Ruby Variables</a>"
   URL_PATTERN = /<a href="\/index\.php\/(.*Ruby.*)" title="(.*)">.*<\/a>/
-  INDEX = "index.html"
+  TARGET = "./target"
 
   def self.make_index
-    out = open(INDEX, "w")
+    Dir.mkdir TARGET unless Dir.exist? TARGET
+    out = open("#{TARGET}/#{RUBY_ESSENTIALS}.html", "w")
     out.write("<ol>")
     chapter = ""
     open("#{RUBY_ESSENTIALS}.html").each do |line|
@@ -25,8 +26,22 @@ class GetWeb
     end
     out.write("</ul>")
     out.write("</ol>")
-
   end
+
+  def self.make_content
+    open("#{RUBY_ESSENTIALS}.html") do |f|
+      f.read.scan(URL_PATTERN).uniq.each do |item|
+        out = open("#{TARGET}/#{URI::decode(item[0])}.html","w")
+        keep = false
+        open("#{item[0]}.html").each do |line|
+          keep = true if line =~ /<p>|<span|<pre>|<title>|<h1|<hr/
+          out.write(line.sub(/<span class="editsection">.*\]<\/span>/,'').sub(/<a name=".*"><\/a>/,'')) if keep
+          keep = false if line =~ /<\/p>|<\/span>|<\/pre>|<\/title>|<\/h1>|<hr \/>/
+        end
+      end
+    end
+  end
+
   def self.getAll
     GetWeb.get(RUBY_ESSENTIALS)
     open("#{RUBY_ESSENTIALS}.html") do |f|
@@ -44,4 +59,5 @@ class GetWeb
 end
 
 GetWeb.make_index
+GetWeb.make_content
 #GetWeb.getAll

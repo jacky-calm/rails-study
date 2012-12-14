@@ -1,0 +1,208 @@
+		<title>Ruby Object Oriented Programming - Techotopia</title>
+		<h1 class="firstHeading">Ruby Object Oriented Programming</h1>
+<hr />
+<p><br />
+</p>
+<p><br />
+Ruby is an object oriented environment and, as such, provides extensive support for developing object-oriented applications. The area of object oriented programming is, however, large. Entire books can, and indeed have, been dedicated to the subject. A detailed overview of object oriented software development is beyond the scope of <a href="/index.php/Ruby_Essentials" title="Ruby Essentials">Ruby Essentials</a>. Instead we will introduce the basic concepts involved in object oriented programming and then move on to explaining the concept as it relates to Ruby development.
+</p>
+<li class="toclevel-1"><a href="#What_is_an_Object.3F"><span class="tocnumber">1</span> <span class="toctext">What is an Object?</span></a></li>
+<li class="toclevel-1"><a href="#What_is_a_Class.3F"><span class="tocnumber">2</span> <span class="toctext">What is a Class?</span></a></li>
+<li class="toclevel-1"><a href="#Defining_a_Ruby_Class"><span class="tocnumber">3</span> <span class="toctext">Defining a Ruby Class</span></a></li>
+<li class="toclevel-1"><a href="#Creating_an_Object_from_a_Class"><span class="tocnumber">4</span> <span class="toctext">Creating an Object from a Class</span></a></li>
+<li class="toclevel-1"><a href="#Instance_Variables_and_Accessor_Methods"><span class="tocnumber">5</span> <span class="toctext">Instance Variables and Accessor Methods</span></a></li>
+<li class="toclevel-1"><a href="#Ruby_Class_Variables"><span class="tocnumber">6</span> <span class="toctext">Ruby Class Variables</span></a></li>
+<li class="toclevel-1"><a href="#Instance_Methods"><span class="tocnumber">7</span> <span class="toctext">Instance Methods</span></a></li>
+<li class="toclevel-1"><a href="#Ruby_Class_Inheritance"><span class="tocnumber">8</span> <span class="toctext">Ruby Class Inheritance</span></a></li>
+<h2> <span class="mw-headline"> What is an Object? </span></h2>
+<p>An object is a self-contained piece of functionality that can be easily used, and re-used as the building blocks for a software application.
+</p><p>Objects consist of data variables and functions (called <i>methods</i>) that can be accessed and called on the object to perform tasks. These are collectively referred to as <i>members</i>.
+</p><p>Just about everything in Ruby, from numbers and strings to arrays is an object.
+<h2> <span class="mw-headline"> What is a Class? </span></h2>
+<p>Much as a blueprint or architect's drawing defines what an item or a building will look like once it has been constructed, a class defines what an object will look like when it is created. It defines, for example, what the <i>methods</i> will do and what the <i>member</i> variables will be.
+</p><p>New classes can be created based on existing classes, a concept known as <i>inheritance</i>. In such a scenario the new class (known as the <i>subclass</i>) inherits all the features of the parent class (known as the <i>superclass</i>) with added features that differentiate it from the <i>superclass</i>. Ruby supports <i>single inheritance</i> in that a subclass can only inherit from a single <i>superclass</i>. 
+</p><p>Other languages such as C++ support <i>multiple inheritance</i> where the <i>subclass</i> can inherit the characteristics of multiple superclasses.
+<h2> <span class="mw-headline"> Defining a Ruby Class </span></h2>
+<p>For the purposes of this tutorial we will create a new class intended to be used as part of a banking application. Classes are defined using the <i>class</i> keyword followed by the <i>end</i> keyword and must be given a name by which they can be referenced. This name is a constant so must begin with a capital letter. 
+</p><p>With these rules in mind we can begin work on our class definition:
+<pre>
+class BankAccount
+   def initialize ()
+   end
+
+   def test_method
+        puts &quot;The class is working&quot;
+   end
+end
+</pre>
+<p>The above example defines a class named <i>BankAccount</i> with a single method called <i>test_method</i> which simply outputs a string. The <i>initialize</i> method is a standard Ruby class method and is the method which gets called first after an object based on this class has completed initialization. You can place any code in the initialize method and it is particularly useful for passing in arguments when the class is created.
+</p>
+<h2> <span class="mw-headline"> Creating an Object from a Class </span></h2>
+<p>An object is created from a class using the <i>new</i> method. For example, to create an instance of our BankAccount class we simply perform the following:
+</p>
+<pre>
+account = BankAccount.new()
+</pre>
+<p>This creates a BankAccount object named <i>account</i>. Having created the object we can call our test_method:
+</p>
+<pre>
+account.test_method
+The class is working
+</pre>
+<h2> <span class="mw-headline"> Instance Variables and Accessor Methods </span></h2>
+<p>Instance variables are variables defined in a class that are available only to each instance of the class. Instance variables may be defined either inside or outside of class methods. To make the variables available from outside the class, they must be defined within <i>accessor methods</i> (also known as a getter method).
+</p><p>For example, we might want to add instance variables to our <i>BankAccount</i> class:
+<pre>
+class BankAccount
+
+   def accountNumber
+        @accountNumber = &quot;12345&quot;
+   end
+
+   def accountName
+        @accountName = &quot;John Smith&quot;
+   end
+
+   def initialize ()
+   end
+
+   def test_method
+        puts &quot;The class is working&quot;
+        puts accountNumber
+   end
+end
+</pre>
+<p>Now we have two instance variables called <i>@accountNumber</i> and <i>@accountName</i> with associated accessor methods. We can now access these variables from outside the 
+</p>
+<pre>
+account = BankAccount.new()
+puts account.accountNumber
+puts account.accountName
+</pre>
+<p>The two <i>puts</i> statements above will print out the values of the two variables returned by the accessor methods (in this case "12345" and "John Smith" respectively).
+</p><p>Now that we can "get" the value of an instance variable, we now need a way to "set" the value of an instance variable. One way to do this is via a <i>setter</i> methods. Let's clean up our BankAccount class, so that it has two instance variables with getters and setters:
+<pre>
+class BankAccount
+
+   def accountNumber
+        @accountNumber
+   end
+
+   def accountNumber=( value )
+        @accountNumber = value
+   end
+
+   def accountName
+        @accountName
+   end
+
+   def accountName=( value )
+        @accountName = value
+   end
+
+end
+</pre>
+<p>We can now create an instance of our class, set the name and account number using the setters and then access them using the getters:
+</p>
+<pre>
+account = BankAccount.new()
+
+account.accountNumber = &quot;54321&quot;     
+account.accountName = &quot;Fred Flintstone&quot;
+
+puts account.accountNumber
+puts account.accountName
+</pre>
+<h2> <span class="mw-headline"> Ruby Class Variables </span></h2>
+<p>A <i>class variable</i> is a variable shared between all instances of a class. In other words, there is one instance of the variable and it is accessed by object instances. An instance variable must be initialized within the class definition. Class variables are prefixed with two @ characters (@@).
+</p><p>To demonstrate this we will add an <i>@@interest_rate</i> class variable (since the same interest rate applies to all back accounts):
+<pre>
+class BankAccount
+
+   def interest_rate
+        @@interest_rate = 0.2
+   end
+
+   def accountNumber
+        @accountNumber
+   end
+
+   def accountNumber=( value )
+        @accountNumber = value
+   end
+
+   def accountName
+        @accountName
+   end
+
+   def accountName=( value )
+        @accountName = value
+   end
+
+end
+</pre>
+<h2> <span class="mw-headline"> Instance Methods </span></h2>
+<p>Although we looked briefly at instance methods earlier in this chapter we have so far focused on storage of data in a class. 
+</p><p>Instance methods are methods that can be called on an instance of the class. Instance methods can access class variables to perform tasks, and can also accept values as arguments. For example, we can add a method to our class that takes a new account balance as an argument and use the @@interest_rate class variable to calculate the interest due:
+<pre>
+   def calc_interest ( balance )
+       puts balance * interest_rate
+   end
+</pre>
+<p>Now, when we create an instance of our class, we can call the new method:
+</p>
+<pre>
+account = BankAccount.new()
+account.calc_interest( 1000 )
+700.0
+</pre>
+<h2> <span class="mw-headline"> Ruby Class Inheritance </span></h2>
+<p>As we mentioned earlier in this chapter, Ruby supports <i>single inheritance</i>. This means that a subclass can be created that inherits all the variables and methods of another class. The subclass is then extended to add new methods or variables not available in the superclass.
+</p><p>One class inherits from another using the &lt; character. Say, for example, that we want a new kind of BankAccount class. This class needs all the same variables and methods as our original class, but also needs the customer's phone number. To do this we simply inherit from <i>BankAccount</i> and add the new instance variable:
+<pre>
+class NewBankAccount &lt; BankAccount
+
+   def customerPhone
+        @customerPhone
+   end
+
+   def customerPhone=( value )
+        @customerPhone = value
+   end
+
+end
+</pre>
+<p>We now have a new class, derived from BankAccount. This new subclass has everything the superclass had, plus a new property - the customer's phone number:
+</p>
+<pre>
+account.accountNumber = &quot;54321&quot;
+account.customerPhone = &quot;555-123-5433&quot;
+54321
+555-123-5433
+</pre>
+<p>Note that the above example assumes the declaration of the BankAccount class is in the same Ruby source file as the NewBankAccount declaration. If this is not the case, the <i>require</i> statement must be used to tell Ruby which file to include to find the BankAccount class. Assuming that BankAccount is defined in a file named "BankAccount.rb" we would include the file as follows:
+</p>
+<pre>
+require 'BankAccount'
+
+class NewBankAccount &lt; BankAccount
+
+   def customerPhone
+        @customerPhone
+   end
+
+   def customerPhone=( value )
+        @customerPhone = value
+   end
+
+end
+</pre>
+<p><br />
+</p>
+<p><a class="booklink" href="http://www.ebookfrenzy.com/ebookpages/ruby_ebook.html"><img id="coverthumb" src="/cover_images/rubycover_small.png" /></a><br>
+</p>
+<p><a href="https://www.e-junkie.com/ecom/gb.php?c=cart&amp;i=PLDM-1&amp;cl=56328&amp;ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/extensions/images/Buy_Now.png" border="0" alt="Add to Cart"/></a>
+</p>
+<p><br />
+</p>
+<hr />

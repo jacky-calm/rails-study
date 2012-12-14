@@ -1,0 +1,197 @@
+		<title>Working with Files in Ruby - Techotopia</title>
+		<h1 class="firstHeading">Working with Files in Ruby</h1>
+<hr />
+<p><br />
+</p>
+<p><br />
+In the previous chapter we looked at how to work with directories. This chapter will look in detail at how to create, open and read and write to files in Ruby. We will then learn how to delete and rename files.
+</p>
+<li class="toclevel-1"><a href="#Creating_a_New_File_with_Ruby"><span class="tocnumber">1</span> <span class="toctext">Creating a New File with Ruby</span></a></li>
+<li class="toclevel-1"><a href="#Opening_Existing_Files"><span class="tocnumber">2</span> <span class="toctext">Opening Existing Files</span></a></li>
+<li class="toclevel-1"><a href="#Renaming_and_Deleting_Files_in_Ruby"><span class="tocnumber">3</span> <span class="toctext">Renaming and Deleting Files in Ruby</span></a></li>
+<li class="toclevel-1"><a href="#Getting_Information_about_Files"><span class="tocnumber">4</span> <span class="toctext">Getting Information about Files</span></a></li>
+<li class="toclevel-1"><a href="#Reading_and_Writing_Files"><span class="tocnumber">5</span> <span class="toctext">Reading and Writing Files</span></a></li>
+<h2> <span class="mw-headline"> Creating a New File with Ruby </span></h2>
+<p>New files are created in Ruby using the <i>new</i> method of the <i>File</i> class. The <i>new</i> method accepts two arguments, the first being the name of the file to be created and the second being the mode in which the file is to opened. Supported file modes are shown the following table:
+</p><p><br />
+<p>With this information in mind we can, therefore, create a new file in "write" mode as follows:
+</p>
+<pre>
+File.new(&quot;temp.txt&quot;, &quot;w&quot;)
+=&gt; #&lt;File:temp.txt&gt;
+</pre>
+<h2> <span class="mw-headline"> Opening Existing Files </span></h2>
+<p>Existing files may be opened using the <i>open</i> method of the <i>File</i> class:
+</p>
+<pre>
+file = File.open(&quot;temp.txt&quot;)
+=&gt; #&lt;File:temp.txt&gt;
+</pre>
+<p>Note that existing files may be opened in different modes as outlined in the table above. For example, we can open a file in read-only mode:
+</p>
+<pre>
+file = File.open(&quot;temp.txt&quot;, &quot;r&quot;)
+=&gt; #&lt;File:temp.txt&gt;
+</pre>
+<p>It is also possible to identify whether a file is already open using the <i>closed?</i> method:
+</p>
+<pre>
+file.closed?
+=&gt; false
+</pre>
+<p>Finally, we can close a file using the <i>close</i> method of the Ruby <i>File</i> class:
+</p>
+<pre>
+file = File.open(&quot;temp.txt&quot;, &quot;r&quot;)
+=&gt; #&lt;File:temp.txt&gt;
+file.close
+=&gt; nil
+</pre>
+<h2> <span class="mw-headline"> Renaming and Deleting Files in Ruby </span></h2>
+<p>Files are renamed and deleted in Ruby using the <i>rename</i> and <i>delete</i> methods respectively. For example, we can create a new file, rename it and then delete it:
+</p>
+<pre>
+File.new(&quot;tempfile.txt&quot;, &quot;w&quot;)
+=&gt; #&lt;File:tempfile.txt&gt;
+
+File.rename(&quot;tempfile.txt&quot;, &quot;newfile.txt&quot;)
+=&gt; 0
+
+File.delete(&quot;newfile.txt&quot;)
+=&gt; 1
+</pre>
+<h2> <span class="mw-headline"> Getting Information about Files </span></h2>
+<p>File handling often requires more than just opening files. Sometimes it is necessary to find out information about a file before it is opened. Fortunately the <i>File</i> class provides a range of methods for this very purpose.
+</p><p>To find out if a file already exists, use the <i>exists?</i> method:
+<pre>
+File.exists?(&quot;temp.txt&quot;)
+=&gt; true
+</pre>
+<p>To find out if the file is really a file as opposed to, for example, a directory use the <i>file?</i> method:
+</p>
+<pre>
+File.file?(&quot;ruby&quot;)
+=&gt; false
+</pre>
+<p>Similarly, find out if it is a directory with the <i>directory?</i> method:
+</p>
+<pre>
+File.directory?(&quot;ruby&quot;)
+=&gt; true
+</pre>
+<p>To identify whether a file is readable, writable or executable, use the <i>readable?</i>, <i>writable?</i> and <i>executable?</i> methods:
+</p>
+<pre>
+File.readable?(&quot;temp.txt&quot;)
+=&gt; true
+
+File.writable?(&quot;temp.txt&quot;)
+=&gt; true
+
+File.executable?(&quot;temp.txt&quot;)
+=&gt; false
+</pre>
+<p>Get the size of a file with, yes you guessed it, the <i>size</i> method:
+</p>
+<pre>
+File.size(&quot;temp.txt&quot;)
+=&gt; 99
+</pre>
+<p>And find if a file is empty (i.e zero length) with the <i>zero?</i> method:
+</p>
+<pre>
+File.zero?(&quot;temp.txt&quot;)
+=&gt; false
+</pre>
+<p>Find out the type of the file with the <i>ftype</i> method:
+</p>
+<pre>
+File.ftype(&quot;temp.txt&quot;)
+=&gt; &quot;file&quot;
+
+File.ftype(&quot;../ruby&quot;)
+=&gt; &quot;directory&quot;
+
+File.ftype(&quot;/dev/sda5&quot;)
+=&gt; &quot;blockSpecial&quot;
+</pre>
+<p>Finally, find out the create, modify and access times with <i>ctime</i>, <i>mtime</i> and <i>atime</i>:
+</p>
+<pre>
+File.ctime(&quot;temp.txt&quot;)
+=&gt; Thu Nov 29 10:51:18 EST 2007
+
+File.mtime(&quot;temp.txt&quot;)
+=&gt; Thu Nov 29 11:14:18 EST 2007
+
+File.atime(&quot;temp.txt&quot;)
+=&gt; Thu Nov 29 11:14:19 EST 2007
+</pre>
+<h2> <span class="mw-headline"> Reading and Writing Files </span></h2>
+<p>Once we've opened an existing file or created a new file we need to be able to read from and write to that file. We can read lines from a file using either  the <i>readline</i> or <i>each</i> methods:
+</p>
+<pre>
+myfile = File.open(&quot;temp.txt&quot;)
+=&gt; #&lt;File:temp.txt&gt;
+
+myfile.readline
+=&gt; &quot;This is a test file\n&quot;
+
+myfile.readline
+=&gt; &quot;It contains some example lines\n&quot;
+</pre>
+<p>Alternatively, we can use the <i>each</i> method to read the entire file:
+</p>
+<pre>
+myfile = File.open(&quot;temp.txt&quot;)
+=&gt; #&lt;File:temp.txt&gt;
+
+myfile.each {|line| print line }
+This is a test file
+It contains some example lines
+But other  than that
+It serves no real purpose
+</pre>
+<p>It is also possible to extract data from a file on a character by character basis using the <i>getc</i> method:
+</p>
+<pre>
+myfile = File.open(&quot;Hello.txt&quot;)
+=&gt; #&lt;File:temp.txt&gt;
+
+myfile.getc.chr
+=&gt; &quot;H&quot;
+myfile.getc.chr
+=&gt; &quot;e&quot;
+myfile.getc.chr
+=&gt; &quot;l&quot;
+</pre>
+<p>Needless to say, we can also write to a file using the <i>putc</i> method to write a character at a time and <i>puts</i> to write a string at a time - note the importance of the <i>rewind</i> method call. This moves the file pointer back to the start of the file so we can read what have written:
+</p>
+<pre>
+myfile = File.new(&quot;write.txt&quot;, &quot;w+&quot;)    # open file for read and write
+=&gt; #&lt;File:write.txt&gt;
+
+myfile.puts(&quot;This test line 1&quot;)         # write a line
+=&gt; nil
+
+myfile.puts(&quot;This test line 2&quot;)         # write a second line
+=&gt; nil
+
+myfile.rewind                           # move pointer back to start of file
+=&gt; 0
+
+myfile.readline
+=&gt; &quot;This test line 1\n&quot;
+
+myfile.readline
+=&gt; &quot;This test line 2\n&quot;
+</pre>
+<p><br />
+</p>
+<p><a class="booklink" href="http://www.ebookfrenzy.com/ebookpages/ruby_ebook.html"><img id="coverthumb" src="/cover_images/rubycover_small.png" /></a><br>
+</p>
+<p><a href="https://www.e-junkie.com/ecom/gb.php?c=cart&amp;i=PLDM-1&amp;cl=56328&amp;ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/extensions/images/Buy_Now.png" border="0" alt="Add to Cart"/></a>
+</p>
+<p><br />
+</p>
+<hr />

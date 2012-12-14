@@ -1,0 +1,198 @@
+		<title>Simple Ruby Examples - Techotopia</title>
+		<h1 class="firstHeading">Simple Ruby Examples</h1>
+<hr />
+<p><br />
+</p>
+<p><br />
+Not only is Ruby a flexible scripting language in terms of its syntax, it is also highly flexible in the ways in which scripts can be executed. In this chapter we will begin by looking at some simple Ruby examples, and then look at the variety of different ways Ruby code can be executed.
+</p>
+<li class="toclevel-1"><a href="#The_Most_Basic_Ruby_Example"><span class="tocnumber">1</span> <span class="toctext">The Most Basic Ruby Example</span></a></li>
+<li class="toclevel-1"><a href="#Executing_Ruby_from_the_Command_Line"><span class="tocnumber">2</span> <span class="toctext">Executing Ruby from the Command Line</span></a></li>
+<li class="toclevel-1"><a href="#Interactive_Ruby_Execution"><span class="tocnumber">3</span> <span class="toctext">Interactive Ruby Execution</span></a></li>
+<li class="toclevel-1"><a href="#Executing_Ruby_from_a_File"><span class="tocnumber">4</span> <span class="toctext">Executing Ruby from a File</span></a></li>
+<li class="toclevel-1"><a href="#Creating_a_Self_Contained_Ruby_Executable_on_Linux_or_UNIX"><span class="tocnumber">5</span> <span class="toctext">Creating a Self Contained Ruby Executable on Linux or UNIX</span></a></li>
+<li class="toclevel-1"><a href="#Associating_Ruby_Files_on_Windows"><span class="tocnumber">6</span> <span class="toctext">Associating Ruby Files on Windows</span></a></li>
+<h2> <span class="mw-headline"> The Most Basic Ruby Example </span></h2>
+<p>Programming guides tend to follow the tradition of using "Hello World" as the first example of using a programming language. Typically such a program does nothing but output the string "Hello World" to the console window. Ruby Essentials is no exception to this rule, though we will modify it slightly to display "Hello Ruby!". Without further delay, let's get started:
+</p><p>On Linux or UNIX derived operating systems:
+<pre>
+print &quot;Hello Ruby!\n&quot;
+</pre>
+<p>On Windows:
+</p>
+<pre>
+print &quot;Hello Ruby!&quot;
+</pre>
+<p>As you can see, all we need to do to output some text is enter a single line of Ruby code. You may recall if you have read the previous chapters that one of the strengths of Ruby is that it is fast and intuitive to learn. Clearly it would be hard to make printing a line of text any easier than a <i>print</i> statement followed by the text to be displayed (together with a newline character '\n' on Linux and UNIX). 
+</p><p>As an example, let's compare this to the equivalent code in Java:
+<pre>
+import java.io.*;
+
+public class Hello {
+
+        public static void main ( String[] args)
+        {
+                System.out.println (&quot;Hello Ruby!\n&quot;);
+        }
+}
+</pre>
+<p>Hopefully, you are now beginning to see why Ruby is so popular. Programming languages such as Java require a significant amount of structure before even the simplest of tasks can be performed. Before we go any further we need to learn how to execute our first Ruby example. This can be done in a number of ways, each of which will be covered in the following sections of this chapter.
+</p>
+<h2> <span class="mw-headline"> Executing Ruby from the Command Line </span></h2>
+<p>Ruby allows lines of code to be executed as command line options to the <i>ruby</i> tool. This is achieved by using the '-e' command line flag. To execute our example 'Hello Ruby!' code, therefore, we could enter the following command:
+</p>
+<pre>
+ruby -e 'print &quot;Hello Ruby!\n&quot;'
+Hello Ruby!
+</pre>
+<p>The '-e' flag only allows a single line of code to be executed, but that does not mean that multiple '-e' flags cannot be placed on a single command line to execute multiple lines:
+</p>
+<pre>
+ruby -e 'print &quot;Hello Ruby!\n&quot;' -e 'print &quot;Goodbye Ruby!\n&quot;'
+Hello Ruby!
+Goodbye Ruby!
+</pre>
+<h2> <span class="mw-headline"> Interactive Ruby Execution </span></h2>
+<p>In the <a href="/index.php/What_is_Ruby%3F" title="What is Ruby?">What is Ruby?</a> we discussed the fact that Ruby is an interpreted language. This essentially means that Ruby source code is compiled and executed at run time, rather than pre-compiled as is the case with languages such as C or C++. One of the advantages of being an interpreted language is that we can write Ruby code directly into the interpreter and have it executed interactively and in real-time. This is a great way to learn Ruby and to try out different code structures.
+</p><p>Interactive Ruby code is entered using the <i>irb</i> tool. If you are running Windows and installed Ruby using the one click installer, you already have <i>irb</i> installed. If you are running on Linux, there is a good chance <i>irb</i> is not yet installed. Verify the installation as follows:
+<pre>
+irb -v
+irb 0.9(02/07/03)
+</pre>
+<p>If you do not get the appropriate version information displayed, you will need to install irb. On Red Hat or Fedora Linux this can be achieved as follows:
+</p>
+<pre>
+su
+yum install irb
+</pre>
+<p>On Debian, Ubuntu or other Debian derived Linux distributions use the apt-get tool:
+</p>
+<pre>
+sudo apt-get install irb
+</pre>
+<p>Once irb is installed, launch it as follows:
+</p>
+<pre>
+$ irb
+irb(main):001:0&gt;
+</pre>
+<p>Now, we can begin to execute Ruby code:
+</p>
+<pre>
+irb(main):001:0&gt; puts 'Hello Ruby'
+Hello Ruby
+=&gt; nil
+irb(main):002:0&gt;
+</pre>
+<p>We could also perform a calculation or two:
+</p>
+<pre>
+irb(main):002:0&gt; 3 + 4
+=&gt; 7
+irb(main):003:0&gt; 8 * 7
+=&gt; 56
+irb(main):004:0&gt; 10 % 2
+=&gt; 0
+</pre>
+<p>As you can see, anything we type at the irb prompt gets executed as soon as we press the Enter key. Ruby truly is an interactive, interpreted language.
+</p>
+<h2> <span class="mw-headline"> Executing Ruby from a File </span></h2>
+<p>Clearly the command line approach to execution is of limited use once you get beyond a few lines of Ruby script. A much more common approach is to place the Ruby script in a file, and then pass that file to the Ruby interpreter to run. To try this, create a file called <i>hello.rb</i> using your favorite editor and enter the following lines into it:
+</p>
+<pre>
+print &quot;Hello Ruby!\n&quot;
+print &quot;Goodbye Ruby!\n&quot;
+</pre>
+<p>To execute this script, simply refer to it on the command line when launching <i>ruby</i>:
+</p>
+<pre>
+ruby hello.rb
+Hello Ruby!
+Goodbye Ruby!
+</pre>
+<h2> <span class="mw-headline"> Creating a Self Contained Ruby Executable on Linux or UNIX </span></h2>
+<p>Placing Ruby code into a file is obviously much easier and practical than using multiple -e command line options. Suppose, however, that we want to go one step further and be able to execute a Ruby based program simply by typing the name of the file containing the code, rather than prefixing it with the <i>ruby</i> command.
+</p><p>This can be achieved on Linux or UNIX by placing a special line at the top of the script file informing the environment responsible for executing the program (such as a Linux command shell) where to look for the Ruby interpreter. This special line consists of a '#', a '!' and the path to the <i>ruby</i> executable and is known affectionately as the <i>shebang</i>.
+</p><p>Firstly, you need to know where <i>ruby</i> is located on your system. Assuming it is already in your PATH environment variable you can use the <i>which</i> command  to find it:
+<pre>
+which ruby
+/usr/bin/ruby
+</pre>
+<p>Given that <i>ruby</i> is in /usr/bin on the above system we can modify our sample application accordingly:
+</p>
+<pre>
+#!/usr/bin/ruby
+print &quot;Hello Ruby!\n&quot;
+print &quot;Goodbye Ruby!\n&quot;
+</pre>
+<p>We can now try running our hello.rb script:
+</p>
+<pre>
+./hello.rb
+-bash: ./hello.rb: Permission denied
+</pre>
+<p>Clearly if you got the above output, there is a problem. This is simply a matter of the script not having <i>execute</i> permission. This can easily be rectified by using the <i>chmod</i> command to add execute permission to our script:
+</p>
+<pre>
+chmod 755 hello.rb
+</pre>
+<p>If we now try again we should get better results:
+</p>
+<pre>
+./hello.rb
+Hello Ruby!
+Goodbye Ruby!
+</pre>
+<h2> <span class="mw-headline"> Associating Ruby Files on Windows </span></h2>
+<p>The <i>Shebang</i> approach outlined in the preceding chapter does not work on Windows. The #! line will just be UNIX gibberish to a Windows system. The best way to configure a Windows system to detect that a file with a <i>.rb</i> file extension is to be launched with Ruby is to use Windows file type associations.
+</p><p>If you have used Windows extensively you will be familiar with the concept that it is possible to double click, for example, on a .doc file and have that file automatically loaded into Microsoft Word. This works because the system has been configured to associate .doc files with Word. Associating .rb files with Ruby is essentially the same thing.
+</p><p>First, it is important to note that if you installed Ruby on Windows using the One-Click Installer then .rb files will already have been associated with Ruby, so there is no need to perform the steps in this section. Simply type <i>hello.rb</i> at the command prompt and our example will run.
+</p><p>If you built Ruby yourself from the source code, or installed using a mechanism other than the One-Click Installer, you will need to associate .rb files with Ruby. The steps to achieve this are as follows:
+</p><p>Begin by checking whether the association is already configured:
+<pre>
+C:\MyRuby&gt;assoc .rb
+File association not found for extension .rb
+</pre>
+<p>Assuming that the association is not already configured, take the following steps to complete the configuration:
+</p>
+<pre>
+C:\MyRuby&gt;assoc .rb=rbFile
+</pre>
+<p><br />
+Check to see if the file type <i>rbfile</i> already exists:
+</p>
+<pre>
+C:\MyRuby&gt;ftype rbfile
+File type 'rbfile' not found or no open command associated with it.
+</pre>
+<p>Assuming it does not already exist (be sure to substitute the path to your Ruby installation in the following command):
+</p>
+<pre>
+C:\MyRuby&gt;ftype rbfile=&quot;D:\Ruby\bin\ruby.exe&quot; &quot;%1&quot; %*
+</pre>
+<p>Verify the setting:
+</p>
+<pre>
+C:\MyRuby&gt;ftype rbfile
+rbfile=&quot;D:\ruby\bin\ruby.exe&quot; &quot;%1&quot; %*
+</pre>
+<p>Add .rb to the PATHEXT environment variable as follows:
+</p>
+<pre>
+C:\MyRuby&gt;set PATHEXT=.rb;%PATHEXT%
+</pre>
+<p>Once the above settings are configured simply run the program by typing the filename at the command prompt (the .rb filename extension is not required): 
+</p>
+<pre>
+C:\MyRuby&gt; hello
+Hello Ruby
+</pre>
+<p>The above steps can be placed in your Autoexec.bat file if you would like this association made every time you reboot your system.
+</p><p><br />
+<p><a class="booklink" href="http://www.ebookfrenzy.com/ebookpages/ruby_ebook.html"><img id="coverthumb" src="/cover_images/rubycover_small.png" /></a><br>
+</p>
+<p><a href="https://www.e-junkie.com/ecom/gb.php?c=cart&amp;i=PLDM-1&amp;cl=56328&amp;ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/extensions/images/Buy_Now.png" border="0" alt="Add to Cart"/></a>
+</p>
+<p><br />
+</p>
+<hr />

@@ -1,0 +1,111 @@
+		<title>Getting and Installing Ruby - Techotopia</title>
+		<h1 class="firstHeading">Getting and Installing Ruby</h1>
+<hr />
+<p><br />
+</p>
+<p><br />
+No matter how wonderful Ruby is, there isn't much you can do with it if it is not installed on your computer system. In this chapter we will cover the download and installation of Ruby on Linux, UNIX and Windows.
+</p><p>Ruby is itself written in the C programming language. This means that either a binary distribution for your chosen operating system and hardware platform needs to be installed, or the Ruby sources need to be downloaded and compiled on your target system. Whilst compiling Ruby yourself might be fun, it usually makes more sense to simply download and install one of the many pre-built Ruby packages rather than attempt to build your own. In this chapter we will cover installing pre-built Ruby packages on each platform.
+<li class="toclevel-1"><a href="#Installing_Ruby_on_Linux"><span class="tocnumber">1</span> <span class="toctext">Installing Ruby on Linux</span></a>
+<li class="toclevel-2"><a href="#Ruby_on_Red_Hat_Enterprise_and_Fedora_Linux"><span class="tocnumber">1.1</span> <span class="toctext">Ruby on Red Hat Enterprise and Fedora Linux</span></a></li>
+<li class="toclevel-2"><a href="#Ruby_on_Ubuntu_and_Debian_Linux"><span class="tocnumber">1.2</span> <span class="toctext">Ruby on Ubuntu and Debian Linux</span></a></li>
+<li class="toclevel-2"><a href="#Ruby_on_Microsoft_Windows"><span class="tocnumber">1.3</span> <span class="toctext">Ruby on Microsoft Windows</span></a></li>
+<h2> <span class="mw-headline"> Installing Ruby on Linux </span></h2>
+<p>There are a number of different Linux distributions available today and it makes sense to install the Ruby package built specifically for your chosen Linux flavor. The best way to do this is to use the standard package manager for that particular Linux. 
+</p>
+<h3> <span class="mw-headline"> Ruby on Red Hat Enterprise and Fedora Linux </span></h3>
+<p>Red Hat Enterprise Linux and Fedora Linux both use the <i>YUM</i> installation manager and the Red Hat Package Manager (<i>rpm</i>). The first step is to verify if Ruby is already installed. This can be achieved using the following rpm command. In this example, Ruby is not yet installed:
+</p>
+<pre>
+rpm -q ruby
+package ruby is not installed
+</pre>
+<p>If Ruby is not installed, it can be installed using the <i>yum</i> update manager. This needs to be performed as <i>root</i> so the superuser password will be required in the following steps:
+</p>
+<pre>
+su -
+yum install ruby
+</pre>
+<p>The <i>yum</i> tool will locate the <i>ruby</i> package and any other packages on which Ruby is dependent and prompt you to install the packages:
+</p>
+<pre>
+Downloading Packages:
+(1/2): ruby-1.8.1-7.EL4.8 100% |                         | 156 kB    00:10
+(2/2): ruby-libs-1.8.1-7. 100% |                         | 1.5 MB    01:23
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing: ruby-libs                    ######################### [1/2]
+  Installing: ruby                         ######################### [2/2]
+
+Installed: ruby.i386 0:1.8.1-7.EL4.8
+Dependency Installed: ruby-libs.i386 0:1.8.1-7.EL4.8
+Complete!
+</pre>
+<p>Once the installation is complete, you may re-run the <i>rpm</i> command to verify the package is now installed:
+</p>
+<pre>
+rpm -q ruby
+ruby-1.8.1-7.EL4.8
+</pre>
+<p>Alternatively, you can verify that Ruby is installed by running it with the command line option to display the version information:
+</p>
+<pre>
+ruby -v
+ruby 1.8.1 (2003-12-25) [i386-linux-gnu]
+</pre>
+<h3> <span class="mw-headline"> Ruby on Ubuntu and Debian Linux </span></h3>
+<p>Debian, Ubuntu and other Debian derived Linux distributions use the <i>apt-get</i> tool to manage package installation. If you are running Ubuntu Linux and get the following output from the <i>ruby</i> command, you need to install Ruby:
+</p>
+<pre>
+$ ruby
+The program 'ruby' is currently not installed.  You can install it by typing:
+sudo apt-get install ruby
+-bash: ruby: command not found
+</pre>
+<p>To install ruby, simply run the <i>apt-get</i> command as instructed in the message:
+</p>
+<pre>
+sudo apt-get install ruby
+</pre>
+<p>The apt-get tool will display output listing any other packages required by Ruby (better known as <i>dependencies</i>):
+</p>
+<pre>
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following extra packages will be installed:
+  libruby1.8 ruby1.8
+Suggested packages:
+  ruby1.8-examples rdoc1.8 ri1.8
+The following NEW packages will be installed:
+  libruby1.8 ruby ruby1.8
+0 upgraded, 3 newly installed, 0 to remove and 135 not upgraded.
+Need to get 1769kB of archives.
+After unpacking 6267kB of additional disk space will be used.
+Do you want to continue [Y/n]?
+</pre>
+<p>One the installation process is completed, you can verify that Ruby is installed by running it with the command line option to display the version information:
+</p>
+<pre>
+ruby -v
+ruby 1.8.1 (2003-12-25) [i386-linux-gnu]
+</pre>
+<h3> <span class="mw-headline"> Ruby on Microsoft Windows </span></h3>
+<p>By far the easiest way to install Ruby on Windows is to use something called the <i>One-Click Ruby Installer</i>. This is an executable which, when run, performs the installation of Ruby onto a system. It also installs a mechanism by which Ruby may be easily removed from the system at a later date.
+</p><p>To use the <i>One-Click Ruby Installer</i> go to <a href="http://rubyforge.org" class="external free" title="http://rubyforge.org" rel="nofollow">http://rubyforge.org</a>, scroll down to the link to download the One-Click Installer and click on it. A second page will appear listing the various releases of the One-Click Installer. If you are feeling brave, choose the latest <i>Release Candidate</i>. If you prefer something a little more tried and tested, select the last non-release candidate download (for example, ruby186-26.exe).
+</p><p>Once the executable has downloaded, launch it as you would any other Windows application.
+</p><p>There are a number of ways to run Ruby once it is installed. The most basic approach is to start up a Windows Command Prompt and run Ruby from there. For example, we can output the version of Ruby installed on the system as follows:
+</p><p><br />
+</p><p><br />
+</p><p><br />
+</p><p><br />
+</p><p><br />
+<p><a class="booklink" href="http://www.ebookfrenzy.com/ebookpages/ruby_ebook.html"><img id="coverthumb" src="/cover_images/rubycover_small.png" /></a><br>
+</p>
+<p><a href="https://www.e-junkie.com/ecom/gb.php?c=cart&amp;i=PLDM-1&amp;cl=56328&amp;ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/extensions/images/Buy_Now.png" border="0" alt="Add to Cart"/></a>
+</p>
+<p><br />
+</p>
+<hr />

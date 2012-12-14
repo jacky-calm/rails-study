@@ -1,0 +1,149 @@
+		<title>Ruby Strings - Creation and Basics - Techotopia</title>
+		<h1 class="firstHeading">Ruby Strings - Creation and Basics</h1>
+<hr />
+<p><br />
+</p>
+<p><br />
+A string is a group of characters that typically make up human readable words or sentences. Because strings are essentially the mechanism by which applications communicate with their users it is inevitable that string manipulation is a key part of programming. In this chapter of <a href="/index.php/Ruby_Essentials" title="Ruby Essentials">Ruby Essentials</a> we will cover the basics of working with strings in Ruby.
+</p>
+<li class="toclevel-1"><a href="#Creating_Strings_in_Ruby"><span class="tocnumber">1</span> <span class="toctext">Creating Strings in Ruby</span></a></li>
+<li class="toclevel-1"><a href="#Quoting_Ruby_Strings"><span class="tocnumber">2</span> <span class="toctext">Quoting Ruby Strings</span></a></li>
+<li class="toclevel-1"><a href="#General_Delimited_Strings"><span class="tocnumber">3</span> <span class="toctext">General Delimited Strings</span></a></li>
+<li class="toclevel-1"><a href="#Ruby_Here_Documents"><span class="tocnumber">4</span> <span class="toctext">Ruby Here Documents</span></a></li>
+<li class="toclevel-1"><a href="#Getting_Information_about_String_Objects"><span class="tocnumber">5</span> <span class="toctext">Getting Information about String Objects</span></a></li>
+<h2> <span class="mw-headline"> Creating Strings in Ruby </span></h2>
+<p>Strings are stored in Ruby using the <i>String</i> object. In addition to providing storage for strings, this object also contains a number of methods which can be used to manipulate strings.
+</p><p>A new string can be created using the <i>new</i> method of the <i>String</i> class:
+<pre>
+myString = String.new
+=&gt; &quot;&quot;
+</pre>
+<p>The above method creates an empty string. Alternatively a new string may be created and initialized by passing through a string as an argument to the <i>new</i> method:
+</p>
+<pre>
+myString = String.new(&quot;This is my string. Get your own string&quot;)
+</pre>
+<p>Another option is to use the <i>String</i> method provided by the <i>Kernel</i>:
+</p>
+<pre>
+myString = String(&quot;This is also my string&quot;)
+</pre>
+<p>But, perhaps the easiest way to create a string is to simply assign a string to a variable name. Ruby then takes care of the rest for you:
+</p>
+<pre>
+myString = &quot;This is also my string&quot;
+</pre>
+<p>As far as creating string objects goes that is as easy as it gets!
+</p>
+<h2> <span class="mw-headline"> Quoting Ruby Strings </span></h2>
+<p>Strings can be delimited using either double quotes (") or single quotes ('). Whilst both serve the purpose of encapsulating a string they have different purposes. The double quotes are designed to interpret escaped characters such as new lines and tabs so that they appear as actual new lines and tabs when the string is rendered for the user. Single quotes, however, display the actual escape sequence, for example displaying \n instead of a new line.
+</p><p>The following example demonstrates the double quote in action:
+<pre>
+myString = &quot;This is also my string.\nGet your own string&quot;
+
+puts myString
+This is also my string.
+Get your own string
+</pre>
+<p>As you can see, the \n was interpreted as a real new line causing our string to appear on two lines when printed.
+</p><p>The single quote gives us a different result:
+<pre>
+myString = 'This is also my string.\nGet your own string'
+
+puts myString
+This is also my string.\nGet your own string
+</pre>
+<p>In this case the '\n' is treated literally as a '\' and an 'n' with no special meaning.
+</p>
+<h2> <span class="mw-headline"> General Delimited Strings </span></h2>
+<p>Ruby allows you to define any character you want as a string delimiter simply by prefixing the desired character with a %. For example, we could use the ampersand to delimit our string:
+</p>
+<pre>
+myString = %&amp;This is my String&amp;
+</pre>
+<p>This enables us to avoid quotes and double quotes embedded in a string being interpreted as delimiters:
+</p>
+<pre>
+myString = %&amp;This is &quot;my&quot; String&amp;
+puts myString
+This is &quot;my&quot; String
+</pre>
+<p>It is also possible to define delimiter pairs such as parentheses, braces or square brackets:
+</p>
+<pre>
+myString = %(This is my String)
+myString = %[This is my String]
+myString = %{This is my String}
+</pre>
+<p>Ruby also provides a few special delimited strings. %Q is the equivalent of double quote delimiters and %q is the equivalent of single quotes. %x is the equivalent of back-quote (`) delimited strings. 
+</p><p>An easy way to embed quotes in a Ruby string is to <i>escape</i> them by preceding them with a backslash (\):
+<pre>
+myString = &quot;This is \&quot;my\&quot; String&quot;
+
+myString = 'This is \'my\' String'
+</pre>
+<p>Another option, if you aren't using escape characters such as new lines (\n) is to use single quotes to delimit a string containing double quotes and vice versa:
+</p>
+<pre>
+myString = 'This is &quot;my&quot; String'
+
+myString = &quot;This is 'my' String&quot;
+</pre>
+<h2> <span class="mw-headline"> Ruby Here Documents </span></h2>
+<p>A <i>Here Document</i> (or <i>heredoc</i> as it is more commonly referred to) provides a mechanism for creating free format strings, preserving special characters such as new lines and tabs.
+</p><p>A here document is created by preceding the text with <i>&lt;&lt;</i> followed by the delimiter string you wish to use to mark the end of the text. The following example uses the string "DOC" as the delimiter:
+<pre>
+myText = &lt;&lt;DOC
+Please Detach and return this coupon with your payment.
+Do not send cash or coins.
+
+Please write your name and account number on the check and
+make checks payable to:
+
+        Acme Corporation
+
+Thank you for your business.
+DOC
+</pre>
+<p>When this string is printed it appears exactly as it was entered, together with all the new lines and tabs:
+</p>
+<pre>
+puts myText
+
+Please Detach and return this coupon with your payment.
+Do not send cash or coins.
+
+Please write your name and account number on the check and
+make checks payable to:
+
+        Acme Corporation
+
+Thank you for your business.
+</pre>
+<h2> <span class="mw-headline"> Getting Information about String Objects </span></h2>
+<p>The String object includes a number of methods that can be used to obtain information about the string. For example, we can find if a string is empty using the <i>empty?</i> method:
+</p>
+<pre>
+myString = &quot;&quot;
+=&gt; &quot;&quot;
+
+myString.empty?
+=&gt; true
+</pre>
+<p>It is also possible to find the length of a string using the <i>length</i> and <i>size</i> methods:
+</p>
+<pre>
+myString = &quot;Hello&quot;
+
+myString.length
+=&gt; 5
+</pre>
+<p><br />
+</p>
+<p><a class="booklink" href="http://www.ebookfrenzy.com/ebookpages/ruby_ebook.html"><img id="coverthumb" src="/cover_images/rubycover_small.png" /></a><br>
+</p>
+<p><a href="https://www.e-junkie.com/ecom/gb.php?c=cart&amp;i=PLDM-1&amp;cl=56328&amp;ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/extensions/images/Buy_Now.png" border="0" alt="Add to Cart"/></a>
+</p>
+<p><br />
+</p>
+<hr />

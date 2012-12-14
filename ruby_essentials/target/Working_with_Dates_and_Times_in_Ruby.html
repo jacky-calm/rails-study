@@ -1,0 +1,89 @@
+		<title>Working with Dates and Times in Ruby - Techotopia</title>
+		<h1 class="firstHeading">Working with Dates and Times in Ruby</h1>
+<hr />
+<p><br />
+</p>
+<p><br />
+Ruby provides a <i>date</i> library containing the <i>Date</i> and <i>DateTime</i> classes, designed to provide mechanisms for manipulating dates and times in Ruby programs. The purpose of this chapter is to provide an overview of these classes.
+</p>
+<li class="toclevel-1"><a href="#Accessing_the_Date_and_DateTime_Classes_in_Ruby"><span class="tocnumber">1</span> <span class="toctext">Accessing the Date and DateTime Classes in Ruby</span></a></li>
+<li class="toclevel-1"><a href="#Working_with_Dates_in_Ruby"><span class="tocnumber">2</span> <span class="toctext">Working with Dates in Ruby</span></a></li>
+<li class="toclevel-1"><a href="#Working_with_Dates_and_Times"><span class="tocnumber">3</span> <span class="toctext">Working with Dates and Times</span></a></li>
+<li class="toclevel-1"><a href="#Calculating_the_Difference_Between_Dates"><span class="tocnumber">4</span> <span class="toctext">Calculating the Difference Between Dates</span></a></li>
+<h2> <span class="mw-headline"> Accessing the Date and DateTime Classes in Ruby </span></h2>
+<p>The <i>Date</i> and <i>DateClass</i> classes reside in the Ruby <i>date</i> library. Before these classes and their respective methods can be used, the <i>date</i> library must be included using the <i>require</i> directive:
+</p>
+<pre>
+require 'date'
+</pre>
+<h2> <span class="mw-headline"> Working with Dates in Ruby </span></h2>
+<p>Dates are handled in Ruby using the <i>Date</i> class. An instantiated Date object contains day, year and month values. A Date object may be initialized with day, month and year values on creation:
+</p>
+<pre>
+require 'date'
+
+date = Date.new(2008, 12, 22)
+
+date = Date.new(2008, 12, 22)
+=&gt; #&lt;Date: 4909645/2,0,2299161&gt;
+</pre>
+<p>Having created the date object we can access the properties of the object:
+</p>
+<pre>
+date.day
+=&gt; 22
+
+date.month
+=&gt; 12
+
+date.year
+=&gt; 2008
+</pre>
+<h2> <span class="mw-headline"> Working with Dates and Times </span></h2>
+<p>If both a date and a time value are needed, the <i>DateTime</i> class comes into use. As with the <i>Date</i> class, this class can similarly be pre-initialized on creation:
+</p>
+<pre>
+require 'date'
+
+date = DateTime.new(2008, 12, 22, 14, 30)
+</pre>
+<p>Alternatively, the object can be configured to contain today's date and the current time:
+</p>
+<pre>
+date = DateTime.now
+</pre>
+<h2> <span class="mw-headline"> Calculating the Difference Between Dates </span></h2>
+<p>We can also calculate the difference between two dates down to the hour, minute and second:
+</p>
+<pre>
+require 'date'
+
+today = DateTime.now
+=&gt; #&lt;DateTime: 441799066630193/180000000,-301/1440,2299161&gt;
+
+birthday = Date.new(2008, 4, 10)
+=&gt; #&lt;Date: 4909133/2,0,2299161&gt;
+
+days_to_go = birthday - today
+
+time_until = birthday - today
+=&gt; Rational(22903369807, 180000000)
+
+time_until.to_i             # get the number of days until my birthday
+=&gt; 127
+
+hours,minutes,seconds,frac = Date.day_fraction_to_time(time_until)
+[3053, 46, 57, Rational(1057, 180000000)]
+
+puts &quot;It is my birthday in #{hours} hours, #{minutes} minutes and #{seconds} seconds (not that I am counting)&quot;
+It is my birthday in 3053 hours, 46 minutes and 57 seconds (not that I am counting)
+</pre>
+<p><br />
+</p>
+<p><a class="booklink" href="http://www.ebookfrenzy.com/ebookpages/ruby_ebook.html"><img id="coverthumb" src="/cover_images/rubycover_small.png" /></a><br>
+</p>
+<p><a href="https://www.e-junkie.com/ecom/gb.php?c=cart&amp;i=PLDM-1&amp;cl=56328&amp;ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/extensions/images/Buy_Now.png" border="0" alt="Add to Cart"/></a>
+</p>
+<p><br />
+</p>
+<hr />

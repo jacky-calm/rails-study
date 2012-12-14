@@ -1,0 +1,69 @@
+		<title>Ruby Directory Handling - Techotopia</title>
+		<h1 class="firstHeading">Ruby Directory Handling</h1>
+<hr />
+<p><br />
+</p>
+<p><br />
+It may have escaped your notice, but up until this chapter everything we have done involved working with data in memory. Now that we have covered all the basics of the Ruby language, it is time to turn our attention to working with files and directories in Ruby. 
+</p>
+<li class="toclevel-1"><a href="#Changing_Directory_in_Ruby"><span class="tocnumber">1</span> <span class="toctext">Changing Directory in Ruby</span></a></li>
+<li class="toclevel-1"><a href="#Creating_New_Directories"><span class="tocnumber">2</span> <span class="toctext">Creating New Directories</span></a></li>
+<li class="toclevel-1"><a href="#Directory_Listings_in_Ruby"><span class="tocnumber">3</span> <span class="toctext">Directory Listings in Ruby</span></a></li>
+<li class="toclevel-1"><a href="#Summary"><span class="tocnumber">4</span> <span class="toctext">Summary</span></a></li>
+<h2> <span class="mw-headline"> Changing Directory in Ruby </span></h2>
+<p>When a Ruby application is launched it is usually done from a particular directory. Often it is necessary to navigate to a different directory somewhere on the file system from within the Ruby code. Ruby provides a number of useful directory navigation methods in the <i>Dir</i> class.
+</p><p>First, it is often useful to identify the current directory. This can be done with the <i>pwd</i> method of the Ruby <i>Dir</i> class:
+</p><p><tt>
+</p><p>Changing the current working directory in Ruby is achieved using the <i>chdir</i> method of the Ruby <i>Dir</i> class. This method takes the path of the destination directory as an argument:
+</p><p><tt>
+<h2> <span class="mw-headline"> Creating New Directories </span></h2>
+<p>Directory creation in Ruby is handled by the <i>mkdir</i> method of the <i>Dir</i> class. This method takes as its argument the path of the new directory. This can either be a full path to the directory, or a relative path based on the current working directory:
+</p>
+<pre>
+Dir.mkdir(&quot;/home/ruby/temp&quot;)
+=&gt; 0
+</pre>
+<h2> <span class="mw-headline"> Directory Listings in Ruby </span></h2>
+<p>Once we have navigated to the desired directory it is a common requirement to obtain a listing of files contained within that directory. Such a listing can be obtained using the <i>entries</i> method. The <i>entries</i> method takes as an argument the path of the directory for which a listing is required and returns an array containing the names of the files in that directory:
+</p><p>In the following example we request a listing of the files in the current directory, which is represented by a dot (.).
+<pre>
+Dir.entries(&quot;.&quot;)
+=&gt; [&quot;techotopia_stats.jpg&quot;, &quot;toolButton.png&quot;, &quot;.&quot;, &quot;..&quot;, &quot;techotopia_stats_since_start.jpg&quot;, &quot;music_728x90_1.jpg&quot;, 
+&quot;music_468x60_a.jpg&quot;, &quot;Fedora_essentials.jpg&quot;]
+</pre>
+<p>We can use some of the techniques covered in <a href="/index.php/Understanding_Ruby_Arrays" title="Understanding Ruby Arrays">Understanding Ruby Arrays</a> to extract the elements from the array:
+</p>
+<pre>
+ dirListing.each { |file| puts file }
+techotopia_stats.jpg
+toolButton.png
+.
+..
+techotopia_stats_since_start.jpg
+music_728x90_1.jpg
+music_468x60_a.jpg
+Fedora_essentials.jpg
+</pre>
+<p>Alternatively, we can utilize the <i>foreach</i> method of the <i>Dir</i> class to achieve the same result:
+</p>
+<pre>
+Dir.foreach(&quot;.&quot;) { |file| puts file }
+techotopia_stats.jpg
+toolButton_IST.png
+.
+..
+techotopia_stats_since_start.jpg
+music_728x90_1.jpg
+music_468x60_a.jpg
+Fedora_essentials.jpg
+</pre>
+<h2> <span class="mw-headline"> Summary </span></h2>
+<p>This chapter has covered the basics of directory handling in Ruby. The next chapter will cover the concepts of Ruby file handling.
+</p><p><br />
+<p><a class="booklink" href="http://www.ebookfrenzy.com/ebookpages/ruby_ebook.html"><img id="coverthumb" src="/cover_images/rubycover_small.png" /></a><br>
+</p>
+<p><a href="https://www.e-junkie.com/ecom/gb.php?c=cart&amp;i=PLDM-1&amp;cl=56328&amp;ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/extensions/images/Buy_Now.png" border="0" alt="Add to Cart"/></a>
+</p>
+<p><br />
+</p>
+<hr />

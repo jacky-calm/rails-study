@@ -1,0 +1,124 @@
+		<title>Ruby Ranges - Techotopia</title>
+		<h1 class="firstHeading">Ruby Ranges</h1>
+<hr />
+<p><br />
+</p>
+<p><br />
+Ruby Ranges allow data to be represented in the form of a range (in other words a data set with start and end values and a logical sequence of values in between). The values in a range can be numbers, characters, strings or objects. In this chapter we will look at the three types of range supported by Ruby, namely sequences, conditions and intervals.
+</p>
+<li class="toclevel-1"><a href="#Ruby_Sequence_Ranges"><span class="tocnumber">1</span> <span class="toctext">Ruby Sequence Ranges</span></a></li>
+<li class="toclevel-1"><a href="#Using_Range_Methods"><span class="tocnumber">2</span> <span class="toctext">Using Range Methods</span></a></li>
+<li class="toclevel-1"><a href="#Ruby_Ranges_as_Conditional_Expressions"><span class="tocnumber">3</span> <span class="toctext">Ruby Ranges as Conditional Expressions</span></a></li>
+<li class="toclevel-1"><a href="#Ruby_Range_Intervals"><span class="tocnumber">4</span> <span class="toctext">Ruby Range Intervals</span></a></li>
+<li class="toclevel-1"><a href="#Ranges_in_case_Statements"><span class="tocnumber">5</span> <span class="toctext">Ranges in case Statements</span></a></li>
+<h2> <span class="mw-headline"> Ruby Sequence Ranges </span></h2>
+<p>Sequence ranges in Ruby are used to create a range of successive values - consisting of a start value, an end value and a range of values in between.
+</p><p>Two operators are available for creating such ranges, the inclusive two-dot (..) operator and the exclusive three-dot operator (...). The inclusive operator includes both the first and last values in the range. The exclusive range operator excludes the last value from the sequence. For example:
+<pre>
+1..10    # Creates a range from 1 to 10 inclusive
+1...10   # Creates a range from 1 to 9
+</pre>
+<p>A range may be converted to an array using the Ruby <i>to_a</i> method. For example:
+</p>
+<pre>
+(1..10).to_a
+=&gt; [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+(1...10).to_a
+=&gt; [1, 2, 3, 4, 5, 6, 7, 8, 9]
+</pre>
+<p>As mentioned previously, ranges are not restricted to numerical values. We can also create a character based range:
+</p>
+<pre>
+('a'..'l').to_a
+=&gt; [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;, &quot;h&quot;, &quot;i&quot;, &quot;j&quot;, &quot;k&quot;, &quot;l&quot;]
+</pre>
+<p>Also, we can create ranges based on string values:
+</p>
+<pre>
+('cab'..'car').to_a
+=&gt; [&quot;cab&quot;, &quot;cac&quot;, &quot;cad&quot;, &quot;cae&quot;, &quot;caf&quot;, &quot;cag&quot;, &quot;cah&quot;, &quot;cai&quot;, &quot;caj&quot;, &quot;cak&quot;, &quot;cal&quot;, &quot;cam&quot;, 
+&quot;can&quot;, &quot;cao&quot;, &quot;cap&quot;, &quot;caq&quot;, &quot;car&quot;]
+</pre>
+<p>Range values may also be objects. The only requirements for placing an object in a range is that the object provides a mechanism for returning the next object in the sequence via <i>succ</i> and it must be possible to compare the objects using the &lt;=&gt; operator.
+</p>
+<h2> <span class="mw-headline"> Using Range Methods </span></h2>
+<p>Given the object-oriented nature of Ruby it should come as no surprise to you that a range is actually an object. As such, there are a number of methods of the Range class which can be accessed when working with a range object.
+</p>
+<pre>
+words = 'cab'..'car'
+
+words.min         # get lowest value in range
+=&gt; &quot;cab&quot;
+
+words.max         # get highest value in range
+=&gt; &quot;car&quot;
+
+words.include?('can') # check to see if a value exists in the range
+=&gt; true
+
+words.reject {|subrange| subrange &lt; 'cal'} # reject values below a specified range value
+=&gt; [&quot;cal&quot;, &quot;cam&quot;, &quot;can&quot;, &quot;cao&quot;, &quot;cap&quot;, &quot;caq&quot;, &quot;car&quot;]
+
+words.each {|word| puts &quot;Hello &quot; + word} # iterate through each value and perform a task
+Hello cab
+Hello cac
+Hello cad
+Hello cae
+Hello caf
+Hello cag
+Hello cah
+Hello cai
+Hello caj
+Hello cak
+Hello cal
+Hello cam
+Hello can
+Hello cao
+Hello cap
+Hello caq
+Hello car
+</pre>
+<h2> <span class="mw-headline"> Ruby Ranges as Conditional Expressions </span></h2>
+<p>Ruby Ranges can also be used as conditional expressions in looping conditions. The range start value represents the start of the loop, which runs until the range end marker is detected.
+</p>
+<pre>
+ while input = gets
+ puts input + &quot; triggered&quot; if input =~ /start/ .. input =~ /end/
+ end
+</pre>
+<h2> <span class="mw-headline"> Ruby Range Intervals </span></h2>
+<p>Ranges are ideal for identifying if a value falls within a particular range. For example, we might want to know whether a number is within a certain range, or a character within a certain group of letters arranged in alphabetical order. This is achieved using the === equality operator:
+</p>
+<pre>
+(1..20) === 15       # Does the number fit in the range 1 to 20
+=&gt; true
+('k'..'z') === 'm'   # Does the letter fall between the letters 'k' and 'z' in the alphabet?
+=&gt; true
+</pre>
+<h2> <span class="mw-headline"> Ranges in case Statements </span></h2>
+<p>Ranges are perhaps at their most powerful when they are used in conjunction with a <i>case</i> statement 
+(for more information also see <a href="/index.php/The_Ruby_case_Statement" title="The Ruby case Statement">The Ruby case Statement</a> chapter):
+</p>
+<pre>
+score = 70
+
+result = case score
+   when 0..40: &quot;Fail&quot;
+   when 41..60: &quot;Pass&quot;
+   when 61..70: &quot;Pass with Merit&quot;
+   when 71..100: &quot;Pass with Distinction&quot;
+   else &quot;Invalid Score&quot;
+end
+
+puts result
+</pre>
+<p><br />
+</p>
+<p><a class="booklink" href="http://www.ebookfrenzy.com/ebookpages/ruby_ebook.html"><img id="coverthumb" src="/cover_images/rubycover_small.png" /></a><br>
+</p>
+<p><a href="https://www.e-junkie.com/ecom/gb.php?c=cart&amp;i=PLDM-1&amp;cl=56328&amp;ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/extensions/images/Buy_Now.png" border="0" alt="Add to Cart"/></a>
+</p>
+<p><br />
+</p>
+<hr />

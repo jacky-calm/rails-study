@@ -1,0 +1,142 @@
+		<title>Understanding Ruby Arrays - Techotopia</title>
+		<h1 class="firstHeading">Understanding Ruby Arrays</h1>
+<hr />
+<p><br />
+</p>
+<p><br />
+In <a href="/index.php/Understanding_Ruby_Variables" title="Understanding Ruby Variables">Understanding Ruby Variables</a> we looked at storing data (such as numbers, strings and boolean true or false values) in memory locations known as variables. The variable types covered in those chapters were useful for storing one value per variable. Often, however, it is necessary to group together multiple variables into a self contained object. This is where Ruby arrays come in. The objective of this chapter, therefore, is to introduce the concept of Arrays in Ruby and provide an overview of the creation and manipulation of such objects. In the next chapter (<a href="/index.php/Advanced_Ruby_Arrays" title="Advanced Ruby Arrays">Advanced Ruby Arrays</a>) we will look at more ways to work with arrays.
+</p>
+<li class="toclevel-1"><a href="#What_is_a_Ruby_Array"><span class="tocnumber">1</span> <span class="toctext">What is a Ruby Array</span></a></li>
+<li class="toclevel-1"><a href="#How_to_Create_a_Ruby_Array"><span class="tocnumber">2</span> <span class="toctext">How to Create a Ruby Array</span></a></li>
+<li class="toclevel-1"><a href="#Populating_an_Array_with_Data"><span class="tocnumber">3</span> <span class="toctext">Populating an Array with Data</span></a></li>
+<li class="toclevel-1"><a href="#Finding_Out_Information_about_a_Ruby_Array"><span class="tocnumber">4</span> <span class="toctext">Finding Out Information about a Ruby Array</span></a></li>
+<li class="toclevel-1"><a href="#Accessing_Array_Elements"><span class="tocnumber">5</span> <span class="toctext">Accessing Array Elements</span></a></li>
+<li class="toclevel-1"><a href="#Finding_the_Index_of_an_Element"><span class="tocnumber">6</span> <span class="toctext">Finding the Index of an Element</span></a></li>
+<h2> <span class="mw-headline"> What is a Ruby Array </span></h2>
+<p>A Ruby array is an object that contains a number of items. Those items can be variables (such as String, Integer, Fixnum Hash etc) or even other objects (including other arrays to make a multidimensional array). Once you have grouped all the items into the array you can then perform tasks like sorting the array items into alphabetical or numerical order, accessing and changing the value assigned to each array item, and passing the group of items as an argument to a Ruby function.
+</p>
+<h2> <span class="mw-headline"> How to Create a Ruby Array </span></h2>
+<p>Ruby provides a number of mechanisms for creating an array. Arrays essentially involve the use of the Ruby <i>Array</i> class. We could, therefore, create an uninitialized array using the <i>new</i> method of the <i>Array</i> class:
+</p>
+<pre>
+days_of_week = Array.new
+</pre>
+<p>We now have an array called <i>days_of_week</i> with nothing in it. In fact, we can verify if an array is empty by calling the <i>empty?</i> method of the Ruby <i>Array</i> class which will return <i>true</i> if the array is empty:
+</p>
+<pre>
+days_of_week.empty?
+=&gt; true
+</pre>
+<p>We can also initialize an array with a preset number of elements by passing through the array size as an argument to the <i>new</i> method:
+</p>
+<pre>
+days_of_week = Array.new(7)
+=&gt; [nil, nil, nil, nil, nil, nil, nil]
+</pre>
+<p>Note that when we preset the size, all the elements are initialized to <i>nil</i>. Now we need some way of populating an array with elements.
+</p>
+<h2> <span class="mw-headline"> Populating an Array with Data </span></h2>
+<p>Having created an array we need to add some data to it. One way to do this is to place the same data in each element during the created process:
+</p>
+<pre>
+days_of_week = Array.new(7, &quot;today&quot;)
+=&gt; [&quot;today&quot;, &quot;today&quot;, &quot;today&quot;, &quot;today&quot;, &quot;today&quot;, &quot;today&quot;, &quot;today&quot;]
+</pre>
+<p>Another option is to use the [] method of the <i>Array</i> class to specify the elements one by one:
+</p>
+<pre>
+days_of_week = Array[ &quot;Mon&quot;, &quot;Tues&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;, &quot;Sun&quot; ]
+=&gt; [&quot;Mon&quot;, &quot;Tues&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;, &quot;Sun&quot;]
+</pre>
+<p>This can also be abbreviated to just the array name and the square brackets:
+</p><p>days_of_week = [ "Mon", "Tues", "Wed", "Thu", "Fri", "Sat", "Sun" ]
+</p><p>This will not only create the array for us, but also populate it with the element data.
+<h2> <span class="mw-headline"> Finding Out Information about a Ruby Array </span></h2>
+<p>Once an array exists, it can be useful to find out information about that array and its elements. As we mentioned earlier, it is possible to find out if an array is empty or not:
+</p>
+<pre>
+days_of_week.empty?
+=&gt; true
+</pre>
+<p>We can also find out the size of an array using the <i>size</i> method of the Array class:
+</p>
+<pre>
+days_of_week = Array.new(7)
+days_of_week.size
+=&gt; 7
+</pre>
+<p>It is also possible find out what type of object is contained in array by using the <i>array index</i> value of the element we want to interrogate combined with the <i>class</i> method:
+</p>
+<pre>
+days_of_week = [ &quot;Mon&quot;, 15, &quot;Wed&quot;, 16, &quot;Thu&quot;, 17 ]
+
+days_of_week[0].class
+=&gt; String
+
+days_of_week[1].class
+=&gt; Fixnum
+</pre>
+<h2> <span class="mw-headline"> Accessing Array Elements </span></h2>
+<p>The elements of an array can be accessed by referencing the index of the element in question in conjunction with the [] method. To access the first and second elements of our array therefore:
+</p>
+<pre>
+days_of_week[0]
+=&gt; &quot;Mon&quot;
+
+days_of_week[1]
+=&gt; &quot;Tues&quot;
+</pre>
+<p>The Array class <i>at</i> method can be used to similar effect:
+</p>
+<pre>
+days_of_week.at(0)
+=&gt; &quot;Mon&quot;
+</pre>
+<p>The last element of an array may be accessed by specifying an array index of -1. For example:
+</p>
+<pre>
+days_of_week[-1]
+=&gt; &quot;Sun&quot;
+</pre>
+<p>The first and last elements may be accessed by using the <i>first</i> and <i>last</i> methods of the Array class:
+</p>
+<pre>
+days_of_week.first
+=&gt; &quot;Mon&quot;
+
+days_of_week.last
+=&gt; &quot;Sun&quot;
+</pre>
+<h2> <span class="mw-headline"> Finding the Index of an Element </span></h2>
+<p>Often when working with arrays it is necessary to find out the index of a particular element. This can be achieved using the <i>index</i> method which returns the index of the first element to match the specified criteria. For example, to identify the index value of the "Wed" element of our days of the week array:
+</p>
+<pre>
+days_of_week.index(&quot;Wed&quot;)
+=&gt; 2
+</pre>
+<p>The <i>rindex</i> method can be used to find the last matching element in an array.
+</p><p>A subset of an array's elements may be extracted by specifying the start point and the number of elements to extract. For example, to start at element 1 and read 3 elements:
+<pre>
+days_of_week[1, 3]
+=&gt; [&quot;Tues&quot;, &quot;Wed&quot;, &quot;Thu&quot;]
+</pre>
+<p>Similarly, we can specify a range (for information on ranges see the <a href="/index.php/Ruby_Ranges" title="Ruby Ranges">Ruby Ranges</a> chapter).
+</p>
+<pre>
+days_of_week[1..3]
+=&gt; [&quot;Tues&quot;, &quot;Wed&quot;, &quot;Thu&quot;]
+</pre>
+<p>Alternatively, the <i>slice</i> method of the Array class may be used:
+</p>
+<pre> days_of_week.slice(1..3)
+=&gt; [&quot;Tues&quot;, &quot;Wed&quot;, &quot;Thu&quot;]
+</pre>
+<p><br />
+</p>
+<p><a class="booklink" href="http://www.ebookfrenzy.com/ebookpages/ruby_ebook.html"><img id="coverthumb" src="/cover_images/rubycover_small.png" /></a><br>
+</p>
+<p><a href="https://www.e-junkie.com/ecom/gb.php?c=cart&amp;i=PLDM-1&amp;cl=56328&amp;ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/extensions/images/Buy_Now.png" border="0" alt="Add to Cart"/></a>
+</p>
+<p><br />
+</p>
+<hr />

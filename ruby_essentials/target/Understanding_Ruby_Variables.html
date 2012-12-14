@@ -1,0 +1,129 @@
+		<title>Understanding Ruby Variables - Techotopia</title>
+		<h1 class="firstHeading">Understanding Ruby Variables</h1>
+<hr />
+<p><br />
+</p>
+<p><br />
+Variables are essentially a way to store a value and assign a name to that value for reference purposes. Variables take various forms ranging from integers to strings of characters. In this chapter we will take a look at how variables are declared and converted. We will also look at the much simpler area of Ruby constants.
+</p>
+<li class="toclevel-1"><a href="#Ruby_Constants"><span class="tocnumber">1</span> <span class="toctext">Ruby Constants</span></a></li>
+<li class="toclevel-1"><a href="#Ruby_and_Variable_Dynamic_Typing"><span class="tocnumber">2</span> <span class="toctext">Ruby and Variable Dynamic Typing</span></a></li>
+<li class="toclevel-1"><a href="#Declaring_a_Variable"><span class="tocnumber">3</span> <span class="toctext">Declaring a Variable</span></a></li>
+<li class="toclevel-1"><a href="#Identifying_a_Ruby_Variable_Type"><span class="tocnumber">4</span> <span class="toctext">Identifying a Ruby Variable Type</span></a></li>
+<li class="toclevel-1"><a href="#Changing_Variable_Type"><span class="tocnumber">5</span> <span class="toctext">Changing Variable Type</span></a></li>
+<li class="toclevel-1"><a href="#Converting_Variable_Values"><span class="tocnumber">6</span> <span class="toctext">Converting Variable Values</span></a></li>
+<h2> <span class="mw-headline"> Ruby Constants </span></h2>
+<p>A Ruby constant is used to store a value for the duration of a Ruby program's execution. Constants are declared by beginning the variable name with a capital letter (a common convention for declaring constants is to use uppercase letters for the entire name). For example:
+</p>
+<pre>
+MYCONSTANT = &quot;hello&quot;
+=&gt; &quot;hello&quot;
+</pre>
+<p>Unlike other programming languages, Ruby actually allows the value assigned to a constant to be changed after it has been created. The Ruby interpreter will, however, issue a warning - even though it allows the change:
+</p>
+<pre>
+MYCONSTANT = &quot;hello2&quot;
+(irb):34: warning: already initialized constant MYCONSTANT
+=&gt; &quot;hello2&quot;
+</pre>
+<h2> <span class="mw-headline"> Ruby and Variable Dynamic Typing </span></h2>
+<p>Many languages such as Java and C use what is known as <i>strong</i> or <i>static</i> variable typing. This means that when you declare a variable in your application code you must define the variable type. For example if the variable is required to store an integer value, you must declare the variable as an integer type. With such languages, when a variable has been declared as a particular type, the type cannot be changed.
+</p><p>Ruby, on the other hand, is a dynamically typed language. This has a couple of key advantages. Firstly it means that you do not need to declare a type when creating a variable. Instead, the Ruby interpreter looks at the type of value you are assigning to the variable and dynamically works out the variable type. Another advantage of this is that once a variable has been declared, you can dynamically change the variable type later in your code.
+<h2> <span class="mw-headline"> Declaring a Variable </span></h2>
+<p>Variables are declared and assigned values by placing the variable name and the value either side of the assignment operator (=). For example, to assign a value of 10 to a variable we will designate as "y" we would write the following:
+</p>
+<pre>
+y = 10
+</pre>
+<p>We have now created a variable called y and assigned it the value of 10. 
+</p><p>In common with some other scripting languages, Ruby supports something called <i>parallel assignment</i>. This is useful if you need to assign values to a number of variables. One way to do this would be as follows:
+<pre>
+a = 10
+b = 20
+c = 30
+d = 40
+</pre>
+<p>The same result can be achieved more quickly, however, using parallel assignment:
+</p>
+<pre>
+a, b, c, d = 10, 20, 30, 40
+</pre>
+<h2> <span class="mw-headline"> Identifying a Ruby Variable Type </span></h2>
+<p>Once a Ruby variable has been declared it can often be helpful to find out the variable type. This can be achieved using the <i>kind_of?</i> method of the <i>Object</i> class. For example, to find out if our variable is an Integer we can use the <i>kind_of?</i> method as follows:
+</p>
+<pre>
+y.kind_of? Integer
+=&gt; true
+</pre>
+<p>We can also ask the variable exactly what class of variable it is using the <i>class</i> method:
+</p>
+<pre>
+y.class
+=&gt; Fixnum
+</pre>
+<p>This tells us that the variable is a fixed number class.
+</p><p>Similarly, we could perform the same task on a string variable we will call <i>s</i>:
+<pre>
+s = &quot;hello&quot;
+s.class
+=&gt; String
+</pre>
+<p>Here we see that the variable is of type String.
+</p>
+<h2> <span class="mw-headline"> Changing Variable Type </span></h2>
+<p>One of simplest ways to change the type of a variable is to simply assign a new value to it. Ruby will dynamically change the type for that variable to match the type of the new value assigned. For example, we can create a variable containing an integer and verify the type:
+</p>
+<pre>
+x = 10
+=&gt; 10
+x.class
+=&gt; Fixnum
+</pre>
+<p>Suppose, we now want to store a string in a variable named 'x'. All we need to do is make the assignment, and Ruby will change the variable type for us:
+</p>
+<pre>
+x = &quot;hello&quot;
+=&gt; &quot;hello&quot;
+x.class
+=&gt; String
+</pre>
+<p>As we can see, the x variable is now a string.
+</p>
+<h2> <span class="mw-headline"> Converting Variable Values </span></h2>
+<p>It is important to note that the above approach is a somewhat destructive way to change a variable type. Often something a little more subtle is needed. For example, we might want to read the value from a variable but convert the extracted value to a different type. The Ruby variable classes have methods that can be called to convert their value to a different type. For example, the <i>Fixnum</i> class has a method named <i>to_f</i> that can be used to retrieve the integer stored in a variable as a floating point value:
+</p>
+<pre>
+y = 20
+=&gt; 20
+y.to_f
+=&gt; 20.0
+</pre>
+<p>Similarly, you can convert a Ruby integer to a string using the <i>to_s()</i> method. The <i>to_s()</i> method takes as an argument the number base to which you want the conversion made. If no number base is specified, decimal is assumed:
+</p>
+<pre>
+54321.to_s
+=&gt; &quot;54321&quot;
+</pre>
+<p>Alternatively, we could convert to binary by specifying a number base of 2:
+</p>
+<pre>
+54321.to_s(2)
+=&gt; &quot;1101010000110001&quot;
+</pre>
+<p>Or even to hexadecimal or octal:
+</p>
+<pre>
+54321.to_s(16)
+=&gt; &quot;d431&quot;
+54321.to_s(8)
+=&gt; &quot;152061&quot;
+</pre>
+<p>In fact, we can use any number base between 1 and 36 when using the <i>to_s</i> method.
+</p><p><br />
+<p><a class="booklink" href="http://www.ebookfrenzy.com/ebookpages/ruby_ebook.html"><img id="coverthumb" src="/cover_images/rubycover_small.png" /></a><br>
+</p>
+<p><a href="https://www.e-junkie.com/ecom/gb.php?c=cart&amp;i=PLDM-1&amp;cl=56328&amp;ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/extensions/images/Buy_Now.png" border="0" alt="Add to Cart"/></a>
+</p>
+<p><br />
+</p>
+<hr />

@@ -1,0 +1,43 @@
+		<title>Ruby Operator Precedence - Techotopia</title>
+		<h1 class="firstHeading">Ruby Operator Precedence</h1>
+<hr />
+<p><br />
+</p>
+<p><br />
+In the previous chapter of <a href="/index.php/Ruby_Essentials" title="Ruby Essentials">Ruby Essentials</a> we looked at Ruby operators and expressions. An equally important area to understand is operator precedence. This is essentially the order in which the Ruby interpreter evaluates expressions comprising more than one operator.
+</p>
+<li class="toclevel-1"><a href="#An_Example_of_Ruby_Operator_Precedence"><span class="tocnumber">1</span> <span class="toctext">An Example of Ruby Operator Precedence</span></a></li>
+<li class="toclevel-1"><a href="#Overriding_Operator_Precedence"><span class="tocnumber">2</span> <span class="toctext">Overriding Operator Precedence</span></a></li>
+<li class="toclevel-1"><a href="#Operator_Precedence_Table"><span class="tocnumber">3</span> <span class="toctext">Operator Precedence Table</span></a></li>
+<h2> <span class="mw-headline"> An Example of Ruby Operator Precedence </span></h2>
+<p>When humans evaluate expressions, they usually do so starting at the left of the expression and working towards the right. For example, working from left to right we get a result of 300 from the following expression:
+</p><p>10 + 20 * 10 = 300
+</p><p>This is because we, as humans, add 10 to 20, resulting in 30 and then multiply that by 10 to arrive at 300. Ask Ruby to perform the same calculation and you get a very different answer:
+<pre>
+irb(main):003:0&gt; 10 + 20 * 10
+=&gt; 210
+</pre>
+<p>This is a direct result of <i>operator precedence</i>. Ruby has a set of rules that tell it in which order operators should be evaluated in an expression. Clearly, Ruby considers the multiplication operator (*) to be of a higher precedence than the addition (+) operator. 
+</p>
+<h2> <span class="mw-headline"> Overriding Operator Precedence </span></h2>
+<p>The precedence built into Ruby can be overridden by surrounding the lower priority section of an expression with parentheses. For example:
+</p>
+<pre>
+(10 + 20) * 10
+=&gt; 300
+</pre>
+<p>In the above example, the expression fragment enclosed in parentheses is evaluated before the higher precedence multiplication.
+</p>
+<h2> <span class="mw-headline"> Operator Precedence Table </span></h2>
+<p>The following table provides a reference when you need to know the operator precedence used by Ruby. The table lists all operators from highest precedence to lowest.
+</p>
+<p>Operators with a <i>Yes</i> in the method column are actually methods, and as such may be overridden.
+</p><p><br />
+<p><a class="booklink" href="http://www.ebookfrenzy.com/ebookpages/ruby_ebook.html"><img id="coverthumb" src="/cover_images/rubycover_small.png" /></a><br>
+</p>
+<p><a href="https://www.e-junkie.com/ecom/gb.php?c=cart&amp;i=PLDM-1&amp;cl=56328&amp;ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/extensions/images/Buy_Now.png" border="0" alt="Add to Cart"/></a>
+</p>
+<p><br />
+</p>
+<hr />
+<hr />

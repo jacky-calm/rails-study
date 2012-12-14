@@ -1,0 +1,142 @@
+		<title>Looping with for and the Ruby Looping Methods - Techotopia</title>
+		<h1 class="firstHeading">Looping with for and the Ruby Looping Methods</h1>
+<hr />
+<p><br />
+</p>
+<p><br />
+In the previous chapter we looked at <a href="/index.php/Ruby_While_and_Until_Loops" title="Ruby While and Until Loops">Ruby While and Until Loops</a> as a way to repeat a task until a particular expression evaluated to <i>true</i> or <i>false</i>. In this chapter we will look at some other mechanisms for looping in a Ruby program, specifically <i>for loops</i> and a number of built-in methods designed for looping, specifically the <i>loop</i>, <i>upto</i>, <i>downto</i> and <i>times</i> methods.
+</p>
+<li class="toclevel-1"><a href="#The_Ruby_for_Loop"><span class="tocnumber">1</span> <span class="toctext">The Ruby for Loop</span></a></li>
+<li class="toclevel-1"><a href="#The_Ruby_times_Method"><span class="tocnumber">2</span> <span class="toctext">The Ruby times Method</span></a></li>
+<li class="toclevel-1"><a href="#The_Ruby_upto_Method"><span class="tocnumber">3</span> <span class="toctext">The Ruby upto Method</span></a></li>
+<li class="toclevel-1"><a href="#The_Ruby_downto_Method"><span class="tocnumber">4</span> <span class="toctext">The Ruby downto Method</span></a></li>
+<h2> <span class="mw-headline"> The Ruby for Loop </span></h2>
+<p>The <i>for</i> loop is a classic looping construct that exists in numerous other programming and scripting languages. It allows a task to be repeated a specific number of times. Ruby differs in that it is used in conjunction with ranges (see <a href="/index.php/Ruby_Ranges" title="Ruby Ranges">Ruby Ranges</a> for more details). For example, we can repeat a task 8 times using the following <i>for</i> statement:
+</p>
+<pre>
+for i in 1..8 do
+    puts i
+end
+</pre>
+<p>The above loop will result in the following output:
+</p>
+<pre>
+1
+2
+3
+4
+5
+6
+7
+8
+</pre>
+<p>The <i>do</i> in the <i>for</i> statement is optional, unless the code is placed on a single line:
+</p>
+<pre>
+for i in 1..8 do puts i end
+</pre>
+<p>Ruby <i>for</i> loops can be nested:
+</p>
+<pre>
+for j in 1..5 do
+     for i in 1..5 do
+         print i,  &quot; &quot;
+     end
+puts
+end
+</pre>
+<p><br />
+The above code will result in the following output:
+</p>
+<pre>
+1 2 3 4 5
+1 2 3 4 5
+1 2 3 4 5
+1 2 3 4 5
+1 2 3 4 5
+</pre>
+<p>Also, the <i>break if</i> statement can be used to break out of a <i>for loop</i> (note that only the inner for loop is exited, if the loop is nested the outer loop will continue the looping run):
+</p>
+<pre>
+for j in 1..5 do
+     for i in 1..5 do
+         print i,  &quot; &quot;
+         break if i == 2
+     end
+end
+</pre>
+<p>This causes the inner loop to break each time i equals 2, thereby returning control to the outer loop which in turn calls the inner loop:
+</p>
+<pre>
+1 2
+1 2
+1 2
+1 2
+1 2
+</pre>
+<h2> <span class="mw-headline"> The Ruby times Method </span></h2>
+<p>The <i>times</i> method provides an extremely convenient alternative to the <i>for</i> loop. The <i>times</i> method is provided by the Integer class and allows a task to be performed a specific number of times:
+</p>
+<pre>
+5.times { |i| puts i }
+
+0
+1
+2
+3
+4
+</pre>
+<p>The above statement is identical to the following for loop, although moderately easier to type:
+</p>
+<pre>
+for i in 0..4
+    puts i
+end
+
+0
+1
+2
+3
+4
+</pre>
+<h2> <span class="mw-headline"> The Ruby upto Method </span></h2>
+<p>The <i>upto</i> method can be called on Integer, String and Date classes and provides similar functionality to the <i>for</i> loop described earlier in this chapter. 
+</p><p>For example, we might express a for loop as follows:
+<pre>
+for i in 1..5 do
+   puts i
+end
+</pre>
+<p>Alternatively, we could achieve identical behavior using the <i>upto</i> method, passing the value to which we want the loop to run as an argument to the method:
+</p>
+<pre>
+5.upto(10) do
+   puts &quot;hello&quot;
+end
+</pre>
+<p>If we so desired, we could shorten this to a single line of code:
+</p>
+<pre>
+1.upto(5) { |i| puts i }
+</pre>
+<h2> <span class="mw-headline"> The Ruby downto Method </span></h2>
+<p>The <i>downto</i> method is similar to the <i>upto</i> method with the exception that it starts at a value and counts down, rather than up. For example, we might want a loop to execute for numbers between 15 and 10:
+</p>
+<pre>
+15.downto(10) {|i| puts i }
+15
+14
+13
+12
+11
+10
+</pre>
+<p><br />
+</p>
+<p><a class="booklink" href="http://www.ebookfrenzy.com/ebookpages/ruby_ebook.html"><img id="coverthumb" src="/cover_images/rubycover_small.png" /></a><br>
+</p>
+<p><a href="https://www.e-junkie.com/ecom/gb.php?c=cart&amp;i=PLDM-1&amp;cl=56328&amp;ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/extensions/images/Buy_Now.png" border="0" alt="Add to Cart"/></a>
+</p>
+<p><br />
+</p>
+<hr />

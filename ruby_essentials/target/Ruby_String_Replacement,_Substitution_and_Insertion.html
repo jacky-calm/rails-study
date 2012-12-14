@@ -1,0 +1,122 @@
+		<title>Ruby String Replacement, Substitution and Insertion - Techotopia</title>
+		<h1 class="firstHeading">Ruby String Replacement, Substitution and Insertion</h1>
+<hr />
+<p><br />
+</p>
+<p><br />
+In this chapter we will look at some string manipulation techniques available in Ruby. Such techniques include string substitution, multiplication and insertion. We will also take a look at the Ruby <i>chomp</i> and <i>chop</i> methods.
+</p>
+<li class="toclevel-1"><a href="#Changing_a_Section_of_a_String"><span class="tocnumber">1</span> <span class="toctext">Changing a Section of a String</span></a></li>
+<li class="toclevel-1"><a href="#Ruby_String_Substitution"><span class="tocnumber">2</span> <span class="toctext">Ruby String Substitution</span></a></li>
+<li class="toclevel-1"><a href="#Repeating_Ruby_Strings"><span class="tocnumber">3</span> <span class="toctext">Repeating Ruby Strings</span></a></li>
+<li class="toclevel-1"><a href="#Inserting_Text_into_a_Ruby_String"><span class="tocnumber">4</span> <span class="toctext">Inserting Text into a Ruby String</span></a></li>
+<li class="toclevel-1"><a href="#Ruby_chomp_and_chop_Methods"><span class="tocnumber">5</span> <span class="toctext">Ruby chomp and chop Methods</span></a></li>
+<li class="toclevel-1"><a href="#Reversing_the_Characters_in_a_String"><span class="tocnumber">6</span> <span class="toctext">Reversing the Characters in a String</span></a></li>
+<h2> <span class="mw-headline"> Changing a Section of a String </span></h2>
+<p>Ruby allows part of a string to be modified through the use of the []= method. To use this method, simply pass through the string of characters to be replaced to the method and assign the new string. As is often the case, this is best explained through the use of an example:
+</p>
+<pre>
+myString = &quot;Welcome to JavaScript!&quot;
+
+myString[&quot;JavaScript&quot;]= &quot;Ruby&quot;
+
+puts myString
+=&gt; &quot;Welcome to Ruby!&quot;
+</pre>
+<p>As you can see, we replaced the word "JavaScript" with "Ruby".
+</p><p>The []= method can also be passed an index representing the index at with the replacement is to take place. In this instance the single character at the specified location is replaced by the designated string:
+<pre>
+myString = &quot;Welcome to JavaScript!&quot;
+myString[10]= &quot;Ruby&quot;
+
+puts myString
+=&gt; &quot;Welcome toRubyJavaScript!&quot;
+</pre>
+<p>Perhaps a more useful trick is to specify an index range to be replaced. For example we can replace the characters from index 8 through to index 20 inclusive:
+</p>
+<pre>
+myString = &quot;Welcome to JavaScript!&quot;
+=&gt; &quot;Welcome to JavaScript!&quot;
+
+myString[8..20]= &quot;Ruby&quot;
+=&gt; &quot;Ruby&quot;
+
+puts myString
+=&gt; &quot;Welcome Ruby!&quot;
+</pre>
+<h2> <span class="mw-headline"> Ruby String Substitution </span></h2>
+<p>The <i>gsub</i> and <i>gsub!</i> methods provide another quick and easy way of replacing a substring with another string. These methods take two arguments, the search string and the replacement string. The <i>gsub</i> method returns a modified string, leaving the original string unchanged, whereas the <i>gsub!</i> method directly modify the string object on which the method was called:
+</p>
+<pre>
+myString = &quot;Welcome to PHP Essentials!&quot;
+=&gt; &quot;Welcome to PHP Essentials!&quot;
+
+myString.gsub(&quot;PHP&quot;, &quot;Ruby&quot;)
+=&gt; &quot;Welcome to Ruby Essentials!&quot;
+</pre>
+<p>An entire string, as opposed to a substring, may be replaced using the <i>replace</i> method:
+</p>
+<pre>
+myString = &quot;Welcome to PHP!&quot;
+=&gt; &quot;Welcome to PHP!&quot;
+
+myString.replace &quot;Goodbye to PHP!&quot;
+=&gt; &quot;Goodbye to PHP!&quot;
+</pre>
+<h2> <span class="mw-headline"> Repeating Ruby Strings </span></h2>
+<p>A string may be multiplied using the * method (not something I have ever needed to do myself, but the capability is there if you need it):
+</p>
+<pre>
+myString = &quot;Is that an echo? &quot;
+=&gt; &quot;Is that an echo? &quot;
+
+myString * 3
+=&gt; &quot;Is that an echo? Is that an echo? Is that an echo? &quot;
+</pre>
+<h2> <span class="mw-headline"> Inserting Text into a Ruby String </span></h2>
+<p>So far in this chapter we have looked exclusively at changing the existing text contained in a Ruby string object. Another common requirement is to insert new text at a certain location in a string. This is achieved in Ruby using the <i>insert</i> method. The insert method takes as arguments index position into the string where the insertion is take place, followed by the string to be inserted
+</p><p><br />
+<pre>
+myString = &quot;Paris in Spring&quot;
+
+myString.insert 8, &quot; the&quot;
+=&gt; &quot;Paris in the Spring&quot;
+</pre>
+<h2> <span class="mw-headline"> Ruby chomp and chop Methods </span></h2>
+<p>The purpose of the <i>chop</i> method is to remove the trailing character from a string:
+</p>
+<pre>
+myString = &quot;Paris in the Spring!&quot;
+=&gt; &quot;Paris in the Spring!&quot;
+
+myString.chop
+=&gt; &quot;Paris in the Spring&quot;
+</pre>
+<p>Note that <i>chop</i> returns a modified string, leaving the original string object unchanged. Use <i>chop!</i> to have the change applied to the string object on which the method was called.
+</p><p>The <i>chomp</i> method removes <i>record separators</i> from a string. The record separator is defined by the $/ variable and is, by default, the new line character (\n). As with the <i>chop</i> method the <i>chomp!</i> variant of the method applies the change to string object on which the method is called:
+<pre>
+myString = &quot;Please keep\n off the\n grass&quot;
+=&gt; &quot;Please keep\n off the\n grass\n&quot;
+
+myString.chomp!
+=&gt; &quot;Please keep\n off the\n grass&quot;
+</pre>
+<h2> <span class="mw-headline"> Reversing the Characters in a String </span></h2>
+<p>The <i>reverse</i> method is used to reverse the contents of a string:
+</p>
+<pre>
+myString = &quot;Paris in the Spring&quot;
+=&gt; &quot;Paris in the Spring&quot;
+
+myString.reverse
+=&gt; &quot;gnirpS eht ni siraP&quot;
+</pre>
+<p>Once again, not something I've ever needed to do in all my years as a developer, but you never know when you might need to do it.
+</p><p><br />
+<p><a class="booklink" href="http://www.ebookfrenzy.com/ebookpages/ruby_ebook.html"><img id="coverthumb" src="/cover_images/rubycover_small.png" /></a><br>
+</p>
+<p><a href="https://www.e-junkie.com/ecom/gb.php?c=cart&amp;i=PLDM-1&amp;cl=56328&amp;ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/extensions/images/Buy_Now.png" border="0" alt="Add to Cart"/></a>
+</p>
+<p><br />
+</p>
+<hr />

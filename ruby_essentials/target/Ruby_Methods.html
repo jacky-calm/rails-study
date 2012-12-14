@@ -1,0 +1,112 @@
+		<title>Ruby Methods - Techotopia</title>
+		<h1 class="firstHeading">Ruby Methods</h1>
+<hr />
+<p><br />
+</p>
+<p><br />
+Ruby methods provide a way to organize code and promote re-use. Rather than create long sections of Ruby code, the code is instead organized into logical groups that can be called when needed and re-used without having to re-write the same code over and over. Methods are simple to use, in fact you only need to do two things with a method, declare it and call it.
+</p>
+<li class="toclevel-1"><a href="#Declaring_and_Calling_a_Ruby_Method"><span class="tocnumber">1</span> <span class="toctext">Declaring and Calling a Ruby Method</span></a></li>
+<li class="toclevel-1"><a href="#Passing_Arguments_to_a_Method"><span class="tocnumber">2</span> <span class="toctext">Passing Arguments to a Method</span></a></li>
+<li class="toclevel-1"><a href="#Passing_a_Variable_Number_of_Arguments_to_a_Method"><span class="tocnumber">3</span> <span class="toctext">Passing a Variable Number of Arguments to a Method</span></a></li>
+<li class="toclevel-1"><a href="#Returning_a_Value_from_a_Function"><span class="tocnumber">4</span> <span class="toctext">Returning a Value from a Function</span></a></li>
+<li class="toclevel-1"><a href="#Ruby_Method_Aliases"><span class="tocnumber">5</span> <span class="toctext">Ruby Method Aliases</span></a></li>
+<h2> <span class="mw-headline"> Declaring and Calling a Ruby Method </span></h2>
+<p>The syntax of a Ruby method is as follows:
+</p>
+<pre>
+def name( arg1, arg2, arg3, ... )
+   .. ruby code ..
+   return value
+end
+</pre>
+<p>The <i>name</i> specifies how we will refer to this method when we call it. The <i>args</i> specify values that are passed through to the method to be processed. The <i>ruby code</i> section represents the body of the function that performs the processing. The optional <i>return</i> statement allows a <i>value</i> to be returned to the section of code which called the method (for example to return a status or the result of a calculation). 
+</p><p>The following simple example shows a method defined and called. All the method does is display a string:
+<pre>
+def saysomething()
+    puts &quot;Hello&quot;
+end
+
+saysomething
+</pre>
+<h2> <span class="mw-headline"> Passing Arguments to a Method </span></h2>
+<p>The above example did not pass any arguments through to the function. Commonly a function is designed to perform some task on a number of arguments as in the following example:
+</p>
+<pre>
+def multiply(val1, val2 )
+     result = val1 * val2
+     puts result
+end
+
+multiply( 2, 10 )
+multiply( 4, 20 )
+multiply( 10, 40 )
+multiply( 6, 7 )
+</pre>
+<p>In this example, the method is called multiple times, passing through arguments that are then used in the method to perform a calculation on the arguments, displaying the result. To achieve this without methods it would be necessary to repeat the code in the method 4 times over. Clearly, placing the code in a method and re-using it over and over is a much more efficient approach.
+</p><p>Next we need to look at how a method might return a value.
+<h2> <span class="mw-headline"> Passing a Variable Number of Arguments to a Method </span></h2>
+<p>In the previous section of this chapter we looked at specifying a fixed number of arguments accepted by a method. Sometimes we don't always know in advance how many arguments will be needed. Ruby addresses this by allowing a method to be declared with a variable number of arguments. This achieved by using <i>*args</i> when declaring the method. The arguments passed to the method are then placed in an array where they may be accessed in the body of the method (see the <a href="/index.php/Understanding_Ruby_Arrays" title="Understanding Ruby Arrays">Understanding Ruby Arrays</a> for details on using arrays):
+</p>
+<pre>
+irb(main):062:0&gt; def displaystrings( *args )
+irb(main):063:1&gt;         args.each {|string| puts string}
+irb(main):064:1&gt; end
+=&gt;nil
+
+displaystrings(&quot;Red&quot;)
+Red
+
+displaystrings(&quot;Red&quot;, &quot;Green&quot;)
+Red
+Green
+
+irb(main):067:0&gt; displaystrings(&quot;Red&quot;, &quot;Green&quot;, &quot;Blue&quot;)
+Red
+Green
+Blue
+</pre>
+<p>As you can see, the method can handle any number of arguments passed through.
+</p>
+<h2> <span class="mw-headline"> Returning a Value from a Function </span></h2>
+<p>The <i>return</i> statement is used to return a value from a method and the assignment (=) method is used to accept that <i>return</i> value at the point that the method is called.
+</p><p>As an example, we will declare a method which multiplies two arguments and returns the result:
+<pre>
+def multiply(val1, val2 )
+     result = val1 * val2
+     return result
+end
+
+value = multiply( 10, 20 )
+puts value
+</pre>
+<p>The above example passes 10 and 20 through to the <i>multiply</i> method. The method multiplies these two values and returns the result. The assignment method (=) assigns the result to the variable <i>value</i> which is then displayed using <i>puts</i>.
+</p><p>It is important to note that a method can return one, and only one value or object. If you need to return multiple values, consider placing the results in an array and returning the array.
+<h2> <span class="mw-headline"> Ruby Method Aliases </span></h2>
+<p>Ruby allows a method to be aliased, thereby creating a copy of a method with a different name (although invoking the method with either name ultimately calls the same object). For example:
+</p>
+<pre>
+irb(main):001:0&gt; def multiply(val1, val2 )
+irb(main):002:1&gt;      result = val1 * val2
+irb(main):003:1&gt;      return result
+irb(main):004:1&gt; end
+=&gt; nil
+
+alias docalc multiply
+=&gt; nil
+
+docalc( 10, 20 )
+=&gt; 200
+
+multiply( 10, 20 )
+=&gt; 200
+</pre>
+<p><br />
+</p>
+<p><a class="booklink" href="http://www.ebookfrenzy.com/ebookpages/ruby_ebook.html"><img id="coverthumb" src="/cover_images/rubycover_small.png" /></a><br>
+</p>
+<p><a href="https://www.e-junkie.com/ecom/gb.php?c=cart&amp;i=PLDM-1&amp;cl=56328&amp;ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/extensions/images/Buy_Now.png" border="0" alt="Add to Cart"/></a>
+</p>
+<p><br />
+</p>
+<hr />
