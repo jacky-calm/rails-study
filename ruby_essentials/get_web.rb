@@ -36,14 +36,14 @@ class GetWeb
         open("#{item[0]}.html").each do |line|
           keep = true if line =~ /<p>|<span|<pre>|<title>|<h1|<hr/
           out.write(line.sub(/<span class="editsection">.*\]<\/span>/,'')) if keep unless line =~ /img/
-          out.write('<a href="./Ruby_Essentials.html" title="Ruby Essentials">Table of Contents</a>') if line =~ /<hr/
+          out.write(%{<a href="./#{RUBY_ESSENTIALS}.html" title="Ruby Essentials">Table of Contents</a>}) if line =~ /<hr/
           keep = false if line =~ /<\/p>|<\/span>|<\/pre>|<\/title>|<\/h1>|<hr \/>/
         end
       end
     end
   end
 
-  def self.getAll
+  def self.get_all
     GetWeb.get(RUBY_ESSENTIALS)
     open("#{RUBY_ESSENTIALS}.html") do |f|
       f.read.scan(URL_PATTERN).uniq.each do |item|
@@ -61,4 +61,4 @@ end
 
 GetWeb.make_index
 GetWeb.make_content
-#GetWeb.getAll
+#GetWeb.get_all
