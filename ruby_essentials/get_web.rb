@@ -14,19 +14,13 @@ class GetWeb
     open("#{RUBY_ESSENTIALS}.html").each do |line|
       m = URL_PATTERN.match(line)
       next unless m
-      p line
-      p m
       if m[2] != chapter
         out.write("</ul>") if chapter != ""
-        out.write("<li>")
-        out.write(m[0])
-        out.write("</li>")
+        out.write("<li>#{m[0].sub(/\/index\.php/,".").sub(/#{m[1]}/, "#{m[1]}.html")}</li>")
         out.write("<ul>")
         chapter = m[2]
       else
-        out.write("<li>")
-        out.write(m[0])
-        out.write("</li>")
+        out.write("<li>#{m[0].sub(/\/index\.php/,".").sub(/#{m[1]}/, "#{m[1]}.html")}</li>")
       end
 
     end
