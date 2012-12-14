@@ -1,17 +1,42 @@
 require "open-uri"
 class GetWeb
-  HOME = "http://www.techotopia.com/INDEX.php"
-  INDEX = "Ruby_Essentials"
-  URL_PATTERN = /a href="\/INDEX\.php\/(.*Ruby.*)" title=/
+  HOME = "http://www.techotopia.com/RUBY_ESSENTIALS.php"
+  RUBY_ESSENTIALS = "Ruby_Essentials"
+  #<a href="/index.php/Understanding_Ruby_Variables" title="Understanding Ruby Variables">Understanding Ruby Variables</a>"
+  URL_PATTERN = /<a href="\/index\.php\/(.*Ruby.*)" title="(.*)">.*<\/a>/
+  INDEX = "index.html"
 
-  def make_index
-    open("#{INDEX}.html").each do |line|
+  def self.make_index
+    out = open(INDEX, "w")
+    out.write("<ol>")
 
+    chapter = ""
+    open("#{RUBY_ESSENTIALS}.html").each do |line|
+      m = URL_PATTERN.match(line)
+      next unless m
+      p line
+      p m
+      if m[2] != chapter
+        out.write("</ul>") if chapter != ""
+        out.write("<li>")
+        out.write(m[0])
+        out.write("</li>")
+        out.write("<ul>")
+        chapter = m[2]
+      else
+        out.write("<li>")
+        out.write(m[0])
+        out.write("</li>")
+      end
+
+    end
+    out.write("</ul>")
+    out.write("</ol>")
 
   end
   def self.getAll
-    GetWeb.get(INDEX)
-    open("#{INDEX}.html") do |f|
+    GetWeb.get(RUBY_ESSENTIALS)
+    open("#{RUBY_ESSENTIALS}.html") do |f|
       f.read.scan(URL_PATTERN).uniq.each do |item|
         self.get(item[0])
       end
@@ -25,4 +50,5 @@ class GetWeb
 
 end
 
-GetWeb.getAll
+GetWeb.make_index
+#GetWeb.getAll
