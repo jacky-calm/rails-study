@@ -1,0 +1,531 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+<!-- Techotopia -->
+
+<style type="text/css">
+#bookcover_sky {
+        background:white;
+        opacity: 100;
+
+        padding: 5px 5px 5px 5px;
+        margin: 0px 3px 0px 0px;
+        text-align:center;
+        //float:right;
+        border:1px solid #808080;
+}
+a.booklink:link {
+        color: #FFFFFF;
+        font-size: 12px;
+        text-decoration: none;
+        font-weight: bold;
+}
+
+a.booklink:active {
+        color: #FFFFFF;
+        font-size: 12px;
+        text-decoration: none;
+        font-weight: bold;
+}
+a.booklink:visited {
+        color: #FFFFFF;
+        font-size: 12px;
+        text-decoration: none;
+        font-weight: bold;
+}
+a.booklink:hover {
+        color: #FFFFFF;
+        font-size: 12px;
+        text-decoration: none;
+        font-weight: bold;
+}
+#bookcaption {
+        font-size:0.8em;
+}
+#booktitle {
+        font-size:1.1em;
+}
+
+#bookprice {
+        font-size:1.1em;
+        color:red;
+}
+</style>
+
+
+<script type="text/javascript" src="/scripts/techotopia.js">
+</script>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Ruby Variable Scope,Ruby Essentials,Ruby Number Classes and Conversions,Understanding Ruby Variables" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Techotopia (English)" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" />
+		<title>Ruby Variable Scope - Techotopia</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "/skins/monobook/main.css?42b"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins/common/commonPrint.css?42b" />
+		<link rel="stylesheet" type="text/css" media="handheld" href="/skins/monobook/handheld.css?42b" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins/monobook/IE50Fixes.css?42b";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins/monobook/IE55Fixes.css?42b";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins/monobook/IE60Fixes.css?42b";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins/monobook/IE70Fixes.css?42b";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?42b"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins";
+var wgArticlePath = "/index.php/$1";
+var wgScriptPath = "";
+var wgServer = "http://www.techotopia.com";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Ruby_Variable_Scope";
+var wgTitle = "Ruby Variable Scope";
+var wgArticleId = "447";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "7900";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins/common/wikibits.js?42b"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+@import "/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+@import "/index.php?title=-&action=raw&gen=css&maxage=18000";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="mediawiki ns-0 ltr page-Ruby_Variable_Scope">
+<div>
+
+<!-- Techotopia -->
+<div class="mainlogo" id="p-logo">
+<a href="http://www.techotopia.com"><img src="/skins/common/images/Techotopia_icon.png"></a>
+</div>
+<div id="bannerAd">
+<script type="text/javascript"><!--
+	writeAdsdaqBanner();
+//-->
+</script>
+</div>
+
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		
+<!-- Techotopia ADHERE -->
+<br>
+<div style="float:right; margin-top:0px; margin-right:10px;"><a href="https://www.e-junkie.com/ecom/gb.php?c=cart&cl=56328&ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"></a>
+<script language="javascript" type="text/javascript">
+<!--
+function EJEJC_lc(th) { return false; }
+// -->
+</script>
+<script src='http://www.e-junkie.com/ecom/box.js' type='text/javascript'></script></div>
+<script type="text/javascript"><!--
+google_ad_client = "pub-7393409044112403";
+/* 728x15, created 7/22/08 */
+google_ad_slot = "4205930665";
+google_ad_width = 728;
+google_ad_height = 15;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+		<h1 class="firstHeading">Ruby Variable Scope</h1>
+<div style="float:left">
+<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like show_faces="false" width="450"></fb:like>
+</div>
+<div style="float:right">
+<table>
+<tr>
+<td>
+<!-- Place this tag where you want the +1 button to render -->
+<g:plusone></g:plusone>
+
+<!-- Place this render call where appropriate -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+</td>
+<td>
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_32x32_style addthis_default_style">
+<a class="addthis_button_facebook_follow" addthis:userid="techotopia"></a>
+</div>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=neilsmyth"></script>
+<!-- AddThis Button END -->
+</td>
+<td>
+<a href="http://www.twitter.com/Techotopia"><img src="http://twitter-badges.s3.amazonaws.com/follow_bird_us-a.png" alt="Follow Techotopia on Twitter"/></a>
+</td>
+<td>
+<!-- AddThis Button BEGIN -->
+<a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;pub=neilsmyth"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a><script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pub=neilsmyth"></script>
+<!-- AddThis Button END -->
+</td>
+</tr>
+</table>
+</div>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Techotopia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table border="0" cellspacing="0" width="100%">
+<tr>
+<td width="20%"><a href="/index.php/Understanding_Ruby_Variables" title="Understanding Ruby Variables">Previous</a><td align="center"><a href="/index.php/Ruby_Essentials" title="Ruby Essentials">Table of Contents</a><td width="20%" align="right"><a href="/index.php/Ruby_Number_Classes_and_Conversions" title="Ruby Number Classes and Conversions">Next</a></td>
+<tr>
+<td width="20%">Understanding Ruby Variables<td align="center"><td width="20%" align="right">Ruby Number Classes and Conversions</td>
+</table>
+<hr />
+<p><br />
+</p>
+<style type="text/css">   @import "/extensions/GoogleAdSense/GoogleAdSense.css";</style><div align="center"><b>Purchase and download the PDF and ePub versions of this Ruby eBook for only $8.99</b>&nbsp;&nbsp;<a href="https://www.e-junkie.com/ecom/gb.php?c=cart&amp;i=PLDM-1&amp;cl=56328&amp;ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/extensions/images/Buy_Now.png" border="0" alt="Add to Cart"/></a>
+</div>
+<p><br />
+Now that we have covered the basics of variables in Ruby the next task is to explain Ruby variable scope.
+</p>
+<table><tr><td width="50%" valign="top"><table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#What_is_Variable_Scope.3F"><span class="tocnumber">1</span> <span class="toctext">What is Variable Scope?</span></a></li>
+<li class="toclevel-1"><a href="#Detecting_the_Scope_of_a_Ruby_Variable"><span class="tocnumber">2</span> <span class="toctext">Detecting the Scope of a Ruby Variable</span></a></li>
+<li class="toclevel-1"><a href="#Ruby_Local_Variables"><span class="tocnumber">3</span> <span class="toctext">Ruby Local Variables</span></a></li>
+<li class="toclevel-1"><a href="#Ruby_Global_Variables"><span class="tocnumber">4</span> <span class="toctext">Ruby Global Variables</span></a></li>
+<li class="toclevel-1"><a href="#Ruby_Class_Variables"><span class="tocnumber">5</span> <span class="toctext">Ruby Class Variables</span></a></li>
+<li class="toclevel-1"><a href="#Ruby_Instance_Variables"><span class="tocnumber">6</span> <span class="toctext">Ruby Instance Variables</span></a></li>
+<li class="toclevel-1"><a href="#Ruby_Constant_Scope"><span class="tocnumber">7</span> <span class="toctext">Ruby Constant Scope</span></a></li>
+</ul>
+</td></tr></table></td><td valign="top"><script type="text/javascript" src="/scripts/google.js"></script><script language="Javascript"> googlebox();</script></td></tr><tr><td colspan="2"><script language="Javascript"> googlebanner();</script><br></td></tr></table><br><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="What_is_Variable_Scope.3F"></a><h2><span class="editsection">[<a href="/index.php?title=Ruby_Variable_Scope&amp;action=edit&amp;section=1" title="Edit section: What is Variable Scope?">edit</a>]</span> <span class="mw-headline"> What is Variable Scope? </span></h2>
+<style type="text/css">   @import "/extensions/GoogleAdSense/GoogleAdSense.css";</style><div style="margin-left:20px; float:right;"><script  src="http://tag.contextweb.com/TagPublish/getjs.aspx?action=VIEWAD&amp;cwrun=200&amp;cwadformat=300X250&amp;cwpid=502380&amp;cwwidth=300&amp;cwheight=250&amp;cwpnet=1&amp;cwtagid=11638"></script></div>
+<p>Scope defines where in a program a variable is accessible. Ruby has four types of variable scope, <i>local</i>, <i>global</i>, <i>instance</i> and <i>class</i>. In addition, Ruby has one constant type. Each variable type is declared by using a special character at the start of the variable name as outlined in the following table.
+</p>
+<table border="1" cellspacing="0">
+<tr style="background:#efefef;">
+<th>Name Begins With<th>Variable Scope</th>
+<tr><td><code>$</code> </td><td>A global variable </td></tr>
+<tr><td>
+<code>@</code> </td><td> An instance variable </td></tr>
+<tr><td>
+<code>[a-z]</code> or <code>_</code> </td><td>A local variable </td></tr>
+<tr><td>
+<code>[A-Z]</code> </td><td>A constant</td></tr>
+<tr><td>
+<code>@@</code></td><td>A class variable</td></tr></table>
+<p>In addition, Ruby has two <i>pseudo-variables</i> which cannot be assigned values. These are <i>nil</i> which is assigned to uninitialized variables and <i>self</i> which refers to the currently executing object. In the remainder of this chapter we will look at each of these variable scopes in turn.
+</p>
+<a name="Detecting_the_Scope_of_a_Ruby_Variable"></a><h2><span class="editsection">[<a href="/index.php?title=Ruby_Variable_Scope&amp;action=edit&amp;section=2" title="Edit section: Detecting the Scope of a Ruby Variable">edit</a>]</span> <span class="mw-headline"> Detecting the Scope of a Ruby Variable </span></h2>
+<p>Obviously, you can tell the scope of a variable by looking at the name. Sometimes, however, you need to find out the scope programmatically. A useful technique to find out the scope of a variable is to use the <i>defined?</i> method. <i>defined?</i> will return the scope of the variable referenced, or <i>nil</i> if the variable is not defined in the current context:
+</p>
+<pre>
+x = 10
+=&gt; 10
+defined? x
+=&gt; &quot;local-variable&quot;
+
+$x = 10
+=&gt; 10
+defined? $x
+=&gt; &quot;global-variable&quot;
+</pre>
+<a name="Ruby_Local_Variables"></a><h2><span class="editsection">[<a href="/index.php?title=Ruby_Variable_Scope&amp;action=edit&amp;section=3" title="Edit section: Ruby Local Variables">edit</a>]</span> <span class="mw-headline"> Ruby Local Variables </span></h2>
+<p>Local variables are local to the code construct in which they are declared. For example, a local variable declared in a method or within a loop cannot be accessed outside of that loop or method. Local variable names must begin with either an underscore or a lower case letter. For example:
+</p>
+<pre>
+loopcounter = 10
+_LoopCounter = 20
+</pre>
+<a name="Ruby_Global_Variables"></a><h2><span class="editsection">[<a href="/index.php?title=Ruby_Variable_Scope&amp;action=edit&amp;section=4" title="Edit section: Ruby Global Variables">edit</a>]</span> <span class="mw-headline"> Ruby Global Variables </span></h2>
+<p>Global variables in Ruby are accessible from anywhere in the Ruby program, regardless of where they are declared. Global variable names are prefixed with a dollar sign ($). For example:
+</p>
+<pre>
+$welcome = &quot;Welcome to Ruby Essentials&quot;
+</pre>
+<p>Use of global variables is strongly discouraged. The problem with global variables is that, not only are they visible anywhere in the code for a program, they can also be changed from anywhere in the application. This can make tracking bugs difficult.
+</p><p>It is useful to know, however, that a number of pre-defined global variables are available to you as a Ruby developer to obtain information about the Ruby environment. A brief summary of each of these variables is contained in the following table.
+</p>
+<table border="1" cellspacing="0">
+<tr style="background:#efefef;">
+<th>Variable Name<th>Variable Value</th>
+<tr><td>
+<code>$@</code> </td><td> The location of latest error </td></tr>
+<tr><td>
+<code>$_</code> </td><td> The string last read by <code>gets</code> </td></tr>
+<tr><td>
+<code>$.</code> </td><td> The line <em>number</em> last read by interpreter </td></tr>
+<tr><td>
+<code>$&amp;</code> </td><td> The string last matched by regexp </td></tr>
+<tr><td>
+<code>$~</code> </td><td> The last regexp match, as an array of subexpressions </td></tr>
+<tr><td>
+<code>$</code><em>n</em> </td><td> The <em>nth</em> subexpression in the last match (same as <code>$~[</code><em>n</em><code>]</code>) </td></tr>
+<tr><td>
+<code>$=</code> </td><td> The case-insensitivity flag </td></tr>
+<tr><td>
+<code>$/</code> </td><td> The input record separator </td></tr>
+<tr><td>
+<code>$\</code> </td><td> The output record separator </td></tr>
+<tr><td>
+<code>$0</code> </td><td> The name of the ruby script file currently executing</td></tr>
+<tr><td>
+<code>$*</code> </td><td> The command line arguments used to invoke the script</td></tr>
+<tr><td>
+<code>$$</code> </td><td> The Ruby interpreter's process ID </td></tr>
+<tr><td>
+<code>$?</code> </td><td> The exit status of last executed child process</td></tr></table>
+<p>For example we can execute the <i>gets</i> method to take input from the keyboard, and then reference the <i>$_</i> variable to retrieve the value entered:
+</p>
+<pre>
+irb(main):005:0&gt; gets
+hello
+=&gt; &quot;hello\n&quot;
+irb(main):006:0&gt; $_
+=&gt; &quot;hello\n&quot;
+</pre>
+<p>Alternatively we could find the process ID of the Ruby interpreter:
+</p>
+<pre>
+irb(main):007:0&gt; $$
+=&gt; 17403
+</pre>
+<a name="Ruby_Class_Variables"></a><h2><span class="editsection">[<a href="/index.php?title=Ruby_Variable_Scope&amp;action=edit&amp;section=5" title="Edit section: Ruby Class Variables">edit</a>]</span> <span class="mw-headline"> Ruby Class Variables </span></h2>
+<p>A class variable is a variable that is shared amongst all instances of a class. This means that only one variable value exists for all objects instantiated from this class. This means that if one object instance changes the value of the variable, that new value will essentially change for all other object instances. 
+</p><p>Another way of thinking of thinking of class variables is as global variables within the context of a single class.
+</p><p>Class variables are declared by prefixing the variable name with two @ characters (@@). Class variables must be initialized at creation time. For example:
+</p>
+<pre>
+@@total = 0
+</pre>
+<a name="Ruby_Instance_Variables"></a><h2><span class="editsection">[<a href="/index.php?title=Ruby_Variable_Scope&amp;action=edit&amp;section=6" title="Edit section: Ruby Instance Variables">edit</a>]</span> <span class="mw-headline"> Ruby Instance Variables </span></h2>
+<p>Instance variables are similar to Class variables except that their values are local to specific instances of an object. For example if a class contains an instance variable called <i>@total</i>, if one instance of the object changes the current value of <i>@total</i> the change is local to only the object that made the change. Other objects of the same class have their own local copies of the variable which are independent of changes made in any other objects.
+</p><p>Instance variables are declared in Ruby by prefixing the variable name with a single @ sign:
+</p>
+<pre>
+@total = 10
+</pre>
+<a name="Ruby_Constant_Scope"></a><h2><span class="editsection">[<a href="/index.php?title=Ruby_Variable_Scope&amp;action=edit&amp;section=7" title="Edit section: Ruby Constant Scope">edit</a>]</span> <span class="mw-headline"> Ruby Constant Scope </span></h2>
+<p>Ruby constants are values which, once assigned a value, should not be changed. I say should because Ruby differs from most programming languages in that it allows a constant value to be changed after it has been declared, although the interpreter will protest slightly with a warning message.
+</p><p>Constants declared within a class or module are available anywhere within the context of that class or module. Constants declared outside of a class or module are assigned global scope.
+</p><p><br />
+</p>
+<style type="text/css">   @import "/extensions/GoogleAdSense/GoogleAdSense.css";</style><table align="center">
+<tr>
+<td>
+<div style="background:white; opacity: 100; padding: 3px 3px 3px 3px; margin: 3px 3px 3px 5px; text-align:center; border:1px solid #808080;">
+<p><a class="booklink" href="http://www.ebookfrenzy.com/ebookpages/ruby_ebook.html"><img id="coverthumb" src="/cover_images/rubycover_small.png" /></a><br>
+</p>
+<a style="font-size:0.6em;" href="http://www.ebookfrenzy.com">eBookFrenzy.com</a></div>
+</td>
+<td><b>Purchase and download the full PDF and ePub editions of this Ruby eBook for only $8.99</b></td>
+<td>
+<p><a href="https://www.e-junkie.com/ecom/gb.php?c=cart&amp;i=PLDM-1&amp;cl=56328&amp;ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/extensions/images/Buy_Now.png" border="0" alt="Add to Cart"/></a>
+</p>
+</td>
+</tr>
+</table>
+<p><br />
+</p>
+<hr />
+<table border="0" cellspacing="0" width="100%">
+<tr>
+<td width="20%"><a href="/index.php/Understanding_Ruby_Variables" title="Understanding Ruby Variables">Previous</a><td align="center"><a href="/index.php/Ruby_Essentials" title="Ruby Essentials">Table of Contents</a><td width="20%" align="right"><a href="/index.php/Ruby_Number_Classes_and_Conversions" title="Ruby Number Classes and Conversions">Next</a></td>
+<tr>
+<td width="20%">Understanding Ruby Variables<td align="center"><td width="20%" align="right">Ruby Number Classes and Conversions</td>
+</table>
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:447-0!1!0!!en!2 and timestamp 20121212203934 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.techotopia.com/index.php/Ruby_Variable_Scope">http://www.techotopia.com/index.php/Ruby_Variable_Scope</a>"</div>
+						<!-- end content -->
+<!-- Techotopia ADHERE -->
+<br>
+<script>
+var cwfl = "http://www.techotopia.com/cwfl.htm";
+</script>
+<script  src="http://tag.contextweb.com/TagPublish/getjs.aspx?action=VIEWAD&cwrun=200&cwadformat=728X90&cwpid=502380&cwwidth=728&cwheight=90&cwpnet=1&cwtagid=52844"></script>
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-Navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Home"><a href="/index.php/Main_Page">Home</a></li>
+				<li id="n--iOS-.2F-iPhone-.2F-iPad"><a href="/index.php/IOS_iPhone_iPad_eBooks"> iOS / iPhone / iPad</a></li>
+				<li id="n--Objective-C"><a href="/index.php/Objective-C_2.0_Essentials"> Objective-C</a></li>
+				<li id="n--PowerShell"><a href="/index.php/Windows_PowerShell_1.0_Essentials"> PowerShell</a></li>
+				<li id="n--Hyper-V"><a href="http://www.virtuatopia.com/index.php/Hyper-V_Essentials"> Hyper-V</a></li>
+				<li id="n--VMM-2008"><a href="http://www.virtuatopia.com/index.php/VMM_2008_Essentials"> VMM 2008</a></li>
+				<li id="n--VMware-Server"><a href="http://www.virtuatopia.com/index.php/VMware_Server_2.0_Essentials"> VMware Server</a></li>
+				<li id="n--Xen-Virtualization"><a href="http://www.virtuatopia.com/index.php/Xen_Virtualization_Essentials"> Xen Virtualization</a></li>
+				<li id="n--Windows-Server-2008"><a href="/index.php/Windows_Server_2008_Essentials"> Windows Server 2008</a></li>
+				<li id="n--Security.2B"><a href="/index.php/Security%2B_Essentials"> Security+</a></li>
+				<li id="n-Red-Hat-Linux"><a href="/index.php/Red_Hat_Enterprise_Linux_eBooks">Red Hat Linux</a></li>
+				<li id="n-Linux-eBooks"><a href="/index.php/Linux_eBooks">Linux eBooks</a></li>
+				<li id="n--Ubuntu-Linux"><a href="/index.php/Ubuntu_Linux_eBooks"> Ubuntu Linux</a></li>
+				<li id="n--Fedora-Linux"><a href="/index.php/Fedora_Linux_Essentials"> Fedora Linux</a></li>
+				<li id="n--Fedora-Desktop"><a href="/index.php/Fedora_Desktop_Essentials"> Fedora Desktop</a></li>
+				<li id="n--OpenSUSE-Desktop"><a href="/index.php/OpenSUSE_Desktop_Essentials"> OpenSUSE Desktop</a></li>
+				<li id="n--C.23"><a href="/index.php/C_Sharp_Essentials"> C#</a></li>
+				<li id="n--Visual-Basic"><a href="/index.php/Visual_Basic_Essentials"> Visual Basic</a></li>
+				<li id="n--MySQL"><a href="/index.php/MySQL_Essentials"> MySQL</a></li>
+				<li id="n--PHP"><a href="/index.php/PHP_Essentials"> PHP</a></li>
+				<li id="n--JavaScript"><a href="/index.php/JavaScript_Essentials"> JavaScript</a></li>
+				<li id="n--Ruby"><a href="/index.php/Ruby_Essentials"> Ruby</a></li>
+				<li id="n--Windows"><a href="/index.php/Category:Windows"> Windows</a></li>
+				<li id="n--Networking"><a href="/index.php/Category:Networking"> Networking</a></li>
+				<li id="n--Web-Development"><a href="/index.php/Category:Web_Development"> Web Development</a></li>
+				<li id="n--Feedback"><a href="/index.php/Techotopia_Feedback"> Feedback</a></li>
+				<li id="n--Linuxtopia.org"><a href="http://www.linuxtopia.org"> Linuxtopia.org</a></li>
+				<li id="n--Virtuatopia.com"><a href="http://www.virtuatopia.com"> Virtuatopia.com</a></li>
+				<li id="n--eBook-Store"><a href="http://www.ebookfrenzy.com/index.html"> eBook Store</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class="portlet" id="p-tb">
+        	</div>
+<div class="adportlet" id="p-skyads">
+<div class="adpBody">
+
+<table>
+<tr>
+<td>
+<br>
+<a href="http://www.facebook.com/techotopia">
+<img src="/cover_images/Find-Us-On-Facebook.jpg" width="160" height="38" border="0" align="middle" alt="Find us on Facebook"/></a>
+<br><br>
+&nbsp;<a href="http://goo.gl/QYxL5">
+<img src="/cover_images/eBookStore.png" /></a>
+</td>
+</tr>
+<tr>
+<td>
+<h5><label for="searchInput">Search</label></h5>
+                <div id="searchBody" class="pBody">
+<form action="http://www.techotopia.com/SearchResults.html" id="cse-search-box">
+  <div>
+    <input type="hidden" name="cx" value="partner-pub-7393409044112403:ik9yl7-82ri" />
+    <input type="hidden" name="cof" value="FORID:10" />
+    <input type="hidden" name="ie" value="ISO-8859-1" />
+    <input type="text" name="q" size="16" />
+    <input type="submit" name="sa" value="Search" />
+  </div>
+</form>
+<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+                </div>
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+<div id="bookcover_sky">
+<a class="booklink" href="http://www.ebookfrenzy.com/ebookpages/iphone_ios_6_ebook.html"><img id="coverthumb" src="/cover_images/iphone_ios_6_cover_100x80.png" /></a><br>
+
+<a id="booktitle" href="http://www.ebookfrenzy.com/ebookpages/iphone_ios_6_ebook.html">iPhone iOS 6<br>Development Essentials<br>eBook</a><div id="bookprice">$12.99</div>
+
+<a href="https://www.e-junkie.com/ecom/gb.php?c=cart&i=PLDM-30&cl=56328&ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/cover_images/BuyeBook2.png" style="border:5px solid #ffffff;" alt="Buy eBook"/></a>
+<br>
+
+<a id="bookcaption" href="http://www.ebookfrenzy.com">eBookFrenzy.com</a></div>
+
+</td>
+</tr>
+
+<tr>
+<td>
+<script type="text/javascript"><!--
+google_ad_client = "pub-7393409044112403";
+/* 160x600, created 7/22/08 */
+google_ad_slot = "6748861133";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</td>
+</tr>
+<tr>
+<td>
+<script type="text/javascript"><!--
+        writeAdsdaqSky();
+//-->
+</script>
+</td>
+</tr>
+<tr>
+<td>
+<script type="text/javascript"><!--
+        writeAdsdaqSky2();
+//-->
+</script>
+</td>
+</tr>
+</table>
+</div>
+</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-350808-4";
+urchinTracker();
+</script>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 14:41, 4 June 2009.</li>
+				<li id="viewcount">This page has been accessed 264,679 times.</li>
+				<li id="copyright">Copyright 2011 Techotopia.com. All Rights Reserved.</li>
+				<li id="privacy"><a href="/index.php/Techotopia:Privacy_policy" title="Techotopia:Privacy policy">Privacy policy</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by Payload2 in 0.116 secs. --><!-- Kontera ContentLink(TM);-->
+<script type='text/javascript'>
+var dc_AdLinkColor = 'blue' ;
+var dc_PublisherID = 37155 ;
+</script>
+<script type='text/javascript' src='http://kona.kontera.com/javascript/lib/KonaLibInline.js'>
+</script>
+<!-- Kontera ContentLink(TM) -->
+<script type="text/javascript">
+	doclix_pid = 16409;
+	doclix_cid = 880;
+</script>
+<script type="text/javascript" src="http://ads.doclix.com/adserver/serve/js/doclix_synd_overlay.js" async defer charset="utf-8"></script>
+</body></html>

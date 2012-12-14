@@ -1,0 +1,486 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+<!-- Techotopia -->
+
+<style type="text/css">
+#bookcover_sky {
+        background:white;
+        opacity: 100;
+
+        padding: 5px 5px 5px 5px;
+        margin: 0px 3px 0px 0px;
+        text-align:center;
+        //float:right;
+        border:1px solid #808080;
+}
+a.booklink:link {
+        color: #FFFFFF;
+        font-size: 12px;
+        text-decoration: none;
+        font-weight: bold;
+}
+
+a.booklink:active {
+        color: #FFFFFF;
+        font-size: 12px;
+        text-decoration: none;
+        font-weight: bold;
+}
+a.booklink:visited {
+        color: #FFFFFF;
+        font-size: 12px;
+        text-decoration: none;
+        font-weight: bold;
+}
+a.booklink:hover {
+        color: #FFFFFF;
+        font-size: 12px;
+        text-decoration: none;
+        font-weight: bold;
+}
+#bookcaption {
+        font-size:0.8em;
+}
+#booktitle {
+        font-size:1.1em;
+}
+
+#bookprice {
+        font-size:1.1em;
+        color:red;
+}
+</style>
+
+
+<script type="text/javascript" src="/scripts/techotopia.js">
+</script>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Working with Dates and Times in Ruby,Ruby Essentials,Useful Ruby Links and Resources,Working with Files in Ruby" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Techotopia (English)" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" />
+		<title>Working with Dates and Times in Ruby - Techotopia</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "/skins/monobook/main.css?42b"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins/common/commonPrint.css?42b" />
+		<link rel="stylesheet" type="text/css" media="handheld" href="/skins/monobook/handheld.css?42b" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins/monobook/IE50Fixes.css?42b";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins/monobook/IE55Fixes.css?42b";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins/monobook/IE60Fixes.css?42b";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins/monobook/IE70Fixes.css?42b";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?42b"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins";
+var wgArticlePath = "/index.php/$1";
+var wgScriptPath = "";
+var wgServer = "http://www.techotopia.com";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Working_with_Dates_and_Times_in_Ruby";
+var wgTitle = "Working with Dates and Times in Ruby";
+var wgArticleId = "480";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "7921";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins/common/wikibits.js?42b"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+@import "/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+@import "/index.php?title=-&action=raw&gen=css&maxage=18000";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="mediawiki ns-0 ltr page-Working_with_Dates_and_Times_in_Ruby">
+<div>
+
+<!-- Techotopia -->
+<div class="mainlogo" id="p-logo">
+<a href="http://www.techotopia.com"><img src="/skins/common/images/Techotopia_icon.png"></a>
+</div>
+<div id="bannerAd">
+<script type="text/javascript"><!--
+	writeAdsdaqBanner();
+//-->
+</script>
+</div>
+
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		
+<!-- Techotopia ADHERE -->
+<br>
+<div style="float:right; margin-top:0px; margin-right:10px;"><a href="https://www.e-junkie.com/ecom/gb.php?c=cart&cl=56328&ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"></a>
+<script language="javascript" type="text/javascript">
+<!--
+function EJEJC_lc(th) { return false; }
+// -->
+</script>
+<script src='http://www.e-junkie.com/ecom/box.js' type='text/javascript'></script></div>
+<script type="text/javascript"><!--
+google_ad_client = "pub-7393409044112403";
+/* 728x15, created 7/22/08 */
+google_ad_slot = "4205930665";
+google_ad_width = 728;
+google_ad_height = 15;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+		<h1 class="firstHeading">Working with Dates and Times in Ruby</h1>
+<div style="float:left">
+<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like show_faces="false" width="450"></fb:like>
+</div>
+<div style="float:right">
+<table>
+<tr>
+<td>
+<!-- Place this tag where you want the +1 button to render -->
+<g:plusone></g:plusone>
+
+<!-- Place this render call where appropriate -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+</td>
+<td>
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_32x32_style addthis_default_style">
+<a class="addthis_button_facebook_follow" addthis:userid="techotopia"></a>
+</div>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=neilsmyth"></script>
+<!-- AddThis Button END -->
+</td>
+<td>
+<a href="http://www.twitter.com/Techotopia"><img src="http://twitter-badges.s3.amazonaws.com/follow_bird_us-a.png" alt="Follow Techotopia on Twitter"/></a>
+</td>
+<td>
+<!-- AddThis Button BEGIN -->
+<a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;pub=neilsmyth"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a><script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pub=neilsmyth"></script>
+<!-- AddThis Button END -->
+</td>
+</tr>
+</table>
+</div>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Techotopia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table border="0" cellspacing="0" width="100%">
+<tr>
+<td width="20%"><a href="/index.php/Working_with_Files_in_Ruby" title="Working with Files in Ruby">Previous</a><td align="center"><a href="/index.php/Ruby_Essentials" title="Ruby Essentials">Table of Contents</a><td width="20%" align="right"><a href="/index.php/Useful_Ruby_Links_and_Resources" title="Useful Ruby Links and Resources">Next</a></td>
+<tr>
+<td width="20%">Working with Files in Ruby<td align="center"><td width="20%" align="right">Useful Ruby Links and Resources</td>
+</table>
+<hr />
+<p><br />
+</p>
+<style type="text/css">   @import "/extensions/GoogleAdSense/GoogleAdSense.css";</style><div align="center"><b>Purchase and download the PDF and ePub versions of this Ruby eBook for only $8.99</b>&nbsp;&nbsp;<a href="https://www.e-junkie.com/ecom/gb.php?c=cart&amp;i=PLDM-1&amp;cl=56328&amp;ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/extensions/images/Buy_Now.png" border="0" alt="Add to Cart"/></a>
+</div>
+<p><br />
+Ruby provides a <i>date</i> library containing the <i>Date</i> and <i>DateTime</i> classes, designed to provide mechanisms for manipulating dates and times in Ruby programs. The purpose of this chapter is to provide an overview of these classes.
+</p>
+<table><tr><td width="50%" valign="top"><table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Accessing_the_Date_and_DateTime_Classes_in_Ruby"><span class="tocnumber">1</span> <span class="toctext">Accessing the Date and DateTime Classes in Ruby</span></a></li>
+<li class="toclevel-1"><a href="#Working_with_Dates_in_Ruby"><span class="tocnumber">2</span> <span class="toctext">Working with Dates in Ruby</span></a></li>
+<li class="toclevel-1"><a href="#Working_with_Dates_and_Times"><span class="tocnumber">3</span> <span class="toctext">Working with Dates and Times</span></a></li>
+<li class="toclevel-1"><a href="#Calculating_the_Difference_Between_Dates"><span class="tocnumber">4</span> <span class="toctext">Calculating the Difference Between Dates</span></a></li>
+</ul>
+</td></tr></table></td><td valign="top"><script type="text/javascript" src="/scripts/google.js"></script><script language="Javascript"> googlebox();</script></td></tr><tr><td colspan="2"><script language="Javascript"> googlebanner();</script><br></td></tr></table><br><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Accessing_the_Date_and_DateTime_Classes_in_Ruby"></a><h2><span class="editsection">[<a href="/index.php?title=Working_with_Dates_and_Times_in_Ruby&amp;action=edit&amp;section=1" title="Edit section: Accessing the Date and DateTime Classes in Ruby">edit</a>]</span> <span class="mw-headline"> Accessing the Date and DateTime Classes in Ruby </span></h2>
+<p>The <i>Date</i> and <i>DateClass</i> classes reside in the Ruby <i>date</i> library. Before these classes and their respective methods can be used, the <i>date</i> library must be included using the <i>require</i> directive:
+</p>
+<pre>
+require 'date'
+</pre>
+<a name="Working_with_Dates_in_Ruby"></a><h2><span class="editsection">[<a href="/index.php?title=Working_with_Dates_and_Times_in_Ruby&amp;action=edit&amp;section=2" title="Edit section: Working with Dates in Ruby">edit</a>]</span> <span class="mw-headline"> Working with Dates in Ruby </span></h2>
+<p>Dates are handled in Ruby using the <i>Date</i> class. An instantiated Date object contains day, year and month values. A Date object may be initialized with day, month and year values on creation:
+</p>
+<pre>
+require 'date'
+
+date = Date.new(2008, 12, 22)
+
+date = Date.new(2008, 12, 22)
+=&gt; #&lt;Date: 4909645/2,0,2299161&gt;
+</pre>
+<p>Having created the date object we can access the properties of the object:
+</p>
+<pre>
+date.day
+=&gt; 22
+
+date.month
+=&gt; 12
+
+date.year
+=&gt; 2008
+</pre>
+<a name="Working_with_Dates_and_Times"></a><h2><span class="editsection">[<a href="/index.php?title=Working_with_Dates_and_Times_in_Ruby&amp;action=edit&amp;section=3" title="Edit section: Working with Dates and Times">edit</a>]</span> <span class="mw-headline"> Working with Dates and Times </span></h2>
+<p>If both a date and a time value are needed, the <i>DateTime</i> class comes into use. As with the <i>Date</i> class, this class can similarly be pre-initialized on creation:
+</p>
+<pre>
+require 'date'
+
+date = DateTime.new(2008, 12, 22, 14, 30)
+</pre>
+<p>Alternatively, the object can be configured to contain today's date and the current time:
+</p>
+<pre>
+date = DateTime.now
+</pre>
+<a name="Calculating_the_Difference_Between_Dates"></a><h2><span class="editsection">[<a href="/index.php?title=Working_with_Dates_and_Times_in_Ruby&amp;action=edit&amp;section=4" title="Edit section: Calculating the Difference Between Dates">edit</a>]</span> <span class="mw-headline"> Calculating the Difference Between Dates </span></h2>
+<p>We can also calculate the difference between two dates down to the hour, minute and second:
+</p>
+<pre>
+require 'date'
+
+today = DateTime.now
+=&gt; #&lt;DateTime: 441799066630193/180000000,-301/1440,2299161&gt;
+
+birthday = Date.new(2008, 4, 10)
+=&gt; #&lt;Date: 4909133/2,0,2299161&gt;
+
+days_to_go = birthday - today
+
+time_until = birthday - today
+=&gt; Rational(22903369807, 180000000)
+
+time_until.to_i             # get the number of days until my birthday
+=&gt; 127
+
+hours,minutes,seconds,frac = Date.day_fraction_to_time(time_until)
+[3053, 46, 57, Rational(1057, 180000000)]
+
+puts &quot;It is my birthday in #{hours} hours, #{minutes} minutes and #{seconds} seconds (not that I am counting)&quot;
+It is my birthday in 3053 hours, 46 minutes and 57 seconds (not that I am counting)
+</pre>
+<p><br />
+</p>
+<style type="text/css">   @import "/extensions/GoogleAdSense/GoogleAdSense.css";</style><table align="center">
+<tr>
+<td>
+<div style="background:white; opacity: 100; padding: 3px 3px 3px 3px; margin: 3px 3px 3px 5px; text-align:center; border:1px solid #808080;">
+<p><a class="booklink" href="http://www.ebookfrenzy.com/ebookpages/ruby_ebook.html"><img id="coverthumb" src="/cover_images/rubycover_small.png" /></a><br>
+</p>
+<a style="font-size:0.6em;" href="http://www.ebookfrenzy.com">eBookFrenzy.com</a></div>
+</td>
+<td><b>Purchase and download the full PDF and ePub editions of this Ruby eBook for only $8.99</b></td>
+<td>
+<p><a href="https://www.e-junkie.com/ecom/gb.php?c=cart&amp;i=PLDM-1&amp;cl=56328&amp;ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/extensions/images/Buy_Now.png" border="0" alt="Add to Cart"/></a>
+</p>
+</td>
+</tr>
+</table>
+<p><br />
+</p>
+<hr />
+<table border="0" cellspacing="0" width="100%">
+<tr>
+<td width="20%"><a href="/index.php/Working_with_Files_in_Ruby" title="Working with Files in Ruby">Previous</a><td align="center"><a href="/index.php/Ruby_Essentials" title="Ruby Essentials">Table of Contents</a><td width="20%" align="right"><a href="/index.php/Useful_Ruby_Links_and_Resources" title="Useful Ruby Links and Resources">Next</a></td>
+<tr>
+<td width="20%">Working with Files in Ruby<td align="center"><td width="20%" align="right">Useful Ruby Links and Resources</td>
+</table>
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:480-0!1!0!!en!2 and timestamp 20121212230640 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.techotopia.com/index.php/Working_with_Dates_and_Times_in_Ruby">http://www.techotopia.com/index.php/Working_with_Dates_and_Times_in_Ruby</a>"</div>
+						<!-- end content -->
+<!-- Techotopia ADHERE -->
+<br>
+<script>
+var cwfl = "http://www.techotopia.com/cwfl.htm";
+</script>
+<script  src="http://tag.contextweb.com/TagPublish/getjs.aspx?action=VIEWAD&cwrun=200&cwadformat=728X90&cwpid=502380&cwwidth=728&cwheight=90&cwpnet=1&cwtagid=52844"></script>
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-Navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Home"><a href="/index.php/Main_Page">Home</a></li>
+				<li id="n--iOS-.2F-iPhone-.2F-iPad"><a href="/index.php/IOS_iPhone_iPad_eBooks"> iOS / iPhone / iPad</a></li>
+				<li id="n--Objective-C"><a href="/index.php/Objective-C_2.0_Essentials"> Objective-C</a></li>
+				<li id="n--PowerShell"><a href="/index.php/Windows_PowerShell_1.0_Essentials"> PowerShell</a></li>
+				<li id="n--Hyper-V"><a href="http://www.virtuatopia.com/index.php/Hyper-V_Essentials"> Hyper-V</a></li>
+				<li id="n--VMM-2008"><a href="http://www.virtuatopia.com/index.php/VMM_2008_Essentials"> VMM 2008</a></li>
+				<li id="n--VMware-Server"><a href="http://www.virtuatopia.com/index.php/VMware_Server_2.0_Essentials"> VMware Server</a></li>
+				<li id="n--Xen-Virtualization"><a href="http://www.virtuatopia.com/index.php/Xen_Virtualization_Essentials"> Xen Virtualization</a></li>
+				<li id="n--Windows-Server-2008"><a href="/index.php/Windows_Server_2008_Essentials"> Windows Server 2008</a></li>
+				<li id="n--Security.2B"><a href="/index.php/Security%2B_Essentials"> Security+</a></li>
+				<li id="n-Red-Hat-Linux"><a href="/index.php/Red_Hat_Enterprise_Linux_eBooks">Red Hat Linux</a></li>
+				<li id="n-Linux-eBooks"><a href="/index.php/Linux_eBooks">Linux eBooks</a></li>
+				<li id="n--Ubuntu-Linux"><a href="/index.php/Ubuntu_Linux_eBooks"> Ubuntu Linux</a></li>
+				<li id="n--Fedora-Linux"><a href="/index.php/Fedora_Linux_Essentials"> Fedora Linux</a></li>
+				<li id="n--Fedora-Desktop"><a href="/index.php/Fedora_Desktop_Essentials"> Fedora Desktop</a></li>
+				<li id="n--OpenSUSE-Desktop"><a href="/index.php/OpenSUSE_Desktop_Essentials"> OpenSUSE Desktop</a></li>
+				<li id="n--C.23"><a href="/index.php/C_Sharp_Essentials"> C#</a></li>
+				<li id="n--Visual-Basic"><a href="/index.php/Visual_Basic_Essentials"> Visual Basic</a></li>
+				<li id="n--MySQL"><a href="/index.php/MySQL_Essentials"> MySQL</a></li>
+				<li id="n--PHP"><a href="/index.php/PHP_Essentials"> PHP</a></li>
+				<li id="n--JavaScript"><a href="/index.php/JavaScript_Essentials"> JavaScript</a></li>
+				<li id="n--Ruby"><a href="/index.php/Ruby_Essentials"> Ruby</a></li>
+				<li id="n--Windows"><a href="/index.php/Category:Windows"> Windows</a></li>
+				<li id="n--Networking"><a href="/index.php/Category:Networking"> Networking</a></li>
+				<li id="n--Web-Development"><a href="/index.php/Category:Web_Development"> Web Development</a></li>
+				<li id="n--Feedback"><a href="/index.php/Techotopia_Feedback"> Feedback</a></li>
+				<li id="n--Linuxtopia.org"><a href="http://www.linuxtopia.org"> Linuxtopia.org</a></li>
+				<li id="n--Virtuatopia.com"><a href="http://www.virtuatopia.com"> Virtuatopia.com</a></li>
+				<li id="n--eBook-Store"><a href="http://www.ebookfrenzy.com/index.html"> eBook Store</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class="portlet" id="p-tb">
+        	</div>
+<div class="adportlet" id="p-skyads">
+<div class="adpBody">
+
+<table>
+<tr>
+<td>
+<br>
+<a href="http://www.facebook.com/techotopia">
+<img src="/cover_images/Find-Us-On-Facebook.jpg" width="160" height="38" border="0" align="middle" alt="Find us on Facebook"/></a>
+<br><br>
+&nbsp;<a href="http://goo.gl/QYxL5">
+<img src="/cover_images/eBookStore.png" /></a>
+</td>
+</tr>
+<tr>
+<td>
+<h5><label for="searchInput">Search</label></h5>
+                <div id="searchBody" class="pBody">
+<form action="http://www.techotopia.com/SearchResults.html" id="cse-search-box">
+  <div>
+    <input type="hidden" name="cx" value="partner-pub-7393409044112403:ik9yl7-82ri" />
+    <input type="hidden" name="cof" value="FORID:10" />
+    <input type="hidden" name="ie" value="ISO-8859-1" />
+    <input type="text" name="q" size="16" />
+    <input type="submit" name="sa" value="Search" />
+  </div>
+</form>
+<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+                </div>
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+<div id="bookcover_sky">
+<a class="booklink" href="http://www.ebookfrenzy.com/ebookpages/iphone_ios_6_ebook.html"><img id="coverthumb" src="/cover_images/iphone_ios_6_cover_100x80.png" /></a><br>
+
+<a id="booktitle" href="http://www.ebookfrenzy.com/ebookpages/iphone_ios_6_ebook.html">iPhone iOS 6<br>Development Essentials<br>eBook</a><div id="bookprice">$12.99</div>
+
+<a href="https://www.e-junkie.com/ecom/gb.php?c=cart&i=PLDM-30&cl=56328&ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="/cover_images/BuyeBook2.png" style="border:5px solid #ffffff;" alt="Buy eBook"/></a>
+<br>
+
+<a id="bookcaption" href="http://www.ebookfrenzy.com">eBookFrenzy.com</a></div>
+
+</td>
+</tr>
+
+<tr>
+<td>
+<script type="text/javascript"><!--
+google_ad_client = "pub-7393409044112403";
+/* 160x600, created 7/22/08 */
+google_ad_slot = "6748861133";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</td>
+</tr>
+<tr>
+<td>
+<script type="text/javascript"><!--
+        writeAdsdaqSky();
+//-->
+</script>
+</td>
+</tr>
+<tr>
+<td>
+<script type="text/javascript"><!--
+        writeAdsdaqSky2();
+//-->
+</script>
+</td>
+</tr>
+</table>
+</div>
+</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-350808-4";
+urchinTracker();
+</script>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 15:01, 4 June 2009.</li>
+				<li id="viewcount">This page has been accessed 151,882 times.</li>
+				<li id="copyright">Copyright 2011 Techotopia.com. All Rights Reserved.</li>
+				<li id="privacy"><a href="/index.php/Techotopia:Privacy_policy" title="Techotopia:Privacy policy">Privacy policy</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by Payload2 in 0.111 secs. --><!-- Kontera ContentLink(TM);-->
+<script type='text/javascript'>
+var dc_AdLinkColor = 'blue' ;
+var dc_PublisherID = 37155 ;
+</script>
+<script type='text/javascript' src='http://kona.kontera.com/javascript/lib/KonaLibInline.js'>
+</script>
+<!-- Kontera ContentLink(TM) -->
+<script type="text/javascript">
+	doclix_pid = 16409;
+	doclix_cid = 880;
+</script>
+<script type="text/javascript" src="http://ads.doclix.com/adserver/serve/js/doclix_synd_overlay.js" async defer charset="utf-8"></script>
+</body></html>
